@@ -8,14 +8,18 @@ angular.module('starter.controllers', [])
 .controller('BrowseCtrl', function($scope) {})
 
 
-.controller('LoginCtrl', function($scope) {
-    
-    // Form data for the login
-    $scope.loginData = {};
-    
-    // Perform the login action when the user submits the login form
-    $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
+    $scope.data = {};
+            
+    $scope.login = function() {
+            LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
+                $state.go('tab.collections');
+            }).error(function(data) {
+                    var alertPopup = $ionicPopup.alert({
+                            title: 'Login failed!',
+                            template: 'Please check your credentials!'
+                    });
+            });
     }
 })
 
