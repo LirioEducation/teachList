@@ -19,8 +19,12 @@
             
             <ion-item ng-repeat="item in items"
                 item="item"
-                href="#/item/{{item.id}}" class="item-remove-animate">
-                Item {{ item.id }}
+                href="#/item/{{item.title}}" class="item item-thumbnail-left">
+                    <img src="{{item.imgUrl}}">
+                        <h2>{{item.title}}</h2>
+                        <p>{{item.author}}</p>
+                        
+                
                 <ion-delete-button class="ion-minus-circled"
                     ng-click="onItemDelete(item)">
                 </ion-delete-button>
