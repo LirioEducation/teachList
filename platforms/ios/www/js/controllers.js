@@ -1,8 +1,10 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.services'])
 
 
-.controller('CollectionsCtrl', function($scope) {
+.controller('CollectionsCtrl', function($scope, Collections) {
   
+  $scope.items = Collections.all();
+
   $scope.data = {
     showDelete: false
   };
@@ -23,14 +25,15 @@ angular.module('starter.controllers', [])
     $scope.items.splice($scope.items.indexOf(item), 1);
   };
   
-  $scope.items = [
+  /*$scope.items = [
                   { title: "Issues and Practices Related to Identification of Gifted and Talented...",
                   author: "Gilbert A. Clark",
-                  tags: ["gifted education", "art"],
+                  tags: "art", //["gifted education", "art"],
                   time: 12,
                   imgUrl: "http://www.rgconsult.com/rg/images/video-thumbnail-join.png"}
       ];
-  
+   */
+            
 })
 
 

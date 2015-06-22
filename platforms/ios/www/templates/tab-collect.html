@@ -23,8 +23,14 @@
                     <img src="{{item.imgUrl}}">
                         <h2>{{item.title}}</h2>
                         <p>{{item.author}}</p>
-                        
-                
+                        <ul class="tagList">
+                            <div id="bubble" ng-repeat="tag in item.tags">
+                                <li>
+                                   <div class="tag-bubble">{{tag}}</div> 
+                                </li>
+                            </div>
+                        </ul>
+
                 <ion-delete-button class="ion-minus-circled"
                     ng-click="onItemDelete(item)">
                 </ion-delete-button>

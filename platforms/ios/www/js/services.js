@@ -29,8 +29,6 @@ angular.module('starter.services', [])
 
 
 
-
-
 // chats
 
 .factory('Chats', function() {
@@ -79,5 +77,60 @@ angular.module('starter.services', [])
       }
       return null;
     }
+  };
+})
+
+
+// collections
+
+.factory('Collections', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var items = [{ 
+  	title: "Issues and Practices Related to Identification of Gifted and Talented...",
+    author: "Gilbert A. Clark",
+    tags: ["gifted", "art", "food", "cheese", "life"],
+	time: 12,
+	imgUrl: "http://www.rgconsult.com/rg/images/video-thumbnail-join.png"
+	}, { 
+  	title: "Issuesand Practices Related to Identification of Gifted and Talented...",
+    author: "Gilbert A. Clark",
+    tags: ["gifted education", "art"],
+	time: 12,
+	imgUrl: "http://www.rgconsult.com/rg/images/video-thumbnail-join.png"
+               }];
+
+  return {
+    all: function() {
+      return items;
+    },
+    remove: function(item) {
+      items.splice(items.indexOf(item), 1);
+    },
+    get: function(title) {
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].title === parseInt(title)) {
+          return items[i];
+        }
+      }
+      return null;
+    }
+         /*,
+         addTags: function () {
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                var tag-html = '';
+                for (var i = 0; i < item.tags.length - 1; i++) {
+                    //tag-html = tag-html + '<div class="tag-bubble">' + item.tags[i] + '</div>';
+                }
+                if (item.tags.length > 0) {
+                    //tag-html = tag-html + '<div class="tag-bubble">' + item.tags[item.tags.length - 1] + '</div>';
+                }
+                //item['tag-html'] = tag-html;
+            }
+            return items;
+         }
+          */
   };
 });
