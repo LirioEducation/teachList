@@ -78,3 +78,12 @@ gulp.task('fixjs', function() {
       .pipe(plugins.fixmyjs())
       .pipe(gulp.dest("./platforms/ios/www/js/"));
 });
+
+gulp.task('todo', function() {
+    gulp.src('www/js/*.js')
+        .pipe(plugins.todo())
+        .pipe(plugins.todo.reporter('json', {fileName: 'todo.json'}))
+        .pipe(gulp.dest('./'));
+});
+
+gulp.task('quality', ['lint', 'fixjs', 'todo']);
