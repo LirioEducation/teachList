@@ -1,1 +1,283 @@
-/* Empty. Add your own CSS if you like */
+/* Copied from Ross Martin at http://codepen.io/rossmartin/pen/XJmpQr */
+body {
+    cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+
+/* allows the bar-footer to be elastic /*
+ /* optionally set a max-height */
+/* maxlength on the textarea will prevent /*
+ /* it from getting too large also */
+.bar-footer {
+    overflow: visible !important;
+}
+
+.bar-footer textarea {
+    resize: none;
+    height: 25px;
+}
+
+/* fixes an ios bug bear */
+button.ion-android-send {
+    padding-top: 2px;
+}
+
+/* add this to keep your footer buttons down
+ at the bottom as the textarea resizes */
+.footer-btn-wrap {
+    position: relative;
+    height: 100%;
+    width: 50px;
+    top: 7px;
+}
+
+.footer-btn {
+    position: absolute !important;
+    bottom: 0;
+}
+
+img.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+}
+
+img.profile-pic.left {
+    left: 10px;
+}
+
+img.profile-pic.right {
+    right: 10px;
+}
+
+.ion-email {
+    float: right;
+    font-size: 32px;
+    vertical-align: middle;
+}
+
+.message {
+    font-size: 14px;
+}
+
+.message-detail {
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.bar.item-input-inset .item-input-wrapper input {
+    width: 100% !important;
+}
+
+.message-wrapper {
+    position: relative;
+}
+
+.message-wrapper:last-child {
+    margin-bottom: 10px;
+}
+
+.chat-bubble {
+    border-radius: 5px;
+    display: inline-block;
+    padding: 10px 18px;
+    position: relative;
+    margin: 10px;
+    max-width: 80%;
+}
+
+.chat-bubble:before {
+    content: "\00a0";
+    display: block;
+    height: 16px;
+    width: 9px;
+    position: absolute;
+    bottom: -7.5px;
+}
+
+.chat-bubble.left {
+    background-color: #e6e5eb;
+    float: left;
+    margin-left: 55px;
+}
+
+.chat-bubble.left:before {
+    background-color: #e6e5eb;
+    left: 10px;
+    -webkit-transform: rotate(70deg) skew(5deg);
+}
+
+.chat-bubble.right {
+    background-color: #158ffe;
+    color: #fff;
+    float: right;
+    margin-right: 55px;
+}
+
+.chat-bubble.right:before {
+    background-color: #158ffe;
+    right: 10px;
+    -webkit-transform: rotate(118deg) skew(-5deg);
+}
+
+.chat-bubble.right a.autolinker {
+    color: #fff;
+    font-weight: bold;
+}
+
+.user-messages-top-icon {
+    font-size: 28px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -3px;
+    right: 5px;
+}
+
+.msg-header-username {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -3px;
+}
+
+input, textarea, .item-input, .item-input-wrapper {
+    background-color: #f4f4f4 !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.cf {
+    clear: both !important;
+}
+
+a.autolinker {
+    color: #3b88c3;
+    text-decoration: none;
+}
+
+/* loading */
+.loader-center {
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.loader .ion-loading-c {
+    font-size: 64px;
+}
+
+
+
+/* bubble */
+.tag-bubble {
+    /*position:relative;*/
+    
+    border-radius: 5px;
+    display: inline-block;
+    padding: 3px 8px 3px 8px;
+    position: relative;
+    margin: 3px;
+    max-width: 80%;
+    
+    color:#3366FF;
+    background:grey; /* default background for browsers without gradient support */
+    /* css3 */
+    background:-webkit-gradient(linear, 0 0, 0 100%, from(#CCCCCC), to(#D6D6D6));
+    background:-moz-linear-gradient(#CCCCCC, #D6D6D6);
+    background:-o-linear-gradient(#CCCCCC, #D6D6D6);
+    background:linear-gradient(#CCCCCC, #D6D6D6);
+
+}
+
+
+
+
+.triangle-isosceles {
+    position:relative;
+    padding:15px;
+    margin:1em 0 3em;
+    color:blue;
+    background:grey; /* default background for browsers without gradient support */
+    /* css3 */
+    background:-webkit-gradient(linear, 0 0, 0 100%, from(#f9d835), to(#f3961c));
+    background:-moz-linear-gradient(#f9d835, #f3961c);
+    background:-o-linear-gradient(#f9d835, #f3961c);
+    background:linear-gradient(#f9d835, #f3961c);
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+
+
+/*  Tag list */
+
+.tagList
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.tagList li { display: inline; }
+
+.tagList #bubble { display: inline; }
+
+
+/* search bar */
+
+.bar.item-input-inset .item-input-wrapper input {
+    width: 100%;
+}
+
+.search-wrapper-light {
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+    background: none;
+    border-radius: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.search-wrapper-light input, .search-wrapper-light input::-webkit-input-placeholder {
+    color: #ffffff;
+}
+
+.button.button-icon.input-button {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    color: #bbb;
+}
+
+.full-width {
+    width: 100%;
+}
