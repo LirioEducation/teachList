@@ -6,6 +6,9 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var karma = require('karma').server;
+var plugins = require('gulp-load-plugins')();
+
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -49,4 +52,29 @@ gulp.task('git-check', function(done) {
     process.exit(1);
   }
   done();
+});
+
+
+/**
+* Test task, run test once and exit
+*/
+gulp.task('test', function(done) {
+    karma.start({
+        configFile: __dirname + '/tests/my.conf.js',
+        singleRun: true
+    }, function() {
+        done();
+    });
+});
+
+gulp.task('lint', function() {
+  return gulp.src('./platforms/ios/www/js/*.js')
+    .pipe(plugins.jshint())
+    .pipe(plugins.jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('fixjs', function() {
+  return gulp.src('./platforms/ios/www/js/*.js')
+      .pipe(plugins.fixmyjs())
+      .pipe(gulp.dest("./platforms/ios/www/js/"));
 });

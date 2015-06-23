@@ -1,23 +1,39 @@
 <ion-view view-title="Collections">
-    <ion-nav-buttons side="primary">
-        <div class="buttons">
-            <button class="button button-icon icon ion-ios-minus-outline"
-                ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+    
+    
+    <div class="bar bar-subheader">
+        
+        <div class="button-bar">
+            <a class="button">First</a>
+            <a class="button">Second</a>
+            <a class="button">Third</a>
         </div>
-        <h1 class="title">Ionic Delete/Option Buttons</h1>
-        <div class="buttons">
-            <button class="button" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">
-                Reorder
+    </div>
+    
+    <ion-content class="has-subheader">
+        <!--
+        <div class="bar bar-header item-input-inset">
+            <ion-search placeholder="Search a user" filter="search"></ion-search>
+        </div>
+        -->
+        <input type="search"
+            placeholder="Filter contacts..."
+            ng-model="search"
+            ng-focus="searchFocused = true"
+            ng-blur="searchFocused = false"
+            ng-change="scrollTop()"
+            class="full-width">
+            <button ng-if="search.length"
+                class="button button-icon ion-ios-close input-button"
+                ng-click="clearSearch()">
             </button>
-        </div>
-    </ion-nav-buttons>
-    <ion-content>
+        
         
         <!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
         
         <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
             
-            <ion-item ng-repeat="item in items"
+            <ion-item ng-repeat="item in items | filter:search.value"
                 item="item"
                 href="#/item/{{item.title}}" class="item item-thumbnail-left">
                     <img src="{{item.imgUrl}}">
