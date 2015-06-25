@@ -1,5 +1,4 @@
 {
-  "browser": true,
   "eqeqeq": true,
   "bitwise": true,
   "curly": true,
