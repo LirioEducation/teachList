@@ -1,4 +1,6 @@
-angular.module('starter.services', []).service('LoginService', function ($q) {
+angular.module('starter.services', [])
+
+.service('LoginService', function ($q) {
   return {
     loginUser: function (name, pw) {
       var deferred = $q.defer();
@@ -19,7 +21,9 @@ angular.module('starter.services', []).service('LoginService', function ($q) {
       return promise;
     }
   };
-})  // chats
+})
+
+// chats
 .factory('Chats', function () {
   // Might use a resource here that returns a JSON array
   // Some fake testing data

@@ -1,4 +1,4 @@
-describe('Controllers', function(){
+describe('AccountCtrl', function(){
     var scope;
 
     // load the controller's module
