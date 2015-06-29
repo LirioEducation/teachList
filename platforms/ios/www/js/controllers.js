@@ -1,6 +1,6 @@
-angular.module('starter.controllers', ['starter.services'])
+angular.module('starter.controllers', ['starter.services', 'ng'])
 
-.controller('CollectionsCtrl', function ($scope, Collections) {
+.controller('CollectionsCtrl', function ($scope, $http, Collections) {
   $scope.items = Collections.all();
   $scope.data = { showDelete: false };
   $scope.edit = function (item) {
@@ -16,6 +16,33 @@ angular.module('starter.controllers', ['starter.services'])
   $scope.onItemDelete = function (item) {
     $scope.items.splice($scope.items.indexOf(item), 1);
   };
+            
+    $http.get('http://echo.jsontest.com/conditions/frightful').then(function(resp) {
+                                                                    $scope.conditions = resp.data.conditions;
+                                                                    }, function(err) {
+                                                                    console.error('ERR', err);
+                                                                    // err.status will contain the status code
+                                                                    })
+            
+     /*       
+    var authToken;
+    
+    $http.get('/auth.py').success(function(data, status, headers) {
+                                  authToken = headers('A-Token');
+                                  $scope.user = data;
+                                  });
+    
+    $scope.saveMessage = function(message) {
+    var headers = { 'Authorization': authToken };
+    $scope.status = 'Saving...';
+    
+    $http.post('/add-msg.py', message, { headers: headers } ).success(function(response) {
+                                                                      $scope.status = '';
+                                                                      }).error(function() {
+                                                                               $scope.status = 'ERROR!';
+                                                                               });
+    };
+             */
 })
 
 .controller('TryingCtrl', function ($scope) {
@@ -34,7 +61,50 @@ angular.module('starter.controllers', ['starter.services'])
       });
     });
   };
-})  ///// Old Controllers
+})
+
+
+.controller('VidCtrl', function($scope, $cordovaCapture) {
+                  
+      $scope.captureAudio = function() {
+      var options = { limit: 3, duration: 10 };
+      
+      $cordovaCapture.captureAudio(options).then(function(audioData) {
+                                                 // Success! Audio data is here
+                                                 }, function(err) {
+                                                 // An error occurred. Show a message to the user
+                                                 });
+      }
+      
+      $scope.captureImage = function() {
+      var options = { limit: 3 };
+      
+      $cordovaCapture.captureImage(options).then(function(imageData) {
+                                                 // Success! Image data is here
+                                                 }, function(err) {
+                                                 // An error occurred. Show a message to the user
+                                                 });
+      }
+      
+      $scope.captureVideo = function() {
+      var options = { limit: 3, duration: 15 };
+      
+      $cordovaCapture.captureVideo(options).then(function(videoData) {
+                                                 // Success! Video data is here
+                                                 }, function(err) {
+                                                 // An error occurred. Show a message to the user
+                                                 });
+      }
+            
+})
+
+
+
+
+
+
+
+///// Old Controllers
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -65,7 +135,9 @@ angular.module('starter.controllers', ['starter.services'])
       $scope.closeLogin();
     }, 1000);
   };
-}).controller('PlaylistsCtrl', function ($scope) {
+})
+
+.controller('PlaylistsCtrl', function ($scope) {
   $scope.playlists = [
     {
       title: 'Reggae',
