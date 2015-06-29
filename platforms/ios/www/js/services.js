@@ -1,5 +1,10 @@
 angular.module('starter.services', [])
 
+
+.service('VideoService', function($q) {
+         // TBD
+         })
+
 .service('LoginService', function ($q) {
   return {
     loginUser: function (name, pw) {

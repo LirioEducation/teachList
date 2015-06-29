@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['starter.services', 'ng'])
+angular.module('starter.controllers', ['starter.services', 'ng', 'ngCordova'])
 
 .controller('CollectionsCtrl', function ($scope, $http, Collections) {
   $scope.items = Collections.all();
@@ -64,7 +64,7 @@ angular.module('starter.controllers', ['starter.services', 'ng'])
 })
 
 
-.controller('VidCtrl', function($scope, $cordovaCapture) {
+.controller('VideoCtrl', function($scope, $cordovaCapture, VideoService) {
                   
       $scope.captureAudio = function() {
       var options = { limit: 3, duration: 10 };

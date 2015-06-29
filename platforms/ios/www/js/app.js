@@ -71,7 +71,17 @@ angular.module('starter', [
         controller: 'AccountCtrl'
       }
     }
-  }).state('login', {
+           }).state('tab.video', {
+                    url: '/video',
+                    views: {
+                    'tab-video': {
+                    templateUrl: 'templates/tab-video.html',
+                    controller: 'VideoCtrl'
+                    }
+                    }
+                    })
+          
+          .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl'
