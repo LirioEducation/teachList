@@ -85,6 +85,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.photokandy.videothumbnail/www/PKVideoThumbnail.js",
+        "id": "com.photokandy.videothumbnail.PKVideoThumbnail",
+        "clobbers": [
+            "window.PKVideoThumbnail"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
         "id": "cordova-plugin-file.DirectoryEntry",
         "clobbers": [
@@ -240,6 +247,7 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "2.0.0",
     "cordova-plugin-whitelist": "1.0.0",
     "cordova-plugin-media-capture": "1.0.1",
+    "com.photokandy.videothumbnail": "1.0.1",
     "cordova-plugin-file": "2.1.0"
 }
 // BOTTOM OF METADATA

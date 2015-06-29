@@ -48,4 +48,9 @@
     <feature name="Capture">
         <param name="ios-package" value="CDVCapture" />
     </feature>
+    <plugins>
+        <feature name="PKVideoThumbnail">
+            <param name="ios-package" value="PKVideoThumbnail" />
+        </feature>
+    </plugins>
 </widget>

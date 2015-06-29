@@ -32,6 +32,12 @@
                             "xml": "<feature name=\"Capture\"><param name=\"ios-package\" value=\"CDVCapture\" /></feature>",
                             "count": 1
                         }
+                    ],
+                    "/widget/plugins": [
+                        {
+                            "xml": "<feature name=\"PKVideoThumbnail\"><param name=\"ios-package\" value=\"PKVideoThumbnail\" /></feature>",
+                            "count": 1
+                        }
                     ]
                 }
             },
@@ -53,6 +59,12 @@
                         {
                             "xml": false,
                             "count": 2
+                        }
+                    ],
+                    "MediaPlayer.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
                         }
                     ]
                 }
@@ -76,6 +88,9 @@
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "com.photokandy.videothumbnail": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         }
     },

@@ -54,6 +54,8 @@
 		6694C0AC1B004CE59D90D9DE /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B47AA80CA473586491417 /* CDVAssetLibraryFilesystem.m */; };
 		F16E7176DB1049D18920C4A9 /* CDVCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F63E4DE6D14FD28A3BE54F /* CDVCapture.m */; };
 		1E8E300E5895413EBE18FBB0 /* CDVCapture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A258F97235FA4E88B2BB009C /* CDVCapture.bundle */; };
+		1000235150324D2390105563 /* PKVideoThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A31C59C476243A49777C18A /* PKVideoThumbnail.m */; };
+		B4757D1CFDBE4D18B435ECB6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F323402D63194262A49706A1 /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +143,9 @@
 		69F63E4DE6D14FD28A3BE54F /* CDVCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVCapture.m"; path = "cordova-plugin-media-capture/CDVCapture.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		B6D5B2D763064352B658182B /* CDVCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVCapture.h"; path = "cordova-plugin-media-capture/CDVCapture.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		A258F97235FA4E88B2BB009C /* CDVCapture.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "CDVCapture.bundle"; path = "CDVCapture.bundle"; sourceTree = "<group>"; };
+		4A31C59C476243A49777C18A /* PKVideoThumbnail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PKVideoThumbnail.m"; path = "com.photokandy.videothumbnail/PKVideoThumbnail.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		60105D97FE94436E8C760FDD /* PKVideoThumbnail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PKVideoThumbnail.h"; path = "com.photokandy.videothumbnail/PKVideoThumbnail.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		F323402D63194262A49706A1 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MediaPlayer.framework"; path = "System/Library/Frameworks/MediaPlayer.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +157,7 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
+				B4757D1CFDBE4D18B435ECB6 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +231,7 @@
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
+				F323402D63194262A49706A1 /* MediaPlayer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -258,6 +265,8 @@
 				F72BAA96FC224955A3BFBA4B /* CDVAssetLibraryFilesystem.h */,
 				69F63E4DE6D14FD28A3BE54F /* CDVCapture.m */,
 				B6D5B2D763064352B658182B /* CDVCapture.h */,
+				4A31C59C476243A49777C18A /* PKVideoThumbnail.m */,
+				60105D97FE94436E8C760FDD /* PKVideoThumbnail.h */,
 			);
 			name = Plugins;
 			path = HelloCordova/Plugins;
@@ -487,6 +496,7 @@
 				924888666AE74AA5A04058C4 /* CDVLocalFilesystem.m in Sources */,
 				6694C0AC1B004CE59D90D9DE /* CDVAssetLibraryFilesystem.m in Sources */,
 				F16E7176DB1049D18920C4A9 /* CDVCapture.m in Sources */,
+				1000235150324D2390105563 /* PKVideoThumbnail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
