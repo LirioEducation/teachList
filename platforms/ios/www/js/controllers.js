@@ -1,6 +1,7 @@
-angular.module('starter.controllers', ['starter.services', 'ng', 'ngCordova'])
-
-.controller('CollectionsCtrl', function ($scope, $http, Collections) {
+angular.module('starter.controllers', [
+  'starter.services',
+  'starter.video.controllers'
+]).controller('CollectionsCtrl', function ($scope, $http, Collections) {
   $scope.items = Collections.all();
   $scope.data = { showDelete: false };
   $scope.edit = function (item) {
@@ -16,15 +17,11 @@ angular.module('starter.controllers', ['starter.services', 'ng', 'ngCordova'])
   $scope.onItemDelete = function (item) {
     $scope.items.splice($scope.items.indexOf(item), 1);
   };
-            
-    $http.get('http://echo.jsontest.com/conditions/frightful').then(function(resp) {
-                                                                    $scope.conditions = resp.data.conditions;
-                                                                    }, function(err) {
-                                                                    console.error('ERR', err);
-                                                                    // err.status will contain the status code
-                                                                    })
-            
-     /*       
+  $http.get('http://echo.jsontest.com/conditions/frightful').then(function (resp) {
+    $scope.conditions = resp.data.conditions;
+  }, function (err) {
+    console.error('ERR', err);  // err.status will contain the status code
+  })  /*       
     var authToken;
     
     $http.get('/auth.py').success(function(data, status, headers) {
@@ -42,13 +39,9 @@ angular.module('starter.controllers', ['starter.services', 'ng', 'ngCordova'])
                                                                                $scope.status = 'ERROR!';
                                                                                });
     };
-             */
-})
-
-.controller('TryingCtrl', function ($scope) {
-})
-
-.controller('BrowseCtrl', function ($scope) {
+             */;
+}).controller('TryingCtrl', function ($scope) {
+}).controller('BrowseCtrl', function ($scope) {
 }).controller('LoginCtrl', function ($scope, LoginService, $ionicPopup, $state) {
   $scope.data = {};
   $scope.login = function () {
@@ -61,68 +54,7 @@ angular.module('starter.controllers', ['starter.services', 'ng', 'ngCordova'])
       });
     });
   };
-})
-
-
-.controller('VideoCtrl', function($scope, $cordovaCapture, VideoService) {
-                  
-      $scope.captureAudio = function() {
-      var options = { limit: 3, duration: 10 };
-      
-      $cordovaCapture.captureAudio(options).then(function(audioData) {
-                                                 // Success! Audio data is here
-                                                 }, function(err) {
-                                                 // An error occurred. Show a message to the user
-                                                 });
-      }
-      
-      $scope.captureImage = function() {
-            var options = { limit: 3 };
-      
-            $cordovaCapture.captureImage(options).then(function(imageData) {
-                                                 // Success! Image data is here
-                                                 }, function(err) {
-                                                 // An error occurred. Show a message to the user
-                                                 });
-      }
-      
-
-            
-    $scope.clip = '';
-    
-            
-    $scope.captureVideo = function() {
-            $cordovaCapture.captureVideo().then(function(videoData) {
-                                        VideoService.saveVideo(videoData).success(function(data) {
-                                                                                  $scope.clip = data;
-                                                                                  $scope.$apply();
-                                                                                  }).error(function(data) {
-                                                                                           console.log('ERROR: ' + data);
-                                                                                           });
-                                        });
-    };
-    
-    
-    $scope.urlForClipThumb = function(clipUrl) {
-            var name = clipUrl.substr(clipUrl.lastIndexOf('/') + 1);
-            var trueOrigin = cordova.file.dataDirectory + name;
-            var sliced = trueOrigin.slice(0, -4);
-            return sliced + '.png';
-    }
-    
-    $scope.showClip = function(clip) {
-            console.log('show clip: ' + clip);
-    }
-            
-})
-
-
-
-
-
-
-
-///// Old Controllers
+})  ///// Old Controllers
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -153,9 +85,7 @@ angular.module('starter.controllers', ['starter.services', 'ng', 'ngCordova'])
       $scope.closeLogin();
     }, 1000);
   };
-})
-
-.controller('PlaylistsCtrl', function ($scope) {
+}).controller('PlaylistsCtrl', function ($scope) {
   $scope.playlists = [
     {
       title: 'Reggae',

@@ -7,7 +7,8 @@
 angular.module('starter', [
   'ionic',
   'starter.controllers',
-  'starter.services'
+  'starter.services',
+  'starter.video.controllers'
 ]).run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -71,17 +72,23 @@ angular.module('starter', [
         controller: 'AccountCtrl'
       }
     }
-           }).state('tab.video', {
-                    url: '/video',
-                    views: {
-                    'tab-video': {
-                    templateUrl: 'templates/tab-video.html',
-                    controller: 'VideoCtrl'
-                    }
-                    }
-                    })
-          
-          .state('login', {
+  }).state('tab.video', {
+    url: '/video',
+    views: {
+      'tab-video': {
+        templateUrl: 'templates/tab-video.html',
+        controller: 'VideoCtrl'
+      }
+    }
+  }).state('tab.video-player', {
+    url: '/video/player',
+    views: {
+      'tab-video': {
+        templateUrl: 'templates/tab-video-player.html',
+        controller: 'VideoPlayerCtrl'
+      }
+    }
+  }).state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl'
