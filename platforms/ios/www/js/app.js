@@ -81,7 +81,7 @@ angular.module('starter', [
       }
     }
   }).state('tab.video-player', {
-    url: '/video/player',
+    url: '/video/:name',
     views: {
       'tab-video': {
         templateUrl: 'templates/tab-video-player.html',

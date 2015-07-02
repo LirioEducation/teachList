@@ -4,9 +4,14 @@
     </ion-header-bar>
     <ion-content>
     	<ion-list>
-            
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="video in videos" type="item-text-wrap" href="#/tab/video/{{video.name}}">
+                <img ng-src="{{video.image}}">
+            <!--
             <ion-item ng-repeat="video in videos">
+             -->
+
                         <h2>{{video}}</h2>
+                        {{video.name}}
             </ion-item>
             
         </ion-list>

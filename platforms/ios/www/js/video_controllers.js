@@ -3,9 +3,18 @@ angular.module('starter.video.controllers', [
   'ng',
   'ngCordova',
   'ui.router'
-]).controller('VideoPlayerCtrl', function ($scope) {
-}).controller('VideoCtrl', function ($scope, $state, $stateParams, $cordovaCapture, VideoService, $localstorage) {
-  $scope.videos = VideoService.videos;
+])
+
+.controller('VideoPlayerCtrl', function ($scope, $stateParams, $localstorage) {
+    $scope.filename = $stateParams.name;
+            var filename = $scope.filename;
+    $scope.video = $localstorage.getVideoURL(filename);
+            $scope.videoURL = $scope.video.path;
+})
+
+
+.controller('VideoCtrl', function ($scope, $state, $stateParams, $cordovaCapture, VideoService, $localstorage) {
+  $scope.videos = $localstorage.allVideos();
   videos = $scope.videos;
   $scope.captureAudio = function () {
     var options = {
