@@ -1,4 +1,4 @@
-angular.module('starter.video.services', [])
+angular.module('train.services.video', [])
 
 .service('VideoService', function ($q) {
   var videos = {};

@@ -1,4 +1,5 @@
-angular.module('starter.services', ['starter.video.services'])
+angular.module('train.services', ['train.services.video'])
+
 .service('LoginService', function ($q) {
   return {
     loginUser: function (name, pw) {
@@ -20,7 +21,9 @@ angular.module('starter.services', ['starter.video.services'])
       return promise;
     }
   };
-})  // chats
+})
+
+// chats
 .factory('Chats', function () {
   // Might use a resource here that returns a JSON array
   // Some fake testing data

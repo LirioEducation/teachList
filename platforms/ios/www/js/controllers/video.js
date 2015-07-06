@@ -1,5 +1,5 @@
-angular.module('starter.video.controllers', [
-  'starter.services',
+angular.module('train.controllers.video', [
+  'train.services',
   'ng',
   'ngCordova',
   'ui.router'

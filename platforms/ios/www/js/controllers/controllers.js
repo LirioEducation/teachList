@@ -1,6 +1,6 @@
-angular.module('starter.controllers', [
-  'starter.services',
-  'starter.video.controllers'
+angular.module('train.controllers', [
+  'train.services',
+  'train.controllers.video'
 ]).controller('CollectionsCtrl', function ($scope, $http, Collections) {
   $scope.items = Collections.all();
   $scope.data = { showDelete: false };
@@ -42,7 +42,9 @@ angular.module('starter.controllers', [
              */;
 }).controller('TryingCtrl', function ($scope) {
 }).controller('BrowseCtrl', function ($scope) {
-}).controller('LoginCtrl', function ($scope, LoginService, $ionicPopup, $state) {
+})
+
+.controller('LoginCtrl', function ($scope, LoginService, $ionicPopup, $state) {
   $scope.data = {};
   $scope.login = function () {
     LoginService.loginUser($scope.data.username, $scope.data.password).success(function (data) {
@@ -54,7 +56,10 @@ angular.module('starter.controllers', [
       });
     });
   };
-})  ///// Old Controllers
+})
+
+
+///// Old Controllers
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.

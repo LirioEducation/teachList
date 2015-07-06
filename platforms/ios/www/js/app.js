@@ -4,11 +4,11 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', [
+angular.module('train', [
   'ionic',
-  'starter.controllers',
-  'starter.services',
-  'starter.video.controllers'
+  'train.controllers',
+  'train.services',
+  'train.controllers.video'
 ]).run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -94,5 +94,5 @@ angular.module('starter', [
     controller: 'LoginCtrl'
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/collections');
+  $urlRouterProvider.otherwise('/login');
 });
