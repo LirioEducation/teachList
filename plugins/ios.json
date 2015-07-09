@@ -31,6 +31,10 @@
                         {
                             "xml": "<feature name=\"Capture\"><param name=\"ios-package\" value=\"CDVCapture\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SQLitePlugin\"><param name=\"ios-package\" value=\"SQLitePlugin\" /></feature>",
+                            "count": 1
                         }
                     ],
                     "/widget/plugins": [
@@ -91,6 +95,9 @@
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "com.photokandy.videothumbnail": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "io.litehelpers.cordova.sqlite": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         }
     },

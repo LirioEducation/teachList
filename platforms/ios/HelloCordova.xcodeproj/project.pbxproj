@@ -56,6 +56,8 @@
 		1E8E300E5895413EBE18FBB0 /* CDVCapture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A258F97235FA4E88B2BB009C /* CDVCapture.bundle */; };
 		1000235150324D2390105563 /* PKVideoThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A31C59C476243A49777C18A /* PKVideoThumbnail.m */; };
 		B4757D1CFDBE4D18B435ECB6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F323402D63194262A49706A1 /* MediaPlayer.framework */; };
+		52A8340678054343B5D5A879 /* SQLitePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C76510AB7D434784D13CD4 /* SQLitePlugin.m */; };
+		298079CEE6C245408AA43DEE /* sqlite3.c in Resources */ = {isa = PBXBuildFile; fileRef = A87C617DDEED4208839C3E8E /* sqlite3.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +148,10 @@
 		4A31C59C476243A49777C18A /* PKVideoThumbnail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PKVideoThumbnail.m"; path = "com.photokandy.videothumbnail/PKVideoThumbnail.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		60105D97FE94436E8C760FDD /* PKVideoThumbnail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PKVideoThumbnail.h"; path = "com.photokandy.videothumbnail/PKVideoThumbnail.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		F323402D63194262A49706A1 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MediaPlayer.framework"; path = "System/Library/Frameworks/MediaPlayer.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		C1C76510AB7D434784D13CD4 /* SQLitePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SQLitePlugin.m"; path = "io.litehelpers.cordova.sqlite/SQLitePlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		A87C617DDEED4208839C3E8E /* sqlite3.c */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "sqlite3.c"; path = "io.litehelpers.cordova.sqlite/sqlite3.c"; sourceTree = "<group>"; fileEncoding = 4; };
+		B7218EE1D6204FCC98A46BB0 /* SQLitePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SQLitePlugin.h"; path = "io.litehelpers.cordova.sqlite/SQLitePlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		2290FD853B6448F7BA154337 /* sqlite3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "sqlite3.h"; path = "io.litehelpers.cordova.sqlite/sqlite3.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +273,10 @@
 				B6D5B2D763064352B658182B /* CDVCapture.h */,
 				4A31C59C476243A49777C18A /* PKVideoThumbnail.m */,
 				60105D97FE94436E8C760FDD /* PKVideoThumbnail.h */,
+				C1C76510AB7D434784D13CD4 /* SQLitePlugin.m */,
+				A87C617DDEED4208839C3E8E /* sqlite3.c */,
+				B7218EE1D6204FCC98A46BB0 /* SQLitePlugin.h */,
+				2290FD853B6448F7BA154337 /* sqlite3.h */,
 			);
 			name = Plugins;
 			path = HelloCordova/Plugins;
@@ -497,6 +507,8 @@
 				6694C0AC1B004CE59D90D9DE /* CDVAssetLibraryFilesystem.m in Sources */,
 				F16E7176DB1049D18920C4A9 /* CDVCapture.m in Sources */,
 				1000235150324D2390105563 /* PKVideoThumbnail.m in Sources */,
+				52A8340678054343B5D5A879 /* SQLitePlugin.m in Sources */,
+				298079CEE6C245408AA43DEE /* sqlite3.c in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

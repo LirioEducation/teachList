@@ -8,8 +8,9 @@ angular.module('train', [
   'ionic',
   'train.controllers',
   'train.services',
-  'train.controllers.video'
-]).run(function ($ionicPlatform) {
+  'train.controllers.video',
+  'train.database'
+]).run(function ($ionicPlatform, $cordovaSQLite) {
   $ionicPlatform.ready(function () {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,7 +21,15 @@ angular.module('train', [
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
     }
-  });
+    db = window.sqlitePlugin.openDatabase({name: "train-test.db", createFromLocation: 1});
+    //db = $cordovaSQLite.openDB({name : "train-test.db", bgType: 1});
+    //db = $cordovaSQLite.openDB("train-test.db");
+
+    $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS videos (id integer primary key, firstname text, lastname text)");
+
+
+
+});
 }).config(function ($stateProvider, $urlRouterProvider) {
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -94,5 +103,5 @@ angular.module('train', [
     controller: 'LoginCtrl'
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/tab/collections');
 });

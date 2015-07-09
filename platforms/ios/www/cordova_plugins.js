@@ -92,6 +92,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/io.litehelpers.cordova.sqlite/www/SQLitePlugin.js",
+        "id": "io.litehelpers.cordova.sqlite.SQLitePlugin",
+        "clobbers": [
+            "SQLitePlugin"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
         "id": "cordova-plugin-file.DirectoryEntry",
         "clobbers": [
@@ -248,6 +255,7 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.0.0",
     "cordova-plugin-media-capture": "1.0.1",
     "com.photokandy.videothumbnail": "1.0.1",
+    "io.litehelpers.cordova.sqlite": "0.7.10-pre",
     "cordova-plugin-file": "2.1.0"
 }
 // BOTTOM OF METADATA

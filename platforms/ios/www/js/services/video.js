@@ -1,10 +1,123 @@
 angular.module('train.services.video', [])
 
-.service('VideoService', function ($q) {
+.service('$localstorage', [
+  '$window',
+  function ($window) {
+    //var videos = VideoService.getVideos();
+    var localStorageKey = '*localStorageKey*';
+
+    /*
+    // need this to instantiate the videos array if none exists
+    var videos = $window.localStorage.getItem(localStorageKey);
+    if (videos == null) {
+      $window.localStorage.setItem(localStorageKey, []);
+    }
+
+    this.set = function (key, value) {
+      $window.localStorage.setItem(key, value);
+    };
+    this.get = function (key, defaultValue) {
+      return $window.localStorage.getItem(key) || defaultValue;
+    };
+    this.setObject = function (key, value) {
+      $window.localStorage.setItem(key, JSON.stringify(value));
+    };
+    this.getObject = function (key) {
+      return JSON.parse($window.localStorage.getItem(key) || '{}');
+    };
+    this.setVideo = function (key, videoObj) {
+      $window.localStorage.setItem(key, JSON.stringify(videoObj));
+      var localVideos = $window.localStorage.getItem(localStorageKey);
+
+      console.log("localStorageKey: " + localStorageKey);
+      console.log("key: " + key);
+
+      if ($window.)
+      if (localVideos) {
+        console.log("localVideos is null");
+      }
+      else {
+
+      }
+      localVideos.push(key);
+      $window.localStorage.setItem(localStorageKey, localVideos);
+    };
+    this.getVideo = function (key) {
+      return JSON.parse($window.localStorage.setItem(key) || '{}');
+    };
+    this.getVideoURL = function (filename) {
+      return videos[filename];
+    };
+    this.allVideos = function () {
+      //return JSON.parse($window.localStorage.setItem(localStorageKey) || '[]');
+      return videos;
+    };
+
+    */
+
+    return {
+      set: function (key, value) {
+        $window.localStorage.setItem(key, value);
+      },
+      get: function (key, defaultValue) {
+        return $window.localStorage.getItem(key) || defaultValue;
+      },
+      setObject: function (key, value) {
+        $window.localStorage.setItem(key, JSON.stringify(value));
+      },
+      getObject: function (key) {
+        return JSON.parse($window.localStorage.getItem(key) || '{}');
+      },
+      setVideo: function (key, videoObj) {
+        $window.localStorage.setItem(key, JSON.stringify(videoObj));
+        var localVideos = $window.localStorage.getItem(localStorageKey);
+        console.log(localVideos);
+
+        if (! (localVideos instanceof Array)) {
+          localVideos = [];
+        }
+        console.log("localStorageKey: " + localStorageKey);
+        console.log("key: " + key);
+
+        if ($window.localStorage)
+          if (localVideos instanceof Array) {
+            console.log("localVideos is not null");
+            console.log(localVideos);
+          }
+          else {
+
+          }
+
+        localVideos.push(key);
+        console.log(localVideos);
+
+        $window.localStorage.setItem(localStorageKey, localVideos);
+        localVideos = $window.localStorage.getItem(localStorageKey);
+        console.log(localVideos);
+
+      },
+      getVideo: function (key) {
+        return JSON.parse($window.localStorage.getItem(key) || '{}');
+      },
+      getVideoURL: function (filename) {
+        return videos[filename];
+      },
+      allVideos: function () {
+        console.log('allVideos');
+        var value = $window.localStorage.getItem(localStorageKey);
+        console.log('return: ' + value);
+        return value;
+        //return videos;
+      }
+    };
+  }
+])
+
+.factory('VideoService', ['$q', '$localstorage', function ($q, $localstorage) {
   var videos = {};
   var deferred = $q.defer();
   var promise = deferred.promise;
-         
+
   promise.success = function (fn) {
     promise.then(fn);
     return promise;
@@ -33,9 +146,13 @@ angular.module('train.services.video', [])
   }
  //
   function addToVideos(filename, videoURL, imageURL) {
-         videos[filename] = {name: filename,
-                            path: videoURL,
-                            image: imageURL};
+         //videos[filename] = {name: filename,
+         //                   path: videoURL,
+         //                   image: imageURL};
+
+        $localstorage.setVideo(filename, {name: filename,
+                                           path: videoURL,
+                                          image: imageURL});
   }
   
   // Called on successful copy process
@@ -89,39 +206,4 @@ angular.module('train.services.video', [])
         return videos;
      }
   };
-})
-
-.factory('$localstorage', [
-  '$window',
-  'VideoService',
-  function ($window, VideoService) {
-    var videos = VideoService.getVideos();
-    return {
-      set: function (key, value) {
-        $window.localStorage[key] = value;
-      },
-      get: function (key, defaultValue) {
-        return $window.localStorage[key] || defaultValue;
-      },
-      setObject: function (key, value) {
-        $window.localStorage[key] = JSON.stringify(value);
-      },
-      getObject: function (key) {
-        return JSON.parse($window.localStorage[key] || '{}');
-      },
-      setVideo: function (key, videoURL) {
-        $window.localStorage[key] = JSON.stringify(videoURL);
-        videos.push(key);
-      },
-      getVideo: function (key) {
-        return JSON.parse($window.localStorage[key] || '{}');
-      },
-      getVideoURL: function (filename) {
-        return videos[filename];
-      },
-      allVideos: function () {
-        return videos;
-      }
-    };
-  }
-])
+}])

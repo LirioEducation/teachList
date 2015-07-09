@@ -1,8 +1,9 @@
 angular.module('train.controllers.video', [
-  'train.services',
   'ng',
   'ngCordova',
-  'ui.router'
+  'ui.router',
+  'train.services',
+  'train.database'
 ])
 
 .controller('VideoPlayerCtrl', function ($scope, $stateParams, $localstorage) {
@@ -13,9 +14,14 @@ angular.module('train.controllers.video', [
 })
 
 
-.controller('VideoCtrl', function ($scope, $state, $stateParams, $cordovaCapture, VideoService, $localstorage) {
-  $scope.videos = $localstorage.allVideos();
-  videos = $scope.videos;
+.controller('VideoCtrl', function ($scope, $state, $stateParams, $cordovaCapture, VideoService, $localstorage, VideoDBFactory) {
+  $scope.videos = VideoDBFactory.all();
+  $scope.videos;
+
+   $scope.logVideos = function()   {
+     console.log("display videos: " + JSON.stringify($scope.videos));
+   };
+
   $scope.captureAudio = function () {
     var options = {
       limit: 3,
