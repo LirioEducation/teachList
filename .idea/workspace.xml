@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f04460a-5cf9-4a25-985c-b4ef76210168" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/HelloCordova.xcodeproj/project.xcworkspace/xcuserdata/justinkahn.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova.xcodeproj/project.xcworkspace/xcuserdata/justinkahn.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/services/database.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/services/database.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/tab-video.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/tab-video.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/controllers/video.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/controllers/video.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="train-prototype.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,8 +70,8 @@
       <file leaf-file-name="tab-video.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/tab-video.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.583334">
-              <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -84,8 +80,8 @@
       <file leaf-file-name="video.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/controllers/video.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60294116">
-              <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.7941176">
+              <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -142,9 +138,9 @@
         <option value="$PROJECT_DIR$/platforms/ios/www/js/services/video.js" />
         <option value="$PROJECT_DIR$/platforms/ios/www/index.html" />
         <option value="$PROJECT_DIR$/platforms/ios/www/js/app.js" />
-        <option value="$PROJECT_DIR$/platforms/ios/www/templates/tab-video.html" />
         <option value="$PROJECT_DIR$/platforms/ios/www/js/services/database.js" />
         <option value="$PROJECT_DIR$/platforms/ios/www/js/controllers/video.js" />
+        <option value="$PROJECT_DIR$/platforms/ios/www/templates/tab-video.html" />
       </list>
     </option>
   </component>
@@ -722,14 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/tab-video.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.583334">
-          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/services/video.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -746,10 +734,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/tab-video.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/controllers/video.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60294116">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.7941176">
+          <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
           <folding />
         </state>
       </provider>
