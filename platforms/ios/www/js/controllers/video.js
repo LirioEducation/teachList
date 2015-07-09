@@ -15,12 +15,24 @@ angular.module('train.controllers.video', [
 
 
 .controller('VideoCtrl', function ($scope, $state, $stateParams, $cordovaCapture, VideoService, $localstorage, VideoDBFactory) {
-  $scope.videos = VideoDBFactory.all();
-  $scope.videos;
+  //var DBvideos = VideoDBFactory.all();
+  //var videos = DBvideos["$$state"];
+  //$scope.videos = videos.value;
 
-   $scope.logVideos = function()   {
-     console.log("display videos: " + JSON.stringify($scope.videos));
-   };
+  var videos = [];
+
+  $scope.videos = [];
+
+
+  $scope.updateVideos = function()   {
+    console.log("scope videos: " + JSON.stringify($scope.videos));
+
+    VideoDBFactory.allDelegate(function(vids){
+      $scope.videos = vids;
+      console.log("scope videos: " + JSON.stringify($scope.videos));
+    });
+
+  };
 
   $scope.captureAudio = function () {
     var options = {
