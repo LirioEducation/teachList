@@ -115,7 +115,7 @@ angular.module('train.services.video', ['train.database'])
 
 
 
-.factory('VideoService', ['$q', '$localstorage', 'VideoDBFactory', function ($q, $localstorage, VideoDBFactory) {
+.factory('VideoService', ['$q', '$cordovaFile', '$localstorage', 'VideoDBFactory', function ($q, $cordovaFile, $localstorage, VideoDBFactory) {
   var videos = {};
   var deferred = $q.defer();
   var promise = deferred.promise;

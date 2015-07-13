@@ -21,14 +21,72 @@ angular.module('train.controllers.video', [
 })
 
 
-.controller('VideoCtrl', function ($scope, $state, $stateParams, $cordovaCapture, VideoService, $localstorage, VideoDBFactory) {
+.controller('VideoCtrl', function ($scope, $cordovaFile, $state, $stateParams, $cordovaCapture, VideoService, $localstorage, VideoDBFactory) {
   //var DBvideos = VideoDBFactory.all();
   //var videos = DBvideos["$$state"];
   //$scope.videos = videos.value;
 
+      $scope.listCanSwipe = true;
+      $scope.shouldShowDelete = false;
+
+
+      function onFileSystemSuccess(fileSystem) {
+        console.log(fileSystem.name);
+        console.log("fileSystem path: " + fileSystem.root.fullPath);
+      }
+
+      function onResolveSuccess(fileEntry) {
+        console.log(fileEntry.name);
+      }
+
+      function fail(error) {
+        console.log(error.code);
+      }
+
+      window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+
+
+
   var videos = [];
 
   $scope.videos = [];
+
+      $scope.onItemDelete = function (item){
+
+        var vidName = item.LocalVideoURL.substr(item.LocalVideoURL.lastIndexOf('/') + 1);
+        var imgName = item.LocalImageURL.substr(item.LocalImageURL.lastIndexOf('/') + 1);
+
+        console.log("Delete:" + vidName);
+
+        // TODO: remove image file
+
+        //VideoDBFactory.remove(item);
+
+        $scope.videos.splice($scope.videos.indexOf(item), 1);
+
+        $cordovaFile.removeFile(cordova.file.dataDirectory, vidName)
+            .then(function (success) {
+              // success
+              VideoDBFactory.remove(item);
+
+            }, function (error) {
+              // error
+              //console.log(cordova.file.dataDirectory);
+              console.log(error);
+            });
+
+        $cordovaFile.removeFile(cordova.file.dataDirectory, imgName)
+            .then(function (success) {
+              // success
+
+            }, function (error) {
+              // error
+              //console.log(cordova.file.dataDirectory);
+              console.log(error);
+            });
+
+      };
+
 
    VideoDBFactory.allDelegate().then(function (videos) {
 

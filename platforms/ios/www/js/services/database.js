@@ -97,8 +97,8 @@ angular.module('train.database', [])
         },
 
         remove : function(member) {
-            var parameters = [member.id];
-            return DBA.query("DELETE FROM team WHERE id = (?)", parameters);
+            var parameters = [member.URI];
+            return DBA.query("DELETE FROM videos WHERE URI = (?)", parameters);
         },
 
         update : function(origMember, editMember) {
