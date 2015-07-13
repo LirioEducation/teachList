@@ -113,6 +113,8 @@ angular.module('train.services.video', ['train.database'])
   }
 ])
 
+
+
 .factory('VideoService', ['$q', '$localstorage', 'VideoDBFactory', function ($q, $localstorage, VideoDBFactory) {
   var videos = {};
   var deferred = $q.defer();

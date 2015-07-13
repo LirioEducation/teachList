@@ -6,11 +6,18 @@ angular.module('train.controllers.video', [
   'train.database'
 ])
 
-.controller('VideoPlayerCtrl', function ($scope, $stateParams, $localstorage) {
+.controller('VideoPlayerCtrl', function ($scope, $stateParams, $localstorage, VideoDBFactory) {
     $scope.filename = $stateParams.name;
             var filename = $scope.filename;
-    $scope.video = $localstorage.getVideoURL(filename);
-            $scope.videoURL = $scope.video.path;
+    //$scope.video = $localstorage.getVideoURL(filename);
+     VideoDBFactory.get(filename).then(function(data){
+       $scope.video = data;
+       $scope.videoURL = $scope.video.LocalVideoURL;
+
+       console.log("filename: " + filename);
+       console.log("videoURL: " + $scope.videoURL);
+
+     });
 })
 
 
@@ -23,16 +30,31 @@ angular.module('train.controllers.video', [
 
   $scope.videos = [];
 
+   VideoDBFactory.allDelegate().then(function (videos) {
+
+     $scope.videos = videos;
+
+     //console.log("scope videos: " + JSON.stringify(videos));
+
+   });
 
   $scope.updateVideos = function()   {
     //console.log("scope videos: " + JSON.stringify($scope.videos));
 
-    VideoDBFactory.allDelegate(function(vids){
-      $scope.videos = vids;
-      console.log("scope videos: " + JSON.stringify($scope.videos));
-    });
+    //VideoDBFactory.allDelegate(function(vids){
+    //  $scope.videos = vids;
+      //console.log("scope videos: " + JSON.stringify($scope.videos));
+    //});
 
+    VideoDBFactory.allDelegate().then(function (videos) {
+
+      $scope.videos = videos;
+
+      //console.log("scope videos: " + JSON.stringify(videos));
+
+    });
   };
+
 
   $scope.captureAudio = function () {
     var options = {

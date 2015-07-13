@@ -19,7 +19,10 @@ angular.module('train.database', [])
                             q.reject(error);
                         });
                 });
-            return q.promise;
+                var promise = q.promise;
+
+                return promise;
+
             },
 
         // Proces a result set
@@ -29,7 +32,7 @@ angular.module('train.database', [])
                 for (var i = 0; i < result.rows.length; i++) {
                     output.push(result.rows.item(i));
                 }
-                console.log('output ' + JSON.stringify(output));
+                //console.log('output ' + JSON.stringify(output));
                 return output;
             },
 
@@ -46,7 +49,9 @@ angular.module('train.database', [])
 
     })
 
-.factory('VideoDBFactory', function($cordovaSQLite, DBA) {
+.factory('VideoDBFactory', function($q, $cordovaSQLite, DBA) {
+
+
 
     return {
         all : function() {
@@ -60,19 +65,30 @@ angular.module('train.database', [])
                 });
         },
 
-        allDelegate: function(fn) {
-            return DBA.query("SELECT URI, Name, LocalVideoURL, LocalImageURL FROM videos")
+        allDelegate: function() {
+            var defer = $q.defer();
+
+            DBA.query("SELECT URI, Name, LocalVideoURL, LocalImageURL FROM videos")
                 .then(function(result){
-                    fn(DBA.getAll(result));
+                    var all = DBA.getAll(result);
+                    defer.resolve(all);
+                    console.log("allDelegate - query success: " + all[0]);
                 });
+
+            return defer.promise;
         },
 
-        get : function(memberId) {
-            var parameters = [memberId];
-            return DBA.query("SELECT Name, LocalVideoURL FROM videos WHERE Name = (?)", parameters)
+        get : function(member) {
+            var defer = $q.defer();
+
+            var parameters = [member];
+             DBA.query("SELECT Name, LocalVideoURL, LocalImageURL FROM videos WHERE URI = (?)", parameters)
                 .then(function(result) {
-                    return DBA.getById(result);
+                    var item = DBA.getById(result);
+                    console.log(item);
+                    defer.resolve(item);
                 });
+            return defer.promise;
         },
 
         add : function(member) {
