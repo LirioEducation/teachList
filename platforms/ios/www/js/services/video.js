@@ -1,4 +1,4 @@
-angular.module('train.services.video', [])
+angular.module('train.services.video', ['train.database'])
 
 .service('$localstorage', [
   '$window',
@@ -113,7 +113,7 @@ angular.module('train.services.video', [])
   }
 ])
 
-.factory('VideoService', ['$q', '$localstorage', function ($q, $localstorage) {
+.factory('VideoService', ['$q', '$localstorage', 'VideoDBFactory', function ($q, $localstorage, VideoDBFactory) {
   var videos = {};
   var deferred = $q.defer();
   var promise = deferred.promise;
@@ -153,6 +153,12 @@ angular.module('train.services.video', [])
         $localstorage.setVideo(filename, {name: filename,
                                            path: videoURL,
                                           image: imageURL});
+
+    VideoDBFactory.add({URI: filename,
+                        name: filename,
+                        localVideoURL: videoURL,
+                        localImageURL: imageURL});
+
   }
   
   // Called on successful copy process

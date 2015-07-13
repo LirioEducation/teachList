@@ -51,7 +51,7 @@ angular.module('train.database', [])
     return {
         all : function() {
             console.log('VideoDBFactory.all');
-            return DBA.query("SELECT Name, LocalURL FROM videos")
+            return DBA.query("SELECT Name, LocalVideoURL FROM videos")
                 .then(function(result){
                     console.log('found');
                     var all =  DBA.getAll(result);
@@ -61,7 +61,7 @@ angular.module('train.database', [])
         },
 
         allDelegate: function(fn) {
-            return DBA.query("SELECT Name, LocalURL FROM videos")
+            return DBA.query("SELECT URI, Name, LocalVideoURL, LocalImageURL FROM videos")
                 .then(function(result){
                     fn(DBA.getAll(result));
                 });
@@ -69,15 +69,15 @@ angular.module('train.database', [])
 
         get : function(memberId) {
             var parameters = [memberId];
-            return DBA.query("SELECT name, LocalURL FROM videos WHERE name = (?)", parameters)
+            return DBA.query("SELECT Name, LocalVideoURL FROM videos WHERE Name = (?)", parameters)
                 .then(function(result) {
                     return DBA.getById(result);
                 });
         },
 
         add : function(member) {
-            var parameters = [member.id, member.name];
-            return DBA.query("INSERT INTO team (id, name) VALUES (?,?)", parameters);
+            var parameters = [member.name, member.URI, member.localVideoURL, member.localImageURL];
+            return DBA.query("INSERT INTO videos (Name, URI, LocalVideoURL, LocalImageURL) VALUES (?,?,?,?)", parameters);
         },
 
         remove : function(member) {
@@ -86,8 +86,10 @@ angular.module('train.database', [])
         },
 
         update : function(origMember, editMember) {
+            //var parameters = [editMember.name, editMember.URI, editMember.localVideoURL, editMember.localImageURL, origMember.URI];
+
             var parameters = [editMember.id, editMember.name, origMember.id];
-            return DBA.query("UPDATE team SET id = (?), name = (?) WHERE id = (?)", parameters);
+            return DBA.query("UPDATE videos SET id = (?), name = (?) WHERE id = (?)", parameters);
         }
 
     }

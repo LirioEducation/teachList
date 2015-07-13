@@ -25,7 +25,7 @@ angular.module('train.controllers.video', [
 
 
   $scope.updateVideos = function()   {
-    console.log("scope videos: " + JSON.stringify($scope.videos));
+    //console.log("scope videos: " + JSON.stringify($scope.videos));
 
     VideoDBFactory.allDelegate(function(vids){
       $scope.videos = vids;
