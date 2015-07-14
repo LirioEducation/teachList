@@ -65,7 +65,7 @@ angular.module('train.database', [])
                 });
         },
 
-        allDelegate: function() {
+        allVideos: function() {
             var defer = $q.defer();
 
             DBA.query("SELECT URI, Name, LocalVideoURL, LocalImageURL FROM videos")
@@ -78,7 +78,7 @@ angular.module('train.database', [])
             return defer.promise;
         },
 
-        get : function(member) {
+        getVideo : function(member) {
             var defer = $q.defer();
 
             var parameters = [member];
@@ -91,17 +91,17 @@ angular.module('train.database', [])
             return defer.promise;
         },
 
-        add : function(member) {
+        addVideo : function(member) {
             var parameters = [member.name, member.URI, member.localVideoURL, member.localImageURL];
             return DBA.query("INSERT INTO videos (Name, URI, LocalVideoURL, LocalImageURL) VALUES (?,?,?,?)", parameters);
         },
 
-        remove : function(member) {
+        removeVideo : function(member) {
             var parameters = [member.URI];
             return DBA.query("DELETE FROM videos WHERE URI = (?)", parameters);
         },
 
-        update : function(origMember, editMember) {
+        updateVideo : function(origMember, editMember) {
             //var parameters = [editMember.name, editMember.URI, editMember.localVideoURL, editMember.localImageURL, origMember.URI];
 
             var parameters = [editMember.id, editMember.name, origMember.id];

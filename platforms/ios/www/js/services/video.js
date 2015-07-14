@@ -148,15 +148,8 @@ angular.module('train.services.video', ['train.database'])
   }
  //
   function addToVideos(filename, videoURL, imageURL) {
-         //videos[filename] = {name: filename,
-         //                   path: videoURL,
-         //                   image: imageURL};
 
-        $localstorage.setVideo(filename, {name: filename,
-                                           path: videoURL,
-                                          image: imageURL});
-
-    VideoDBFactory.add({URI: filename,
+    VideoDBFactory.addVideo({URI: filename,
                         name: filename,
                         localVideoURL: videoURL,
                         localImageURL: imageURL});
