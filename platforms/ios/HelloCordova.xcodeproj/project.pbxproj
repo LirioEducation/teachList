@@ -58,6 +58,7 @@
 		B4757D1CFDBE4D18B435ECB6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F323402D63194262A49706A1 /* MediaPlayer.framework */; };
 		52A8340678054343B5D5A879 /* SQLitePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C76510AB7D434784D13CD4 /* SQLitePlugin.m */; };
 		298079CEE6C245408AA43DEE /* sqlite3.c in Resources */ = {isa = PBXBuildFile; fileRef = A87C617DDEED4208839C3E8E /* sqlite3.c */; };
+		0DF16F4C26CC4E208C777388 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C25B7B54763349DF87E29FA3 /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,8 @@
 		A87C617DDEED4208839C3E8E /* sqlite3.c */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "sqlite3.c"; path = "io.litehelpers.cordova.sqlite/sqlite3.c"; sourceTree = "<group>"; fileEncoding = 4; };
 		B7218EE1D6204FCC98A46BB0 /* SQLitePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SQLitePlugin.h"; path = "io.litehelpers.cordova.sqlite/SQLitePlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		2290FD853B6448F7BA154337 /* sqlite3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "sqlite3.h"; path = "io.litehelpers.cordova.sqlite/sqlite3.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		C25B7B54763349DF87E29FA3 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		BBCE2D7677C945FBB6A81037 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +280,8 @@
 				A87C617DDEED4208839C3E8E /* sqlite3.c */,
 				B7218EE1D6204FCC98A46BB0 /* SQLitePlugin.h */,
 				2290FD853B6448F7BA154337 /* sqlite3.h */,
+				C25B7B54763349DF87E29FA3 /* CDVInAppBrowser.m */,
+				BBCE2D7677C945FBB6A81037 /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = HelloCordova/Plugins;
@@ -509,6 +514,7 @@
 				1000235150324D2390105563 /* PKVideoThumbnail.m in Sources */,
 				52A8340678054343B5D5A879 /* SQLitePlugin.m in Sources */,
 				298079CEE6C245408AA43DEE /* sqlite3.c in Resources */,
+				0DF16F4C26CC4E208C777388 /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

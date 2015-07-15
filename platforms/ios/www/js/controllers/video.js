@@ -34,20 +34,18 @@ angular.module('train.controllers.video', [
 
             console.log("Delete:" + vidName);
 
-            // TODO: remove image file
 
             //VideoDBFactory.remove(item);
 
             $scope.videos.splice($scope.videos.indexOf(item), 1);
+            VideoDBFactory.removeVideo(item);
 
             $cordovaFile.removeFile(cordova.file.dataDirectory, vidName)
                 .then(function (success) {
                   // success
-                  VideoDBFactory.removeVideo(item);
 
                 }, function (error) {
                   // error
-                  //console.log(cordova.file.dataDirectory);
                   console.log(error);
                 });
 
@@ -57,7 +55,6 @@ angular.module('train.controllers.video', [
 
                 }, function (error) {
                   // error
-                  //console.log(cordova.file.dataDirectory);
                   console.log(error);
                 });
 

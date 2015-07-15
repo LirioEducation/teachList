@@ -147,15 +147,22 @@ angular.module('train.services.video', ['train.database'])
     }, fail);
   }
  //
-  function addToVideos(filename, videoURL, imageURL) {
 
-    VideoDBFactory.addVideo({URI: filename,
-                        name: filename,
-                        localVideoURL: videoURL,
-                        localImageURL: imageURL});
+      function addToVideos(filename, videoURL, imageURL) {
+        VideoDBFactory.addVideo({
+          URI: filename,
+          name: filename,
+          localVideoURL: videoURL,
+          localImageURL: imageURL,
+          tags: [],
+          text: "",
+          owner: ""
+      });
 
-  }
-  
+
+    }
+
+
   // Called on successful copy process
   // Creates a thumbnail from the movie
   // The name is the moviename but with .png instead of .mov

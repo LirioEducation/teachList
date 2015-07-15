@@ -54,16 +54,6 @@ angular.module('train.database', [])
 
 
     return {
-        all : function() {
-            console.log('VideoDBFactory.all');
-            return DBA.query("SELECT Name, LocalVideoURL FROM videos")
-                .then(function(result){
-                    console.log('found');
-                    var all =  DBA.getAll(result);
-                    console.log('all: ' + JSON.stringify(all));
-                    return all;
-                });
-        },
 
         allVideos: function() {
             var defer = $q.defer();
@@ -82,18 +72,27 @@ angular.module('train.database', [])
             var defer = $q.defer();
 
             var parameters = [member];
-             DBA.query("SELECT Name, LocalVideoURL, LocalImageURL FROM videos WHERE URI = (?)", parameters)
+             DBA.query("SELECT Name, URI, LocalVideoURL, LocalImageURL, Tags, Description, Owner FROM videos WHERE URI = (?)", parameters)
                 .then(function(result) {
                     var item = DBA.getById(result);
-                    console.log(item);
+                    //console.log(item);
                     defer.resolve(item);
                 });
             return defer.promise;
         },
 
         addVideo : function(member) {
-            var parameters = [member.name, member.URI, member.localVideoURL, member.localImageURL];
-            return DBA.query("INSERT INTO videos (Name, URI, LocalVideoURL, LocalImageURL) VALUES (?,?,?,?)", parameters);
+            // turn tags array into a comma separated string
+            var tags = "";
+            if (member.tags) {
+                tags = member.tags.join(",");
+            }
+
+            console.log("Tags: " + tags);
+
+            var parameters = [member.name, member.URI, member.localVideoURL, member.localImageURL, tags, member.text, member.itemOwner];
+
+            return DBA.query("INSERT INTO videos (Name, URI, LocalVideoURL, LocalImageURL, Tags, Description, Owner) VALUES (?,?,?,?,?,?,?)", parameters);
         },
 
         removeVideo : function(member) {
@@ -102,12 +101,17 @@ angular.module('train.database', [])
         },
 
         updateVideo : function(origMember, editMember) {
-            //var parameters = [editMember.name, editMember.URI, editMember.localVideoURL, editMember.localImageURL, origMember.URI];
 
-            var parameters = [editMember.id, editMember.name, origMember.id];
-            return DBA.query("UPDATE videos SET id = (?), name = (?) WHERE id = (?)", parameters);
+            // turn tags array into a comma separated string
+            var tags = "";
+            if (editMember.tags) {
+                tags = editMember.tags.join(",");
+            }
+
+            var parameters = [editMember.name, editMember.URI, editMember.localVideoURL, editMember.localImageURL, tags, editMember.text, editMember.itemOwner, origMember.URI];
+
+            return DBA.query("UPDATE videos SET Name = (?), URI = (?), LocalVideoURL = (?), LocalImageURL = (?), Tags = (?), Description = (?), Owner = (?) WHERE URI = (?)", parameters);
         }
-
     }
 
 
