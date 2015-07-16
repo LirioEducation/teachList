@@ -2,7 +2,15 @@ angular.module('train.controllers', [
   'train.services',
   'train.controllers.video',
     'train.controllers.playlists'
-]).controller('CollectionsCtrl', function ($scope, $http, Collections) {
+])
+    .controller('NavBarController', function($scope, NavBarService) {
+      $scope.isTransparent = NavBarService.isTransparent;
+      $scope.navTransparency = 'transparent-nav';
+      $scope.nav = function (){
+
+      };
+    })
+    .controller('CollectionsCtrl', function ($scope, $http, Collections) {
   $scope.items = Collections.all();
   $scope.data = { showDelete: false };
   $scope.edit = function (item) {

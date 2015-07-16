@@ -1,5 +1,14 @@
 angular.module('train.services', ['train.services.video'])
 
+    .factory('NavBarService', function () {
+      var isTransparent = false;
+
+      return {
+        setTransparency: function(transparency) {
+          isTransparent = transparency;
+        }
+      };
+    })
 .service('LoginService', function ($q) {
   return {
     loginUser: function (name, pw) {

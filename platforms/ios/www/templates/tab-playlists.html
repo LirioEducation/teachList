@@ -1,12 +1,27 @@
-<ion-view view-title="Playlists">
 
-    <h1>Playlist</h1>
+<ion-view>
+
+    <ion-nav-buttons side="left">
+        <button class="button button-positive button-clear no-animation"
+                ng-click="startApp()" ng-if="!slideIndex">
+            Working On
+        </button>
+
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+        <button class="button button-positive button-clear no-animation"
+                ng-click="startApp()" ng-if="!slideIndex">
+            Helping With
+        </button>
+
+    </ion-nav-buttons>
 
     <!--
     <a href="http://www.google.com">Google</a>
     <a class="item" href="#" onclick="window.open('http://www.google.com/', '_blank', 'location=yes'); return false;">
         Open a Browser
-    -->
+
 
     <div class="bar bar-subheader">
 
@@ -16,8 +31,10 @@
             <a class="button" ng-click="toggleShowBar()">toggle Nav</a>
         </div>
     </div>
+        <ion-content class="has-subheader">
 
-    <ion-content class="has-subheader">
+-->
+    <ion-content>
         <!--
         <div class="bar bar-header item-input-inset">
             <ion-search placeholder="Search a user" filter="search"></ion-search>
@@ -25,7 +42,7 @@
         -->
 
 
-        <button ng-click="setNavTitle('Fish')"> Set Title to Fish</button>
+        <button ng-click="toggleShowBar()"> Toggle Nav Show</button>
 
     </ion-content>
 </ion-view>
