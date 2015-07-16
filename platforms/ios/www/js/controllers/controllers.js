@@ -40,7 +40,6 @@ angular.module('train.controllers', [
                                                                                });
     };
              */;
-}).controller('TryingCtrl', function ($scope) {
 }).controller('BrowseCtrl', function ($scope) {
 })
 

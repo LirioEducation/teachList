@@ -49,12 +49,12 @@ angular.module('train', [
         controller: 'CollectionsCtrl'
       }
     }
-  }).state('tab.trying', {
-    url: '/trying',
+  }).state('tab.playlists', {
+    url: '/playlists',
     views: {
-      'tab-trying': {
-        templateUrl: 'templates/tab-trying.html',
-        controller: 'TryingCtrl'
+      'tab-playlists': {
+        templateUrl: 'templates/tab-playlists.html',
+        controller: 'PlaylistCtrl'
       }
     }
   }).state('tab.chats', {
