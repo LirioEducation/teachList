@@ -115,4 +115,71 @@ angular.module('train.database', [])
     }
 
 
-});
+})
+    .factory('PlaylistDBFactory', function($q, $cordovaSQLite, DBA) {
+
+
+
+        return {
+
+            allPlaylists: function() {
+                var defer = $q.defer();
+
+                DBA.query("SELECT URI, Name, LocalVideoURL, LocalImageURL FROM videos")
+                    .then(function(result){
+                        var all = DBA.getAll(result);
+                        defer.resolve(all);
+                        console.log("allDelegate - query success: " + all[0]);
+                    });
+
+                return defer.promise;
+            },
+
+            getVideo : function(member) {
+                var defer = $q.defer();
+
+                var parameters = [member];
+                DBA.query("SELECT Name, URI, LocalVideoURL, LocalImageURL, Tags, Description, Owner FROM videos WHERE URI = (?)", parameters)
+                    .then(function(result) {
+                        var item = DBA.getById(result);
+                        //console.log(item);
+                        defer.resolve(item);
+                    });
+                return defer.promise;
+            },
+
+            addVideo : function(member) {
+                // turn tags array into a comma separated string
+                var tags = "";
+                if (member.tags) {
+                    tags = member.tags.join(",");
+                }
+
+                console.log("Tags: " + tags);
+
+                var parameters = [member.name, member.URI, member.localVideoURL, member.localImageURL, tags, member.text, member.itemOwner];
+
+                return DBA.query("INSERT INTO videos (Name, URI, LocalVideoURL, LocalImageURL, Tags, Description, Owner) VALUES (?,?,?,?,?,?,?)", parameters);
+            },
+
+            removeVideo : function(member) {
+                var parameters = [member.URI];
+                return DBA.query("DELETE FROM videos WHERE URI = (?)", parameters);
+            },
+
+            updateVideo : function(origMember, editMember) {
+
+                // turn tags array into a comma separated string
+                var tags = "";
+                if (editMember.tags) {
+                    tags = editMember.tags.join(",");
+                }
+
+                var parameters = [editMember.name, editMember.URI, editMember.localVideoURL, editMember.localImageURL, tags, editMember.text, editMember.itemOwner, origMember.URI];
+
+                return DBA.query("UPDATE videos SET Name = (?), URI = (?), LocalVideoURL = (?), LocalImageURL = (?), Tags = (?), Description = (?), Owner = (?) WHERE URI = (?)", parameters);
+            }
+        }
+
+
+    });
