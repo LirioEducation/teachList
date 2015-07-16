@@ -5,15 +5,16 @@ navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
+  <!-- Playlists Tab -->
+  <ion-tab title="Playlists" icon-off="ion-ios-checkmark-outline" icon-on="ion-ios-checkmark" href="#/tab/playlists">
+    <ion-nav-view name="tab-playlists"></ion-nav-view>
+  </ion-tab>
+
   <!-- Collection Tab -->
   <ion-tab title="Collections" icon-off="ion-ios-filing-outline" icon-on="ion-ios-filing" href="#/tab/collections">
       <ion-nav-view name="tab-collections"></ion-nav-view>
   </ion-tab>
 
-  <!-- Trying Tab -->
-  <ion-tab title="Playlists" icon-off="ion-ios-checkmark-outline" icon-on="ion-ios-checkmark" href="#/tab/playlists">
-      <ion-nav-view name="tab-playlists"></ion-nav-view>
-  </ion-tab>
 
   <!-- Chats Tab -->
   <ion-tab title="Chats" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/chats">

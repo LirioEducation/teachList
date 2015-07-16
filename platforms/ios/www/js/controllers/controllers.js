@@ -1,6 +1,7 @@
 angular.module('train.controllers', [
   'train.services',
-  'train.controllers.video'
+  'train.controllers.video',
+    'train.controllers.playlists'
 ]).controller('CollectionsCtrl', function ($scope, $http, Collections) {
   $scope.items = Collections.all();
   $scope.data = { showDelete: false };
@@ -89,34 +90,6 @@ angular.module('train.controllers', [
       $scope.closeLogin();
     }, 1000);
   };
-}).controller('PlaylistsCtrl', function ($scope) {
-  $scope.playlists = [
-    {
-      title: 'Reggae',
-      id: 1
-    },
-    {
-      title: 'Chill',
-      id: 2
-    },
-    {
-      title: 'Dubstep',
-      id: 3
-    },
-    {
-      title: 'Indie',
-      id: 4
-    },
-    {
-      title: 'Rap',
-      id: 5
-    },
-    {
-      title: 'Cowbell',
-      id: 6
-    }
-  ];
-}).controller('PlaylistCtrl', function ($scope, $stateParams) {
 }).controller('DashCtrl', function ($scope) {
 }).controller('ChatsCtrl', function ($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called

@@ -54,7 +54,7 @@ angular.module('train', [
     views: {
       'tab-playlists': {
         templateUrl: 'templates/tab-playlists.html',
-        controller: 'PlaylistCtrl'
+        controller: 'PlaylistsCtrl'
       }
     }
   }).state('tab.chats', {
@@ -103,5 +103,5 @@ angular.module('train', [
     controller: 'LoginCtrl'
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/collections');
+  $urlRouterProvider.otherwise('/tab/playlists');
 });
