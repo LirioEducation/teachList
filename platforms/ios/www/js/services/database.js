@@ -125,7 +125,7 @@ angular.module('train.database', [])
             allPlaylists: function() {
                 var defer = $q.defer();
 
-                DBA.query("SELECT URI, Name, LocalVideoURL, LocalImageURL FROM videos")
+                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image FROM playlists")
                     .then(function(result){
                         var all = DBA.getAll(result);
                         defer.resolve(all);
@@ -135,11 +135,11 @@ angular.module('train.database', [])
                 return defer.promise;
             },
 
-            getVideo : function(member) {
+            getPlaylist : function(member) {
                 var defer = $q.defer();
 
                 var parameters = [member];
-                DBA.query("SELECT Name, URI, LocalVideoURL, LocalImageURL, Tags, Description, Owner FROM videos WHERE URI = (?)", parameters)
+                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image FROM playlists WHERE URI = (?)", parameters)
                     .then(function(result) {
                         var item = DBA.getById(result);
                         //console.log(item);
@@ -148,36 +148,16 @@ angular.module('train.database', [])
                 return defer.promise;
             },
 
-            addVideo : function(member) {
+            addPlaylist : function(member) {
                 // turn tags array into a comma separated string
-                var tags = "";
-                if (member.tags) {
-                    tags = member.tags.join(",");
-                }
+                //var tags = "";
+                //if (member.tags) {
+                //    tags = member.tags.join(",");
+                //}
+                //console.log("Tags: " + tags);
 
-                console.log("Tags: " + tags);
-
-                var parameters = [member.name, member.URI, member.localVideoURL, member.localImageURL, tags, member.text, member.itemOwner];
-
-                return DBA.query("INSERT INTO videos (Name, URI, LocalVideoURL, LocalImageURL, Tags, Description, Owner) VALUES (?,?,?,?,?,?,?)", parameters);
-            },
-
-            removeVideo : function(member) {
-                var parameters = [member.URI];
-                return DBA.query("DELETE FROM videos WHERE URI = (?)", parameters);
-            },
-
-            updateVideo : function(origMember, editMember) {
-
-                // turn tags array into a comma separated string
-                var tags = "";
-                if (editMember.tags) {
-                    tags = editMember.tags.join(",");
-                }
-
-                var parameters = [editMember.name, editMember.URI, editMember.localVideoURL, editMember.localImageURL, tags, editMember.text, editMember.itemOwner, origMember.URI];
-
-                return DBA.query("UPDATE videos SET Name = (?), URI = (?), LocalVideoURL = (?), LocalImageURL = (?), Tags = (?), Description = (?), Owner = (?) WHERE URI = (?)", parameters);
+                var parameters = [member.URI, member.title, member.owner, member.sharedWith, member.steps, member.completedSteps, member.image];
+                return DBA.query("INSERT INTO playlists (URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image) VALUES (?,?,?,?,?,?,?)", parameters);
             }
         }
 
