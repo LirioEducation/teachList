@@ -42,7 +42,15 @@
         -->
 
 
-        <button ng-click="toggleShowBar()"> Toggle Nav Show</button>
+        <!--<button ng-click="toggleShowBar()"> Toggle Nav Show</button>-->
+
+        <ion-list>
+            <ion-item class="playlist-banner" collection-repeat="playlist in playlists">
+                <img src="img/playlist.jpg">
+                <div class="next-step-bar"> Next Step</div>
+
+            </ion-item>
+        </ion-list>
 
     </ion-content>
 </ion-view>

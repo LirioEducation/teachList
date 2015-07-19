@@ -281,3 +281,25 @@ a.autolinker {
 .full-width {
     width: 100%;
 }
+
+
+ion-item.playlist-banner {
+    height: 400px;
+}
+ion-item.playlist-banner img {
+    width: 100%;
+    max-height: 150px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+ion-item.playlist-banner .next-step-bar {
+    background-color: #76D7E3;
+    padding: 0px ;
+    margin-top:-5px;
+    border: 0px;
+    width:100%;
+
+    text-indent: 10px;
+    color: black;
+}
