@@ -337,12 +337,11 @@ ion-item.playlist-banner img {
 
 .playlist .next-step .row .step-detail {
     text-align: center;
-    border: dashed;
-    border-color: black;
 }
 
-.col {
-
+.playlist .next-step .row .step-detail {
+    text-align: center;
+    color: #000;
 }
 
 .playlist .item-image {
@@ -354,14 +353,22 @@ ion-item.playlist-banner img {
     opacity: 0.5;
 }
 
-.playlist .item .row .col h2 {
+.playlist .item .row.playlist-title .col h2{
     position: absolute;
     top: 30px;
     color: white;
     width: 50%;
     text-align: left;
-    border: dashed;
-    border-color: black;
+    overflow: initial;
+    white-space: initial;
+}
+
+.playlist .item .row.playlist-shared .col p {
+    position: absolute;
+    top: 80px;
+    color: white;
+    width: 50%;
+    text-align: left;
     overflow: initial;
     white-space: initial;
 }

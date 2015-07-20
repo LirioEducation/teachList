@@ -3,7 +3,7 @@
  */
 
 angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train.database'])
-    .controller('PlaylistsCtrl', function($scope, $ionicNavBarDelegate, NavBarService, PlaylistDBFactory){
+    .controller('PlaylistCtrl', function($scope, $ionicNavBarDelegate, NavBarService, CollectionsDBFactory){
 
         var showDetails = {};
 
@@ -16,16 +16,16 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
         }
         NavBarService.setTransparency(true);
 
-        $scope.playlists = [];
-        $scope.updatePlaylists = function()   {
+        $scope.playlist = [];
+        $scope.updatePlaylist = function()   {
 
-            PlaylistDBFactory.allPlaylists().then(function (playlists) {
-                $scope.playlists = playlists;
-                console.log(playlists);
+            CollectionsDBFactory.allCollections().then(function (collections) {
+                $scope.playlist = collections;
+                console.log(collections);
             });
         };
 
-        $scope.updatePlaylists();
+        $scope.updatePlaylist();
 
         $scope.onStepDetailClick = function (index) {
             if (showDetails[index] === true) {
@@ -42,8 +42,10 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             return showDetails[index];
         }
 
+
+
     })
-.controller('PlaylistCtrl', function ($scope) {
+.controller('CollectionCtrl', function ($scope) {
 
     })
 ;

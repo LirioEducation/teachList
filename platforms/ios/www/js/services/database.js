@@ -116,16 +116,14 @@ angular.module('train.database', [])
 
 
 })
-    .factory('PlaylistDBFactory', function($q, $cordovaSQLite, DBA) {
-
-
+    .factory('CollectionsDBFactory', function($q, $cordovaSQLite, DBA) {
 
         return {
 
-            allPlaylists: function() {
+            allCollections: function() {
                 var defer = $q.defer();
 
-                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image FROM playlists")
+                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image FROM Collections")
                     .then(function(result){
                         var all = DBA.getAll(result);
                         defer.resolve(all);
@@ -135,11 +133,11 @@ angular.module('train.database', [])
                 return defer.promise;
             },
 
-            getPlaylist : function(member) {
+            getCollection : function(member) {
                 var defer = $q.defer();
 
                 var parameters = [member];
-                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image FROM playlists WHERE URI = (?)", parameters)
+                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image FROM Collections WHERE URI = (?)", parameters)
                     .then(function(result) {
                         var item = DBA.getById(result);
                         //console.log(item);
@@ -148,7 +146,7 @@ angular.module('train.database', [])
                 return defer.promise;
             },
 
-            addPlaylist : function(member) {
+            addCollection : function(member) {
                 // turn tags array into a comma separated string
                 //var tags = "";
                 //if (member.tags) {
@@ -157,9 +155,13 @@ angular.module('train.database', [])
                 //console.log("Tags: " + tags);
 
                 var parameters = [member.URI, member.title, member.owner, member.sharedWith, member.steps, member.completedSteps, member.image];
-                return DBA.query("INSERT INTO playlists (URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image) VALUES (?,?,?,?,?,?,?)", parameters);
+                return DBA.query("INSERT INTO Collections (URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image) VALUES (?,?,?,?,?,?,?)", parameters);
+            },
+
+            getStep: function (id) {
+
             }
+
         }
-
-
     });
+

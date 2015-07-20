@@ -49,14 +49,23 @@ angular.module('train', [
         controller: 'CollectionsCtrl'
       }
     }
-  }).state('tab.playlists', {
-    url: '/playlists',
+  }).state('tab.playlist', {
+    url: '/playlist',
     views: {
-      'tab-playlists': {
-        templateUrl: 'templates/tab-playlists.html',
-        controller: 'PlaylistsCtrl'
+      'tab-playlist': {
+        templateUrl: 'templates/tab-playlist.html',
+        controller: 'PlaylistCtrl'
       }
     }
+      })
+      .state('tab.playlist-collection', {
+          url: '/playlist/:collectionId',
+          views: {
+            'tab-playlist': {
+              templateUrl: 'templates/playlist-collection.html',
+              controller: 'CollectionCtrl'
+            }
+          }
   }).state('tab.chats', {
     url: '/chats',
     views: {
@@ -103,5 +112,5 @@ angular.module('train', [
     controller: 'LoginCtrl'
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/playlists');
+  $urlRouterProvider.otherwise('/tab/playlist');
 });
