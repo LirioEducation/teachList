@@ -3,7 +3,7 @@
  */
 
 angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train.database'])
-    .controller('PlaylistCtrl', function($scope, $ionicNavBarDelegate, NavBarService, CollectionsDBFactory){
+    .controller('PlaylistCtrl', function($scope, $state, $ionicNavBarDelegate, NavBarService, CollectionsDBFactory){
 
         var showDetails = {};
 
@@ -34,14 +34,22 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             else {
                 showDetails[index] = true;
             }
-            console.log("onStepDetailClick: " + index);
-        }
+            console.log("onStepDetailClick: " + showDetails[index]);
+        };
 
         $scope.showStepDetails = function (index) {
-            console.log("showStepDetails: " + index);
+            console.log("showStepDetails: " + showDetails[index]);
             return showDetails[index];
-        }
+        };
 
+        $scope.showCollection = function (index) {
+            console.log("collection index: " + index);
+            var collection = $scope.playlist[index];
+            var collectionURI = collection.URI;
+            var collectionURL = '#/';
+            //$state.transitionTo('url', {url: })
+            $state.transitionTo('tab.playlist-collection', {collectionId: collectionURI});
+        };
 
 
     })
