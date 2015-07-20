@@ -4,6 +4,9 @@
 
 angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train.database'])
     .controller('PlaylistsCtrl', function($scope, $ionicNavBarDelegate, NavBarService, PlaylistDBFactory){
+
+        var showDetails = {};
+
         $scope.setNavTitle = function(title) {
             $ionicNavBarDelegate.title(title);
             console.log("set title");
@@ -23,6 +26,21 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
         };
 
         $scope.updatePlaylists();
+
+        $scope.onStepDetailClick = function (index) {
+            if (showDetails[index] === true) {
+                showDetails[index] = false;
+            }
+            else {
+                showDetails[index] = true;
+            }
+            console.log("onStepDetailClick: " + index);
+        }
+
+        $scope.showStepDetails = function (index) {
+            console.log("showStepDetails: " + index);
+            return showDetails[index];
+        }
 
     })
 .controller('PlaylistCtrl', function ($scope) {
