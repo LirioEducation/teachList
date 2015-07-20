@@ -345,15 +345,23 @@ ion-item.playlist-banner img {
 
 }
 
-
-.playlist .item .image {
+.playlist .item-image {
+    background: #000;
+}
+.playlist .item  img{
     position: relative;
     width: 100%;
+    opacity: 0.5;
 }
 
-.playlist .item h2 {
+.playlist .item .row .col h2 {
     position: absolute;
-    top: 200px;
-    left: 0;
-    width: 100%;
+    top: 30px;
+    color: white;
+    width: 50%;
+    text-align: left;
+    border: dashed;
+    border-color: black;
+    overflow: initial;
+    white-space: initial;
 }
