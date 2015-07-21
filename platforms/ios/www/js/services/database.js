@@ -158,8 +158,18 @@ angular.module('train.database', [])
                 return DBA.query("INSERT INTO Collections (URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image) VALUES (?,?,?,?,?,?,?)", parameters);
             },
 
-            getStep: function (id) {
+            getStepsForCollection: function (uri) {
+                var defer = $q.defer();
 
+                var parameters = [uri];
+                DBA.query("SELECT URI, Title, Type, Details, Time, Collection, Items FROM Steps WHERE Collection = (?)", parameters)
+                    .then(function(result) {
+                        console.log("result: " + result);
+                        var item = DBA.getAll(result);
+                        console.log(item);
+                        defer.resolve(item);
+                    });
+                return defer.promise;
             }
 
         }

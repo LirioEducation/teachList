@@ -2,8 +2,8 @@
  * Created by justinkahn on 7/16/15.
  */
 
-angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train.database'])
-    .controller('PlaylistCtrl', function($scope, $state, $ionicNavBarDelegate, NavBarService, CollectionsDBFactory){
+angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train.database',   'ui.router'])
+    .controller('PlaylistCtrl', function($scope, $state, $stateParams, $ionicNavBarDelegate, NavBarService, CollectionsDBFactory){
 
         var showDetails = {};
 
@@ -34,26 +34,47 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             else {
                 showDetails[index] = true;
             }
-            console.log("onStepDetailClick: " + showDetails[index]);
+            //console.log("onStepDetailClick: " + showDetails[index]);
         };
 
         $scope.showStepDetails = function (index) {
-            console.log("showStepDetails: " + showDetails[index]);
+            //console.log("showStepDetails: " + showDetails[index]);
             return showDetails[index];
         };
 
         $scope.showCollection = function (index) {
             console.log("collection index: " + index);
             var collection = $scope.playlist[index];
-            var collectionURI = collection.URI;
-            var collectionURL = '#/';
-            //$state.transitionTo('url', {url: })
-            $state.transitionTo('tab.playlist-collection', {collectionId: collectionURI});
+            console.log("collection: " + collection);
+            console.log("collection URI: " + collection.URI);
+            $state.transitionTo('tab.playlist-collection', {collectionId: collection.URI});
+
+            //var collectionURL = '/tab/playlist/' + collectionURI;
+            //$state.transitionTo('url', {url: collectionURL});
+
         };
 
 
     })
-.controller('CollectionCtrl', function ($scope) {
+.controller('CollectionCtrl', function ($scope, $stateParams, CollectionsDBFactory) {
+        $scope.collectionURI = $stateParams.collectionId;
+        console.log("$stateParams: " + $stateParams);
+        console.log("collection URI ", + $scope.collectionURI);
+
+        $scope.updateCollection = function()   {
+            console.log("collection URI ", + $scope.collectionURI);
+
+            CollectionsDBFactory.getCollection($scope.collectionURI).then(function (collection) {
+                $scope.collection = collection;
+                console.log("Collection: " + collection);
+                console.log("Collection URI: " + collection.URI);
+                CollectionsDBFactory.getStepsForCollection(collection.URI).then(function (steps){
+                    $scope.steps = steps;
+                    console.log("Steps: " + steps);
+                });
+            });
+        };
+        $scope.updateCollection();
 
     })
 ;

@@ -69,9 +69,10 @@
                 <div class="list card">
                     <div class="playlist" ng-repeat="collection in playlist">
                         <div class="item item-image">
+                            <!--<ion-item href="#/tab/playlist/{{collection.URI}}"> -->
+                                <img src="img/image1.jpg" alt=""  ng-click="showCollection($index)">
 
-
-                            <img src="img/image1.jpg" alt="" ng-click="showCollection($index)">
+                            <!--</ion-item> -->
                             <div class="row playlist-title">
                                 <div class="col">
                                     <h2>{{collection.Title}}</h2>
