@@ -113,4 +113,45 @@ angular.module('train', [
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/playlist');
-});
+})
+    .directive('stepIcon ', function () {
+      return {
+        restrict: 'E',   // 'A' is the default, so you could remove this line
+
+        template: 'hello'
+        //template:  "<img class='collection-icon' ng-src='img/CollectionIcons/{{step.Type}}.png'>"
+        //"<img class=\"collection-icon\" ng-src='img/CollectionIcons/{{type}}.png'>"
+        /*
+
+         link: function (scope, element, attrs) {
+
+         console.log("link ---------------");
+         var imgURL = '';
+         if (attrs.type == Recording) {
+         console.log('recording');
+         imgURL = '/img/CollectionIcons/recording.png';
+         }
+         if (attrs.type == Article) {
+         console.log('article');
+         imgURL = '/img/CollectionIcons/article.png';
+         }
+         console.log(attrs.type);
+
+         var html ="<img src=imgURL>";
+         //var e =$compile(html)(scope);
+         //element.replaceWith(e);
+
+         }*/
+      };
+    })
+
+
+    .directive('someDirective', function() {
+      return {
+        restrict: 'E',
+        scope: {
+          type: '@'
+        },
+        template: "<img class='collection-icon' ng-src='img/CollectionIcons/{{type}}.png'>"
+      };
+    });

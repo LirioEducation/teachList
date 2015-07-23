@@ -375,3 +375,50 @@ ion-item.playlist-banner img {
     overflow: initial;
     white-space: initial;
 }
+
+
+.collection-header {
+    background: blue;
+    margin: -10px ;
+    padding: 0;
+    border-bottom-width: 0;
+}
+
+.collection-header img{
+    position: relative;
+    width: 100%;
+    opacity: 0.5;
+    margin: -10px ;
+    padding: 0;
+    border-bottom-width: 0;
+}
+
+
+
+.collection-header .row.collection-title .col h2{
+    position: absolute;
+    top: 30px;
+    color: white;
+    width: 50%;
+    text-align: left;
+    overflow: initial;
+    white-space: initial;
+    font-size: medium;
+    font-weight: bold;
+    margin-bottom: -10px ;
+    padding-bottom: -10px;
+    border-bottom-top: 0;
+}
+
+.collection-header .row.collection-shared .col p {
+    position: absolute;
+    top: 80px;
+    color: white;
+    width: 50%;
+    text-align: left;
+    overflow: initial;
+    white-space: initial;
+    margin-bottom: -10px ;
+    padding-bottom: -10px;
+    border-bottom-width: 0;
+}

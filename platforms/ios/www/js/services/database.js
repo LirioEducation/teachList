@@ -32,7 +32,7 @@ angular.module('train.database', [])
                 for (var i = 0; i < result.rows.length; i++) {
                     output.push(result.rows.item(i));
                 }
-                //console.log('output ' + JSON.stringify(output));
+                console.log('output ' + JSON.stringify(output));
                 return output;
             },
 
@@ -123,7 +123,7 @@ angular.module('train.database', [])
             allCollections: function() {
                 var defer = $q.defer();
 
-                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image FROM Collections")
+                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CurrentStepIndex, Image FROM Collections")
                     .then(function(result){
                         var all = DBA.getAll(result);
                         defer.resolve(all);
@@ -137,7 +137,7 @@ angular.module('train.database', [])
                 var defer = $q.defer();
 
                 var parameters = [member];
-                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image FROM Collections WHERE URI = (?)", parameters)
+                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CurrentStepIndex, Image FROM Collections WHERE URI = (?)", parameters)
                     .then(function(result) {
                         var item = DBA.getById(result);
                         //console.log(item);
@@ -155,7 +155,7 @@ angular.module('train.database', [])
                 //console.log("Tags: " + tags);
 
                 var parameters = [member.URI, member.title, member.owner, member.sharedWith, member.steps, member.completedSteps, member.image];
-                return DBA.query("INSERT INTO Collections (URI, Title, Owner, SharedWith, Steps, CompletedSteps, Image) VALUES (?,?,?,?,?,?,?)", parameters);
+                return DBA.query("INSERT INTO Collections (URI, Title, Owner, SharedWith, Steps, CurrentStepIndex, Image) VALUES (?,?,?,?,?,?,?)", parameters);
             },
 
             getStepsForCollection: function (uri) {
@@ -164,13 +164,25 @@ angular.module('train.database', [])
                 var parameters = [uri];
                 DBA.query("SELECT URI, Title, Type, Details, Time, Collection, Items FROM Steps WHERE Collection = (?)", parameters)
                     .then(function(result) {
-                        console.log("result: " + result);
                         var item = DBA.getAll(result);
-                        console.log(item);
+                        defer.resolve(item);
+                    });
+                return defer.promise;
+            },
+
+            getCollectionStep: function(uri) {
+                var defer = $q.defer();
+
+                var parameters = [uri];
+                DBA.query("SELECT URI, Title, Type, Details, Time, Collection, Items FROM Steps WHERE URI = (?)", parameters)
+                    .then(function(result) {
+                        var item = DBA.getAll(result)[0];
                         defer.resolve(item);
                     });
                 return defer.promise;
             }
+
+
 
         }
     });
