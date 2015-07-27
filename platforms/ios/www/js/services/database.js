@@ -56,7 +56,7 @@ angular.module('train.database', [])
         allOfType: function(type) {
             var defer = $q.defer();
             var parameters = [type];
-            DBA.query("SELECT URI, Name, LocalMediaURL, LocalThumbnailURL FROM media WHERE MediaType = (?)", parameters)
+            DBA.query("SELECT URI, Name, MediaType, LocalMediaURL, LocalThumbnailURL FROM media WHERE MediaType = (?)", parameters)
                 .then(function(result){
                     var all = DBA.getAll(result);
                     defer.resolve(all);

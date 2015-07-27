@@ -105,7 +105,7 @@ angular.module('train.services.video', ['train.database'])
 
 
     .factory('ImageService', ['$q', '$cordovaFile', 'MediaDBFactory', function ($q, $cordovaFile, MediaDBFactory) {
-      var videos = {};
+      var images = {};
       var deferred = $q.defer();
       var promise = deferred.promise;
 
@@ -138,7 +138,8 @@ angular.module('train.services.video', ['train.database'])
       //
 
       function addMedia(filename, videoURL, imageURL) {
-        MediaDBFactory.addMedia({
+
+        return MediaDBFactory.addMedia({
           URI: filename,
           name: filename,
           mediaType: 'Image',
@@ -162,21 +163,13 @@ angular.module('train.services.video', ['train.database'])
           return prevImageSuccess(prevSucc, ext);
         }, fail);
         */
-        addMedia(name, entry.nativeURL,entry.nativeURL);
-        console.log("image copy: " + entry.nativeURL);
-        deferred.resolve(entry.nativeURL);
+        addMedia(name, entry.nativeURL,entry.nativeURL)
+            .then(function () {
+              console.log("image copy: " + entry.nativeURL);
+              deferred.resolve(entry.nativeURL);
+            });
       }
 
-      // Called on thumbnail creation success
-      // Generates the currect URL to the local moviefile
-      // Finally resolves the promies and returns the name
-      function prevImageSuccess(succ) {
-        var correctUrl = succ.slice(0, -4);
-        correctUrl += '.MOV';
-        var filename = correctUrl.split("/").pop();
-        addMedia(filename, correctUrl, succ);
-        deferred.resolve(correctUrl);
-      }
 
       // Called when anything fails
       // Rejects the promise with an Error
@@ -202,13 +195,13 @@ angular.module('train.services.video', ['train.database'])
         // This is the initial function we call from our controller
         // Gets the videoData and calls the first service function
         // with the local URL of the video and returns the promise
-        saveVideo: function (data) {
+        saveImage: function (data) {
           createFileEntry(data[0].localURL);
           return promise;
         },
 
-        getVideos: function () {
-          return videos;
+        getImages: function () {
+          return images;
         }
       };
     }]);

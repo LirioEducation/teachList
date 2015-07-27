@@ -15,12 +15,31 @@
                         <p>{{video.LocalMediaURL}}</p>
 
 
-                <ion-option-button class="button-assertive icon ion-trash-a" ng-click="onItemDelete(video)">  </ion-option-button>
+                <ion-option-button class="button-assertive icon ion-trash-a" ng-click="onVideoDelete(video)">  </ion-option-button>
 
             </ion-item>
             
         </ion-list>
-        
+
+        <ion-list can-swipe="listCanSwipe" show-delete="shouldShowDelete">
+            <div class="item item-divider"> Images
+                </div>
+            <ion-item class="item-avatar" ng-repeat="image in images" type="item-text-wrap" href="#/tab/video/{{image.URI}}">
+                <img ng-src="{{image.LocalThumbnailURL}}">
+                <!--
+                <ion-item ng-repeat="video in videos">
+                 -->
+
+                <h2>{{image.Name}}</h2>
+                <p>{{image.URI}}</p>
+                <p>{{image.LocalMediaURL}}</p>
+
+
+                <ion-option-button class="button-assertive icon ion-trash-a" ng-click="onImageDelete(image)">  </ion-option-button>
+
+            </ion-item>
+
+        </ion-list>
         
         <div class="list">
             <div class="item item-divider">
@@ -28,7 +47,8 @@
                 Current clip
             </div>
             <img ng-src="{{urlForClipThumb(clip)}}" style="height: 250px; width: 150px;"/>
-            <button ng-click="updateVideos()">log videos</button>
+            <img ng-src="{{recentImageURL}}" style="height: 250px; width: 150px;"/>
+            <button ng-click="updateImages()">updateImages</button>
         </div>
         
         
