@@ -360,7 +360,7 @@ ion-item.playlist-banner img {
     position: absolute;
     top: 30px;
     color: white;
-    width: 50%;
+    width: 80%;
     text-align: left;
     overflow: initial;
     white-space: initial;
@@ -399,7 +399,7 @@ ion-item.playlist-banner img {
     position: absolute;
     top: 30px;
     color: white;
-    width: 50%;
+    width: 80%;
     text-align: left;
     overflow: initial;
     white-space: initial;
@@ -414,11 +414,37 @@ ion-item.playlist-banner img {
     position: absolute;
     top: 80px;
     color: white;
-    width: 50%;
+    width: 80%;
     text-align: left;
     overflow: initial;
     white-space: initial;
     margin-bottom: -10px ;
     padding-bottom: -10px;
     border-bottom-width: 0;
+}
+
+.item-complex.item-full .item-content{
+    padding: 90px !important;
+}
+
+.playlist-item {
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.list.card.step {
+    padding: 0px;
+    margin: -10px;
+}
+
+
+
+.collection-step .list.card.step img {
+    position: absolute;
+    float: left;
+    width: 50px;
+    max-height: 100px;
+    max-width: 50px;
+    vertical-align: middle;
 }

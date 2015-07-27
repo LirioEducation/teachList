@@ -65,15 +65,13 @@
         </ion-list>
         -->
 
-
-        <div class="list card">
-            <div class="playlist" ng-repeat="collection in playlist">
+        <ion-item class="playlist-item" ng-repeat="collection in playlist">
+            <div class="list card playlist">
                 <div class="item item-image">
-                    <!--<ion-item href="#/tab/playlist/{{collection.URI}}"> -->
-                        <img src="img/image1.jpg" alt=""  ng-click="showCollection($index)">
+                    <img src="img/image1.jpg" alt=""  ng-click="showCollection($index)">
 
                     <!--</ion-item> -->
-                    <div class="row playlist-title">
+                    <div class="row playlist-title" ng-click="showCollection($index)">
                         <div class="col">
                             <h2>{{collection.Title}}</h2>
                         </div>
@@ -81,11 +79,11 @@
 
                         </div>
                     </div>
-                    <div class="row playlist-shared">
+                    <div class="row playlist-shared" ng-click="showCollection($index)">
                         <div class="col">
                             <p>
                                 Shared with Marni
-                               <br>
+                                <br>
                                 3 / 18 Steps Done
                             </p>
                         </div>
@@ -108,7 +106,7 @@
                     </div>
                     <div class="row" ng-click="onStepDetailClick($index)">
                         <div class="col step-detail">
-                                <!--<i class="icon ion-ios-arrow-down"></i> -->
+                            <!--<i class="icon ion-ios-arrow-down"></i> -->
                             <button ng-class="button button-full button-light button-icon icon ion-ios-arrow-down">
                             </button>                                </div>
                     </div>
@@ -117,13 +115,65 @@
 
                     </div>
                 </div>
-                <br>
+            </div>
+        </ion-item>
+
+        <!--
+        <div class="list card">
+            <div class="playlist" ng-repeat="collection in playlist">
+                <div class="item item-image">
+        <img src="img/image1.jpg" alt=""  ng-click="showCollection($index)">
+
+        <div class="row playlist-title">
+            <div class="col">
+                <h2>{{collection.Title}}</h2>
+            </div>
+            <div class="col">
 
             </div>
-
+        </div>
+        <div class="row playlist-shared">
+            <div class="col">
+                <p>
+                    Shared with Marni
+                    <br>
+                    3 / 18 Steps Done
+                </p>
+            </div>
 
         </div>
 
+        </div>
+        <div class="next-step-bar"> Next Step</div>
+
+        <div class="next-step">
+            <div class="row">
+                <div class="col col-center">
+                    <img src="img/ionic.png">
+                </div>
+                <div class="col col-75">
+                    <div class="step-title"> Use PBL in the Music classroom </div>
+                    <br>
+                    <div class="step-time"> approx. 15 min</div>
+                </div>
+            </div>
+            <div class="row" ng-click="onStepDetailClick($index)">
+                <div class="col step-detail">
+                    <button ng-class="button button-full button-light button-icon icon ion-ios-arrow-down">
+                    </button>                                </div>
+            </div>
+            <div class="row animate-show" ng-show="showStepDetails($index)">
+                {{currentStepDetails.Title}}
+
+            </div>
+        </div>
+        <br>
+
+        </div>
+
+
+        </div>
+        -->
 
     </ion-content>
 </ion-view>

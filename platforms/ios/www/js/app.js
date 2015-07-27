@@ -154,15 +154,19 @@ angular.module('train', [
               step: '='
           },
           link: function(scope, element, attrs) {
-              scope.contentUrl = 'templates/directives/step-' + attrs.type + '.html';
+              scope.type = attrs.type;
+              console.log("attrs.type: " + attrs.type);
+              scope.contentUrl = '/templates/directives/step-' + attrs.type + '.html';
+              console.log("contentURL: " + scope.contentUrl);
+
               attrs.$observe("type",function(v){
-                  scope.contentUrl = 'templates/directives/step-' + attrs.type + '.html';
+                  scope.contentUrl = '/templates/directives/step-' + attrs.type + '.html';
               });
           },
           template:
             "<div class='' ng-switch='type'>" +
-                "<div class='animate-switch' ng-switch-when='Recording'> <div ng-include='contentUrl' ng-controller=''> </div> </div>" +
-                "<div class='animate-switch' ng-switch-when='Article'> <div ng-include='contentUrl' ng-controller=''> </div> </div>" +
+                "<div class='animate-switch' ng-switch-when='Recording'> Hello <div ng-include='contentUrl' ng-controller=''> </div> </div>" +
+                "<div class='animate-switch' ng-switch-when='Article'> GoodBye <div ng-include='contentUrl' ng-controller=''> </div> </div>" +
                 "<div class='animate-switch' ng-switch-default>default</div>" +
             "</div>"
       };

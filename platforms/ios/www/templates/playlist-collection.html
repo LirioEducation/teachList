@@ -27,19 +27,63 @@
             </div>
 
         </div>
+        <div class="item item-divider">
+            Completed Steps
+        </div>
+        <ion-item class="collection-step" ng-repeat="step in completedSteps">
+            <div class="list card step">
 
+                <div class="row">
+                    <div class="col">
+                        <img class='collection-icon' ng-src='img/CollectionIcons/{{step.Type}}.png'>
+                    </div>
+                    <div class="col col-75">
+                        <div class="step-title"> Use PBL in the Music classroom </div>
+                        <br>
+                        <div class="step-time"> approx. 15 min</div>
+                    </div>
+                </div>
+                <div class="row" ng-click="onStepDetailClick($index)">
+                    <div class="col col-50 step-detail">
+                        <!--<i class="icon ion-ios-arrow-down"></i> -->
+                        <button class="button button-positive">
+                            button-positive
+                        </button>
+                    </div>
+                    <div class="col col-50 step-detail">
+                        <!--<i class="icon ion-ios-arrow-down"></i> -->
+                        <button class="button button-positive">
+                            button-positive
+                        </button>
+                    </div>
+                </div>
+                <div class="row animate-show" ng-show="showStepDetails($index)">
+                    {{currentStepDetails.Title}}
+
+                </div>
+
+            </div>
+        </ion-item>
+
+        <div class="item item-divider">
+            Next Steps
+        </div>
+
+
+
+
+        <!--
         <ion-list can-swipe="listCanSwipe">
             <div class="item item-divider">
                 Completed
             </div>
-            <ion-item ng-repeat="step in completedSteps" type="item-text-wrap" class="item-thumbnail-left" ng-click="showStepDetails($index) ">
+            <ion-item collection-repeat="step in completedSteps" type="item-text-wrap" class="item-thumbnail-left" ng-click="showStepDetails($index) ">
                 <img class='collection-icon' ng-src='img/CollectionIcons/{{step.Type}}.png'>
 
                 <h2> {{step.Title}}</h2>
 
                 <div class="row" ng-click="onStepDetailClick(0, $index)">
                     <div class="col step-detail">
-                        <!--<i class="icon ion-ios-arrow-down"></i> -->
                         <button ng-class="button button-full button-light button-icon icon ion-ios-arrow-down">
                         </button>
                     </div>
@@ -49,6 +93,7 @@
                     <div class="row">
                         <div class="col">
                             {{step.Details}}
+
                         </div>
                     </div>
                     <div class="row">
@@ -65,12 +110,14 @@
             </div>
             <ion-item ng-repeat="step in nextSteps" type="item-text-wrap">
 
+                {{step.Type}}
                 <step-icon type="{{step.Type}}"></step-icon>
 
             </ion-item>
 
 
         </ion-list>
+        -->
 
 
 
