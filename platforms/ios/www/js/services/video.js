@@ -35,7 +35,7 @@ angular.module('train.services.video', ['train.database'])
  //
 
       function addMedia(filename, videoURL, imageURL) {
-        MediaDBFactory.addMedia({
+        return MediaDBFactory.addMedia({
           URI: filename,
           name: filename,
           mediaType: 'Video',
@@ -66,8 +66,8 @@ angular.module('train.services.video', ['train.database'])
     var correctUrl = succ.slice(0, -4);
     correctUrl += '.MOV';
     var filename = correctUrl.split("/").pop();
-    addMedia(filename, correctUrl, succ);
-    deferred.resolve(correctUrl);
+    console.log("prevImage: " + filename);
+    addMedia(filename, correctUrl, succ).then(function(){deferred.resolve(filename);});
   }
   // Called when anything fails
   // Rejects the promise with an Error
@@ -139,6 +139,7 @@ angular.module('train.services.video', ['train.database'])
 
       function addMedia(filename, videoURL, imageURL) {
 
+        console.log("addMedia - filename: " + filename);
         return MediaDBFactory.addMedia({
           URI: filename,
           name: filename,
@@ -166,7 +167,7 @@ angular.module('train.services.video', ['train.database'])
         addMedia(name, entry.nativeURL,entry.nativeURL)
             .then(function () {
               console.log("image copy: " + entry.nativeURL);
-              deferred.resolve(entry.nativeURL);
+              deferred.resolve(name);
             });
       }
 

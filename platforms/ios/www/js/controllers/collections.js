@@ -158,7 +158,7 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             };
             */
     })
-    .controller('RecordingStepCtrl', function ($scope, $cordovaCapture, VideoService, MediaDBFactory) {
+    .controller('RecordingStepCtrl', function ($scope, $state, $cordovaCapture, VideoService, MediaDBFactory) {
         var videos = [];
         $scope.videos = [];
         $scope.clip = '';
@@ -168,7 +168,8 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             $cordovaCapture.captureVideo().then(function (videoData) {
                 VideoService.saveVideo(videoData).success(function (data) {
                     $scope.clip = data;
-                    $scope.afterCapture();
+                    console.log("video data: " + data);
+                    $scope.afterCapture(data);
                     $scope.$apply();
                 }).error(function (data) {
                     console.log('ERROR: ' + data);
@@ -176,8 +177,9 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             });
         };
 
-        $scope.afterCapture = function () {
-
+        $scope.afterCapture = function (data) {
+            $scope.step.Items = data;
+            console.log("scope.step: " + $scope.step);
         };
 
         $scope.display = false;
@@ -188,6 +190,13 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             $scope.display = !$scope.display;
             console.log("pleaseClick " + $scope.display);
 
+        };
+
+        $scope.showVideo = function () {
+            console.log("show video");
+            console.log($scope.step.Items);
+            $state.go('tab.video-player', {'name': $scope.step.Items});
+            //$state.go('tab.video');
         };
     })
     .directive('recordingStep', function() {
