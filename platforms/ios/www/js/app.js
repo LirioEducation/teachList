@@ -156,11 +156,11 @@ angular.module('train', [
           link: function(scope, element, attrs) {
               scope.type = attrs.type;
               console.log("attrs.type: " + attrs.type);
-              scope.contentUrl = '/templates/directives/step-' + attrs.type + '.html';
+              scope.contentUrl = 'templates/directives/step-' + attrs.type + '.html';
               console.log("contentURL: " + scope.contentUrl);
 
               attrs.$observe("type",function(v){
-                  scope.contentUrl = '/templates/directives/step-' + attrs.type + '.html';
+                  scope.contentUrl = 'templates/directives/step-' + attrs.type + '.html';
               });
           },
           template:
@@ -170,4 +170,7 @@ angular.module('train', [
                 "<div class='animate-switch' ng-switch-default>default</div>" +
             "</div>"
       };
-    });
+    })
+
+
+;

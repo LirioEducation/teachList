@@ -131,33 +131,7 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
 
         };
 
-        $scope.onStepDetailClick = function (parentIndex, index) {
-            console.log("onStepDetailClick: " + parentIndex + " " + index);
 
-            if (parentIndex === 0) { // completed steps
-                $scope.completedSteps[index].detailDisplay = ! $scope.completedSteps[index].detailDisplay;
-            }
-            else if (parentIndex === 1) { // next steps
-                $scope.nextSteps[index].detailDisplay = ! $scope.nextSteps[index].detailDisplay;
-
-            }
-        };
-
-        $scope.showStepDetails = function (parentIndex, index) {
-            console.log("showStepDetails: " + parentIndex + " " + index);
-
-            if (parentIndex === 0) { // completed steps
-                var output = $scope.completedSteps[index].detailDisplay;
-                console.log("output " + output);
-                return output;
-            }
-            else if (parentIndex === 1) { // next steps
-                var output = $scope.nextSteps[index].detailDisplay;
-                console.log("output " + output);
-
-                return output;
-            }
-        };
 
             /*
             $scope.showDetails = {0:{0: false}, 1:{0: false}};
@@ -183,4 +157,54 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
                 return show;
             };
             */
-    });
+    })
+    .controller('RecordingStepCtrl', function ($scope, $cordovaCapture, VideoService, MediaDBFactory) {
+        var videos = [];
+        $scope.videos = [];
+        $scope.clip = '';
+
+        $scope.captureVideo = function () {
+            console.log("capture video");
+            $cordovaCapture.captureVideo().then(function (videoData) {
+                VideoService.saveVideo(videoData).success(function (data) {
+                    $scope.clip = data;
+                    $scope.afterCapture();
+                    $scope.$apply();
+                }).error(function (data) {
+                    console.log('ERROR: ' + data);
+                });
+            });
+        };
+
+        $scope.afterCapture = function () {
+
+        };
+
+        $scope.display = false;
+
+        $scope.pleaseClick = function () {
+            console.log("pleaseClick " + $scope.display);
+
+            $scope.display = !$scope.display;
+            console.log("pleaseClick " + $scope.display);
+
+        };
+    })
+    .directive('recordingStep', function() {
+        return {
+            restrict: 'E',
+            scope: {
+                step: '=',
+                parentIndex: '@',
+                index: '@'
+            },
+            controller: 'RecordingStepCtrl',
+            link: function(scope, element, attrs) {
+                console.log("recordingStep");
+                console.log("recordingStep: " + scope.step);
+                console.log("parentIndex: " + scope.parentIndex);
+            },
+            templateUrl: 'templates/directives/step-Recording.html'
+        };
+    })
+;
