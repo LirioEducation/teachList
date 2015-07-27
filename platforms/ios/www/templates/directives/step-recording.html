@@ -1,0 +1,20 @@
+<img class="collection-icon" ng-src='img/CollectionIcons/{{step.Type}}.png'>
+
+<h2> {{step.Title}}</h2>
+
+<div class="row" ng-click="onStepDetailClick(1, $index)">
+    <div class="col step-detail">
+        <!--<i class="icon ion-ios-arrow-down"></i> -->
+        <button ng-class="button button-full button-light button-icon icon ion-ios-arrow-down">
+        </button>
+    </div>
+</div>
+<div class="row animate-show" ng-show="showStepDetails(1, $index)">
+    <button class="button button-positive" ng-click="captureVideo()">
+        Add Recording
+    </button>
+
+    <button class="button button-positive">
+        Show Recording
+    </button>
+</div>

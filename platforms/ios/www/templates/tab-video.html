@@ -5,12 +5,14 @@
     <ion-content>
     	<ion-list can-swipe="listCanSwipe" show-delete="shouldShowDelete">
             <ion-item class="item-avatar" ng-repeat="video in videos" type="item-text-wrap" href="#/tab/video/{{video.URI}}">
-                <img ng-src="{{video.LocalImageURL}}">
+                <img ng-src="{{video.LocalThumbnailURL}}">
             <!--
             <ion-item ng-repeat="video in videos">
              -->
 
                         <h2>{{video.Name}}</h2>
+                        <p>{{video.URI}}</p>
+                        <p>{{video.LocalMediaURL}}</p>
 
 
                 <ion-option-button class="button-assertive icon ion-trash-a" ng-click="onItemDelete(video)">  </ion-option-button>
@@ -35,6 +37,9 @@
         <div class="button-bar">
             <button class="button button-positive" ng-click="captureVideo()">
                 Capture a video
+            </button>
+            <button class="button button-positive" ng-click="captureImage()">
+                Capture an Image
             </button>
         </div>
     </ion-footer-bar>

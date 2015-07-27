@@ -32,21 +32,29 @@
                 Completed
             </div>
             <ion-item ng-repeat="step in completedSteps" type="item-text-wrap" class="item-thumbnail-left" ng-click="showStepDetails($index) ">
-                 <img class='collection-icon' ng-src='img/CollectionIcons/{{step.Type}}.png'>
-                <step-icon type="{{step.Type}}"></step-icon>
+                <img class='collection-icon' ng-src='img/CollectionIcons/{{step.Type}}.png'>
 
-                <h2> Completed {{step.Title}}</h2>
+                <h2> {{step.Title}}</h2>
 
-                <div class="row" ng-click="onStepDetailClick($index)">
+                <div class="row" ng-click="onStepDetailClick(0, $index)">
                     <div class="col step-detail">
                         <!--<i class="icon ion-ios-arrow-down"></i> -->
                         <button ng-class="button button-full button-light button-icon icon ion-ios-arrow-down">
                         </button>
                     </div>
                 </div>
-                <div class="row animate-show" ng-show="showStepDetails($index)">
-                    {{step.Details}}
-                    <button class="button icon-left ion-home" ng-click="captureVideo()"> Record </button>
+                <div class="row animate-show" ng-show="showStepDetails(0, $index)">
+
+                    <div class="row">
+                        <div class="col">
+                            {{step.Details}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <step-icon type="{{step.Type}}"></step-icon>
+                        </div>
+                    </div>
                 </div>
 
             </ion-item>
@@ -54,15 +62,9 @@
             <div class="item item-divider">
                 Next Steps
             </div>
-            <ion-item ng-repeat="step in nextSteps" type="item-text-wrap" class="item-thumbnail-left">
+            <ion-item ng-repeat="step in nextSteps" type="item-text-wrap">
 
-                <img class="collection-icon" ng-src='img/CollectionIcons/{{step.Type}}.png'>
-
-                <h2> Next {{step.Title}}</h2>
-                {{step.Type}}
-                <step-icon></step-icon>
-                <p>hfkasdlfj</p>
-
+                <step-icon type="{{step.Type}}"></step-icon>
 
             </ion-item>
 

@@ -114,6 +114,7 @@ angular.module('train', [
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/playlist');
 })
+    /*
     .directive('stepIcon ', function () {
       return {
         restrict: 'E',   // 'A' is the default, so you could remove this line
@@ -141,17 +142,28 @@ angular.module('train', [
          //var e =$compile(html)(scope);
          //element.replaceWith(e);
 
-         }*/
+         }
       };
     })
+*/
 
-
-    .directive('someDirective', function() {
+    .directive('stepIcon', function() {
       return {
-        restrict: 'E',
-        scope: {
-          type: '@'
-        },
-        template: "<img class='collection-icon' ng-src='img/CollectionIcons/{{type}}.png'>"
+          restrict: 'E',
+          scope: {
+              step: '='
+          },
+          link: function(scope, element, attrs) {
+              scope.contentUrl = 'templates/directives/step-' + attrs.type + '.html';
+              attrs.$observe("type",function(v){
+                  scope.contentUrl = 'templates/directives/step-' + attrs.type + '.html';
+              });
+          },
+          template:
+            "<div class='' ng-switch='type'>" +
+                "<div class='animate-switch' ng-switch-when='Recording'> <div ng-include='contentUrl' ng-controller=''> </div> </div>" +
+                "<div class='animate-switch' ng-switch-when='Article'> <div ng-include='contentUrl' ng-controller=''> </div> </div>" +
+                "<div class='animate-switch' ng-switch-default>default</div>" +
+            "</div>"
       };
     });

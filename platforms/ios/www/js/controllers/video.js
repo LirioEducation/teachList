@@ -6,12 +6,12 @@ angular.module('train.controllers.video', [
   'train.database'
 ])
 
-.controller('VideoPlayerCtrl', function ($scope, $stateParams, $localstorage, VideoDBFactory) {
+.controller('VideoPlayerCtrl', function ($scope, $stateParams, MediaDBFactory) {
         $scope.filename = $stateParams.name;
         var filename = $scope.filename;
-        VideoDBFactory.getVideo(filename).then(function(data){
+        MediaDBFactory.getMedia(filename).then(function(data){
             $scope.video = data;
-            $scope.videoURL = $scope.video.LocalVideoURL;
+            $scope.videoURL = $scope.video.LocalMediaURL;
 
             console.log("filename: " + filename);
             console.log("videoURL: " + $scope.videoURL);
@@ -19,7 +19,7 @@ angular.module('train.controllers.video', [
 })
 
 
-.controller('VideoCtrl', function ($scope, $cordovaFile, $state, $stateParams, $cordovaCapture, VideoService, $localstorage, VideoDBFactory) {
+.controller('VideoCtrl', function ($scope, $cordovaFile, $state, $stateParams, $cordovaCapture, VideoService, MediaDBFactory) {
 
         $scope.listCanSwipe = true;
         $scope.shouldShowDelete = false;
@@ -29,8 +29,10 @@ angular.module('train.controllers.video', [
         $scope.onItemDelete = function (item){
 
 
-            var vidName = item.LocalVideoURL.substr(item.LocalVideoURL.lastIndexOf('/') + 1);
-            var imgName = item.LocalImageURL.substr(item.LocalImageURL.lastIndexOf('/') + 1);
+            console.log("Delete:");
+
+            var vidName = item.LocalMediaURL.substr(item.LocalMediaURL.lastIndexOf('/') + 1);
+            var imgName = item.LocalThumbnailURL.substr(item.LocalThumbnailURL.lastIndexOf('/') + 1);
 
             console.log("Delete:" + vidName);
 
@@ -38,7 +40,7 @@ angular.module('train.controllers.video', [
             //VideoDBFactory.remove(item);
 
             $scope.videos.splice($scope.videos.indexOf(item), 1);
-            VideoDBFactory.removeVideo(item);
+            MediaDBFactory.removeMedia(item);
 
             $cordovaFile.removeFile(cordova.file.dataDirectory, vidName)
                 .then(function (success) {
@@ -63,8 +65,10 @@ angular.module('train.controllers.video', [
 
         $scope.updateVideos = function()   {
 
-            VideoDBFactory.allVideos().then(function (videos) {
+            MediaDBFactory.allOfType('Video').then(function (videos) {
               $scope.videos = videos;
+                console.log("update Videos");
+                console.log($scope.videos[$scope.video.length - 1]);
             });
         };
 
@@ -86,11 +90,16 @@ angular.module('train.controllers.video', [
 
             var options = { limit: 3 };
             $cordovaCapture.captureImage(options).then(
-                function (imageData) {},
+                function (imageData) {
+
+                },
                 function (err) {}
             );
         };
+
+
         $scope.clip = '';
+
         $scope.captureVideo = function () {
         $cordovaCapture.captureVideo().then(function (videoData) {
           VideoService.saveVideo(videoData).success(function (data) {
@@ -102,6 +111,7 @@ angular.module('train.controllers.video', [
           });
         });
         };
+
         $scope.urlForClipThumb = function (clipUrl) {
         var name = clipUrl.substr(clipUrl.lastIndexOf('/') + 1);
         var trueOrigin = cordova.file.dataDirectory + name;

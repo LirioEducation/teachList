@@ -32,7 +32,7 @@ angular.module('train.database', [])
                 for (var i = 0; i < result.rows.length; i++) {
                     output.push(result.rows.item(i));
                 }
-                console.log('output ' + JSON.stringify(output));
+                //console.log('output ' + JSON.stringify(output));
                 return output;
             },
 
@@ -49,12 +49,36 @@ angular.module('train.database', [])
 
     })
 
-.factory('VideoDBFactory', function($q, $cordovaSQLite, DBA) {
-
-
+.factory('MediaDBFactory', function($q, $cordovaSQLite, DBA) {
 
     return {
 
+        allOfType: function(type) {
+            var defer = $q.defer();
+            var parameters = [type];
+            DBA.query("SELECT URI, Name, LocalMediaURL, LocalThumbnailURL FROM media WHERE MediaType = (?)", parameters)
+                .then(function(result){
+                    var all = DBA.getAll(result);
+                    defer.resolve(all);
+                    console.log("allDelegate - query success: " + all[0]);
+                });
+
+            return defer.promise;
+        },
+
+        getMedia: function (uri) {
+            var defer = $q.defer();
+
+            var parameters = [uri];
+            DBA.query("SELECT Name, URI, MediaType, LocalMediaURL, LocalThumbnailURL, Tags, Description, Owner FROM media WHERE URI = (?)", parameters)
+                .then(function(result) {
+                    var item = DBA.getById(result);
+                    //console.log(item);
+                    defer.resolve(item);
+                });
+            return defer.promise;
+        },
+        /*
         allVideos: function() {
             var defer = $q.defer();
 
@@ -80,8 +104,8 @@ angular.module('train.database', [])
                 });
             return defer.promise;
         },
-
-        addVideo : function(member) {
+        */
+        addMedia : function(member) {
             // turn tags array into a comma separated string
             var tags = "";
             if (member.tags) {
@@ -90,16 +114,16 @@ angular.module('train.database', [])
 
             console.log("Tags: " + tags);
 
-            var parameters = [member.name, member.URI, member.localVideoURL, member.localImageURL, tags, member.text, member.itemOwner];
+            var parameters = [member.name, member.URI, member.mediaType, member.LocalMediaURL, member.LocalThumbnailURL, tags, member.text, member.itemOwner];
 
-            return DBA.query("INSERT INTO videos (Name, URI, LocalVideoURL, LocalImageURL, Tags, Description, Owner) VALUES (?,?,?,?,?,?,?)", parameters);
+            return DBA.query("INSERT INTO media (Name, URI, MediaType, LocalMediaURL, LocalThumbnailURL, Tags, Description, Owner) VALUES (?,?,?,?,?,?,?,?)", parameters);
         },
 
-        removeVideo : function(member) {
+        removeMedia : function(member) {
             var parameters = [member.URI];
-            return DBA.query("DELETE FROM videos WHERE URI = (?)", parameters);
-        },
-
+            return DBA.query("DELETE FROM media WHERE URI = (?)", parameters);
+        }
+        /*
         updateVideo : function(origMember, editMember) {
 
             // turn tags array into a comma separated string
@@ -111,19 +135,18 @@ angular.module('train.database', [])
             var parameters = [editMember.name, editMember.URI, editMember.localVideoURL, editMember.localImageURL, tags, editMember.text, editMember.itemOwner, origMember.URI];
 
             return DBA.query("UPDATE videos SET Name = (?), URI = (?), LocalVideoURL = (?), LocalImageURL = (?), Tags = (?), Description = (?), Owner = (?) WHERE URI = (?)", parameters);
-        }
+        }*/
     }
-
-
 })
-    .factory('CollectionsDBFactory', function($q, $cordovaSQLite, DBA) {
+
+.factory('CollectionsDBFactory', function($q, $cordovaSQLite, DBA) {
 
         return {
 
             allCollections: function() {
                 var defer = $q.defer();
 
-                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CurrentStepIndex, Image FROM Collections")
+                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CurrentStepIndex, Image, Description FROM Collections")
                     .then(function(result){
                         var all = DBA.getAll(result);
                         defer.resolve(all);
@@ -137,7 +160,7 @@ angular.module('train.database', [])
                 var defer = $q.defer();
 
                 var parameters = [member];
-                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CurrentStepIndex, Image FROM Collections WHERE URI = (?)", parameters)
+                DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CurrentStepIndex, Image, Description FROM Collections WHERE URI = (?)", parameters)
                     .then(function(result) {
                         var item = DBA.getById(result);
                         //console.log(item);

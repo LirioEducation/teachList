@@ -53,7 +53,7 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
 
 
     })
-.controller('CollectionCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, CollectionsDBFactory, VideoService, VideoDBFactory) {
+.controller('CollectionCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, CollectionsDBFactory, VideoService, MediaDBFactory) {
         $scope.collectionURI = $stateParams.collectionId;
 
         $scope.updateCollection = function()   {
@@ -64,12 +64,27 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
                 console.log("Collection URI: " + collection.URI);
                 CollectionsDBFactory.getStepsForCollection(collection.URI).then(function (steps){
                     $scope.steps = steps;
-                    $scope.sortSteps();
+                    $scope.stepProcessing();
                 });
             });
         };
         $scope.updateCollection();
 
+        $scope.stepProcessing = function() {
+            $scope.sortSteps();
+            console.log("completed " + $scope.completedSteps);
+            for (i=0; i < $scope.completedSteps.length; i++) {
+                var step = $scope.completedSteps[i];
+                step.detailDisplay = false;
+                console.log("step.detailDisplay " + step.detailDisplay);
+            }
+            for (i=0; i < $scope.nextSteps.length; i++) {
+                var step = $scope.completedSteps[i];
+                step.detailDisplay = false;
+                console.log("step.detailDisplay " + detailDisplay);
+
+            }
+        };
 
         $scope.sortSteps = function () {
             var currentStep = $scope.collection.CurrentStepIndex;
@@ -100,6 +115,7 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
         $scope.clip = '';
 
         $scope.captureVideo = function () {
+            console.log("capture video");
             $cordovaCapture.captureVideo().then(function (videoData) {
                 VideoService.saveVideo(videoData).success(function (data) {
                     $scope.clip = data;
@@ -113,24 +129,58 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
 
         $scope.afterCapture = function () {
 
-        }
-
-
-        var showDetails = {};
-
-        $scope.onStepDetailClick = function (index) {
-            if (showDetails[index] === true) {
-                showDetails[index] = false;
-            }
-            else {
-                showDetails[index] = true;
-            }
-            //console.log("onStepDetailClick: " + showDetails[index]);
         };
 
-        $scope.showStepDetails = function (index) {
-            //console.log("showStepDetails: " + showDetails[index]);
-            return showDetails[index];
+        $scope.onStepDetailClick = function (parentIndex, index) {
+            console.log("onStepDetailClick: " + parentIndex + " " + index);
+
+            if (parentIndex === 0) { // completed steps
+                $scope.completedSteps[index].detailDisplay = ! $scope.completedSteps[index].detailDisplay;
+            }
+            else if (parentIndex === 1) { // next steps
+                $scope.nextSteps[index].detailDisplay = ! $scope.nextSteps[index].detailDisplay;
+
+            }
         };
 
+        $scope.showStepDetails = function (parentIndex, index) {
+            console.log("showStepDetails: " + parentIndex + " " + index);
+
+            if (parentIndex === 0) { // completed steps
+                var output = $scope.completedSteps[index].detailDisplay;
+                console.log("output " + output);
+                return output;
+            }
+            else if (parentIndex === 1) { // next steps
+                var output = $scope.nextSteps[index].detailDisplay;
+                console.log("output " + output);
+
+                return output;
+            }
+        };
+
+            /*
+            $scope.showDetails = {0:{0: false}, 1:{0: false}};
+
+            $scope.onStepDetailClick = function (parentIndex, index) {
+                console.log("showStepDetails: " + parentIndex + " " + index);
+
+                if ($scope.showDetails[parentIndex][index] === true) {
+                    $scope.showDetails[parentIndex][index] = false;
+                }
+                else {
+                    $scope.showDetails[parentIndex][index] = true;
+                }
+                console.log("onStepDetailClick: " + index + "-" + showDetails[parentIndex][index]);
+            };
+
+            $scope.showStepDetails = function (parentIndex, index) {
+                console.log("showStepDetails: " + parentIndex + " " + index);
+
+                console.log("showStepDetails: " + parentIndex + " " + index + "-" + showDetails[parentIndex][index]);
+                var show = $scope.showDetails[parentIndex][index];
+                console.log("show " + show);
+                return show;
+            };
+            */
     });
