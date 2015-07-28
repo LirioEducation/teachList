@@ -122,7 +122,8 @@ angular.module('train.database', [])
         removeMedia : function(member) {
             var parameters = [member.URI];
             return DBA.query("DELETE FROM media WHERE URI = (?)", parameters);
-        }
+        },
+
         /*
         updateVideo : function(origMember, editMember) {
 
@@ -203,9 +204,25 @@ angular.module('train.database', [])
                         defer.resolve(item);
                     });
                 return defer.promise;
+            },
+
+            setCollectionStepItems: function(origStep, newItem) {
+
+                var parameters = [newItem, origStep.URI];
+
+                return DBA.query("UPDATE Steps SET Items = (?) WHERE URI = (?)", parameters);
+
+            },
+
+            addCollectionStepItems: function(origStep, newItem) {
+               // var parameters = [newItem, origStep.URI];
+
+                return DBA.query("UPDATE Steps SET Items = (?) WHERE URI = (?)", parameters);
+            },
+
+            removeCollectionStepItem: function(origStep, itemToRemove) {
+
             }
-
-
 
         }
     });

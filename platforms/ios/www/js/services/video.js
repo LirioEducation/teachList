@@ -64,8 +64,9 @@ angular.module('train.services.video', ['train.database'])
   // Finally resolves the promies and returns the name
   function prevImageSuccess(succ) {
     var correctUrl = succ.slice(0, -4);
-    correctUrl += '.MOV';
     var filename = correctUrl.split("/").pop();
+
+    correctUrl += '.MOV';
     console.log("prevImage: " + filename);
     addMedia(filename, correctUrl, succ).then(function(){deferred.resolve(filename);});
   }

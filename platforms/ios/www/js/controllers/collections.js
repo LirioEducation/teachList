@@ -158,10 +158,25 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             };
             */
     })
-    .controller('RecordingStepCtrl', function ($scope, $state, $cordovaCapture, VideoService, MediaDBFactory) {
-        var videos = [];
-        $scope.videos = [];
+    .controller('RecordingStepCtrl', function ($scope, $state, $cordovaCapture, VideoService, CollectionsDBFactory, MediaDBFactory) {
         $scope.clip = '';
+        $scope.collectionId = $state.params.collectionId;
+
+        // load in the videos
+        $scope.loadVideos = function () {
+            console.log("$scope.step: " + $scope.step);
+
+            console.log("loadVideos");
+            $scope.videoURI = $scope.step.Items;
+            console.log("videoURI: " + $scope.videoURI);
+            MediaDBFactory.getMedia($scope.videoURI).then(function(data) {
+                $scope.video = data;
+                console.log("videoURI---------:");
+            });
+        };
+
+        $scope.loadVideos();
+
 
         $scope.captureVideo = function () {
             console.log("capture video");
@@ -178,24 +193,30 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
         };
 
         $scope.afterCapture = function (data) {
-            $scope.step.Items = data;
+            //$scope.step.Items = data;
+            CollectionsDBFactory.setCollectionStepItems($scope.step ,data).then(function() {
+                console.log("after Catpture: " + data);
+                $scope.step.Items = data;
+            });
+
             console.log("scope.step: " + $scope.step);
         };
 
         $scope.display = false;
 
         $scope.pleaseClick = function () {
-            console.log("pleaseClick " + $scope.display);
+            //console.log("pleaseClick " + $scope.display);
 
             $scope.display = !$scope.display;
-            console.log("pleaseClick " + $scope.display);
+            //console.log("pleaseClick " + $scope.display);
 
         };
 
         $scope.showVideo = function () {
             console.log("show video");
             console.log($scope.step.Items);
-            $state.go('tab.video-player', {'name': $scope.step.Items});
+            console.log($scope.collectionId);
+            $state.go('tab.playlist-collection.video', {'collectionId': $scope.collectionId,'name': $scope.step.Items});
             //$state.go('tab.video');
         };
     })
@@ -211,6 +232,7 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             link: function(scope, element, attrs) {
                 console.log("recordingStep");
                 console.log("recordingStep: " + scope.step);
+                console.log("recordingStep-Items: " + scope.step.Items);
                 console.log("parentIndex: " + scope.parentIndex);
             },
             templateUrl: 'templates/directives/step-Recording.html'

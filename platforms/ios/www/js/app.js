@@ -66,7 +66,16 @@ angular.module('train', [
               controller: 'CollectionCtrl'
             }
           }
-  }).state('tab.chats', {
+  }).state('tab.playlist-collection.video', {
+          url: '/playlist/:collectionId/:name',
+          view : {
+              'tab-playlist': {
+                  templateUrl: 'templates/collection-video.html',
+                  controller: 'VideoPlayerCtrl'
+              }
+          }
+      })
+      .state('tab.chats', {
     url: '/chats',
     views: {
       'tab-chats': {
