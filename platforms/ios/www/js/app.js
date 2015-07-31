@@ -66,12 +66,12 @@ angular.module('train', [
               controller: 'CollectionCtrl'
             }
           }
-  }).state('tab.playlist-collection.video', {
-          url: '/playlist/:collectionId/:name',
-          view : {
+  }).state('tab.playlist-collection-video', {
+          url: '/playlist/:collectionId/:videoId',
+          views: {
               'tab-playlist': {
                   templateUrl: 'templates/collection-video.html',
-                  controller: 'VideoPlayerCtrl'
+                  controller: 'RecordingPlayerCtrl'
               }
           }
       })
@@ -108,14 +108,22 @@ angular.module('train', [
       }
     }
   }).state('tab.video-player', {
-    url: '/video/:name',
+    url: '/video/:videoId',
     views: {
       'tab-video': {
         templateUrl: 'templates/tab-video-player.html',
         controller: 'VideoPlayerCtrl'
       }
     }
-  }).state('login', {
+  }).state('tab.video-player.login', {
+          url: '/video/:videoId/login',
+          views: {
+              'tab-video': {
+                  templateUrl: 'templates/tab-login.html',
+                  controller: 'VideoPlayerCtrl'
+              }
+          }
+      }).state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl'

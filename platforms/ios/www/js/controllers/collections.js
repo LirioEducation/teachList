@@ -48,7 +48,9 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
         $scope.showCollection = function (index) {
             console.log("collection index: " + index);
             var collection = $scope.playlist[index];
-            $state.transitionTo('tab.playlist-collection', {collectionId: collection.URI});
+            console.log("collectionId: " + collection.URI);
+
+            $state.go('tab.playlist-collection', {'collectionId': collection.URI});
         };
 
 
@@ -164,14 +166,9 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
 
         // load in the videos
         $scope.loadVideos = function () {
-            console.log("$scope.step: " + $scope.step);
-
-            console.log("loadVideos");
             $scope.videoURI = $scope.step.Items;
-            console.log("videoURI: " + $scope.videoURI);
             MediaDBFactory.getMedia($scope.videoURI).then(function(data) {
                 $scope.video = data;
-                console.log("videoURI---------:");
             });
         };
 
@@ -195,7 +192,7 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
         $scope.afterCapture = function (data) {
             //$scope.step.Items = data;
             CollectionsDBFactory.setCollectionStepItems($scope.step ,data).then(function() {
-                console.log("after Catpture: " + data);
+                //console.log("after Catpture: " + data);
                 $scope.step.Items = data;
             });
 
@@ -216,8 +213,12 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             console.log("show video");
             console.log($scope.step.Items);
             console.log($scope.collectionId);
-            $state.go('tab.playlist-collection.video', {'collectionId': $scope.collectionId,'name': $scope.step.Items});
+            console.log($state.current.name);
+            var vid = $scope.step.Items;
+            var collection = $scope.collectionId;
+            //$state.go('tab.playlist-collection.video', {'name': $scope.step.Items});
             //$state.go('tab.video');
+            $state.go('tab.playlist-collection-video', {'collectionId': collection, 'videoId': vid});
         };
     })
     .directive('recordingStep', function() {
@@ -237,5 +238,17 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             },
             templateUrl: 'templates/directives/step-Recording.html'
         };
+    })
+    .controller('RecordingPlayerCtrl', function ($scope, $stateParams, MediaDBFactory) {
+        console.log('RecordingPlayerCtrl');
+        $scope.filename = $stateParams.videoId;
+        var filename = $scope.filename;
+        MediaDBFactory.getMedia(filename).then(function(data){
+            $scope.video = data;
+            $scope.videoURL = $scope.video.LocalMediaURL;
+
+            console.log("filename: " + filename);
+            console.log("videoURL: " + $scope.videoURL);
+        });
     })
 ;

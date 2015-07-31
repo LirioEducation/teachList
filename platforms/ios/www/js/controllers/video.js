@@ -8,7 +8,7 @@ angular.module('train.controllers.video', [
 
 .controller('VideoPlayerCtrl', function ($scope, $stateParams, MediaDBFactory) {
         console.log('VideoPlayerCtrl');
-        $scope.filename = $stateParams.name;
+        $scope.filename = $stateParams.videoId;
         var filename = $scope.filename;
         MediaDBFactory.getMedia(filename).then(function(data){
             $scope.video = data;
