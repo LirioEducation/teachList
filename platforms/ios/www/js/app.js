@@ -66,12 +66,22 @@ angular.module('train', [
               controller: 'CollectionCtrl'
             }
           }
-  }).state('tab.playlist-collection-video', {
+  })
+      .state('tab.playlist-collection-video', {
           url: '/playlist/:collectionId/:videoId',
           views: {
               'tab-playlist': {
                   templateUrl: 'templates/collection-video.html',
                   controller: 'RecordingPlayerCtrl'
+              }
+          }
+      })
+      .state('tab.playlist-collection-article', {
+          url: '/playlist/:collectionId/:article',
+          views: {
+              'tab-playlist': {
+                  templateUrl: 'templates/collection-article.html',
+                  controller: 'ArticleCtrl'
               }
           }
       })
@@ -115,12 +125,12 @@ angular.module('train', [
         controller: 'VideoPlayerCtrl'
       }
     }
-  }).state('tab.video-player.login', {
-          url: '/video/:videoId/login',
+  }).state('tab.login', {
+          url: '/login',
           views: {
               'tab-video': {
                   templateUrl: 'templates/tab-login.html',
-                  controller: 'VideoPlayerCtrl'
+                  controller: 'HomeCtrl'
               }
           }
       }).state('login', {
@@ -187,7 +197,4 @@ angular.module('train', [
                 "<div class='animate-switch' ng-switch-default>default</div>" +
             "</div>"
       };
-    })
-
-
-;
+    });

@@ -2,7 +2,6 @@
  * Created by justinkahn on 7/16/15.
  */
 
-angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train.database',   'ui.router', 'ngCordova', 'ng'])
     .controller('PlaylistCtrl', function($scope, $state, $stateParams, $ionicNavBarDelegate, NavBarService, CollectionsDBFactory){
 
         var showDetails = {};
@@ -133,32 +132,6 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
 
         };
 
-
-
-            /*
-            $scope.showDetails = {0:{0: false}, 1:{0: false}};
-
-            $scope.onStepDetailClick = function (parentIndex, index) {
-                console.log("showStepDetails: " + parentIndex + " " + index);
-
-                if ($scope.showDetails[parentIndex][index] === true) {
-                    $scope.showDetails[parentIndex][index] = false;
-                }
-                else {
-                    $scope.showDetails[parentIndex][index] = true;
-                }
-                console.log("onStepDetailClick: " + index + "-" + showDetails[parentIndex][index]);
-            };
-
-            $scope.showStepDetails = function (parentIndex, index) {
-                console.log("showStepDetails: " + parentIndex + " " + index);
-
-                console.log("showStepDetails: " + parentIndex + " " + index + "-" + showDetails[parentIndex][index]);
-                var show = $scope.showDetails[parentIndex][index];
-                console.log("show " + show);
-                return show;
-            };
-            */
     })
     .controller('RecordingStepCtrl', function ($scope, $state, $cordovaCapture, VideoService, CollectionsDBFactory, MediaDBFactory) {
         $scope.clip = '';
@@ -221,6 +194,8 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             $state.go('tab.playlist-collection-video', {'collectionId': collection, 'videoId': vid});
         };
     })
+        });
+
     .directive('recordingStep', function() {
         return {
             restrict: 'E',
@@ -239,8 +214,6 @@ angular.module('train.controllers.playlists', ['ionic', 'train.services', 'train
             templateUrl: 'templates/directives/step-Recording.html'
         };
     })
-    .controller('RecordingPlayerCtrl', function ($scope, $stateParams, MediaDBFactory) {
-        console.log('RecordingPlayerCtrl');
         $scope.filename = $stateParams.videoId;
         var filename = $scope.filename;
         MediaDBFactory.getMedia(filename).then(function(data){

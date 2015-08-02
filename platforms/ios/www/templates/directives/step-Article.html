@@ -1,11 +1,32 @@
-<p> </p>
-<p> </p>
-<br>
-<p>
-    <button class="button button-positive" align="left" position="float" ng-click="showArticle()">
-        Display Article
 
-    </button>
-</p>
+<div class="list card step">
 
+    <div class="row" ng-click="detailDisplay()">
+        <div class="col">
+            <img class='collection-icon' ng-src='img/CollectionIcons/{{step.Type}}.png'>
+        </div>
+        <div class="col col-75">
+            <div class="step-title"> Use PBL in the Music classroom </div>
+            <br>
+            <div class="step-time"> approx. 15 min</div>
+        </div>
+    </div>
+
+    <div class="row animate-show" ng-show='display'>
+        {{step.Details}}
+
+    </div>
+    <div class="row animate-show" ng-show='display'>
+
+        <div class="col col-50 step-detail">
+            <button class="button button-positive" ng-click="readArticle()">
+                Read Article
+            </button>
+        </div>
+
+
+
+    </div>
+
+</div>
 

@@ -1,9 +1,14 @@
 angular.module('train.controllers.video', [
   'ng',
+    "ngSanitize",
   'ngCordova',
   'ui.router',
   'train.services',
-  'train.database'
+  'train.database',
+    "com.2fdevs.videogular",
+    "com.2fdevs.videogular.plugins.controls",
+    "com.2fdevs.videogular.plugins.overlayplay",
+    "com.2fdevs.videogular.plugins.poster"
 ])
 
 .controller('VideoPlayerCtrl', function ($scope, $stateParams, MediaDBFactory) {
@@ -18,7 +23,39 @@ angular.module('train.controllers.video', [
             console.log("videoURL: " + $scope.videoURL);
         });
 })
-
+    .controller('HomeCtrl',
+    ["$sce", function ($sce) {
+        this.config = {
+            sources: [
+                {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"), type: "video/mp4"},
+                {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.webm"), type: "video/webm"},
+                {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.ogg"), type: "video/ogg"}
+            ],
+            tracks: [
+                {
+                    src: "http://www.videogular.com/assets/subs/pale-blue-dot.vtt",
+                    kind: "subtitles",
+                    srclang: "en",
+                    label: "English",
+                    default: ""
+                }
+            ],
+            theme: "lib/videogular-themes-default/videogular.css",
+            plugins: {
+                poster: "http://www.videogular.com/assets/images/videogular.png"
+            }
+        };
+    }]
+)
+    .directive("myStopButton",
+    function() {
+        return {
+            restrict: "E",
+            require: "^videogular",
+            template: "<div class='iconButton' ng-click='API.stop()'>STOP</div>"
+        }
+    }
+)
 
 .controller('VideoCtrl', function ($scope, $cordovaFile, $state, $stateParams, $cordovaCapture, VideoService, ImageService, MediaDBFactory) {
 

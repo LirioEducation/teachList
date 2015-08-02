@@ -34,7 +34,7 @@
 
             <div ng-switch='step.Type'>
                 <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="step" parent-index=0 index={{$index}}></recording-step> </div>
-                <div class='animate-switch' ng-switch-when='Article'> GoodBye <div ng-include='contentUrl' ng-controller=''> </div> </div>
+                <div class='animate-switch' ng-switch-when='Article'> <article-step step="step" parent-index="0" index="{{$index}}"></article-step> </div>
                 <div class='animate-switch' ng-switch-default>default</div>
             </div>
 

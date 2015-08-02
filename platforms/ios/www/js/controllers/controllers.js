@@ -1,7 +1,7 @@
 angular.module('train.controllers', [
   'train.services',
   'train.controllers.video',
-    'train.controllers.playlists'
+    'train.controllers.collections'
 ])
     .controller('NavBarController', function($scope, NavBarService) {
       $scope.isTransparent = NavBarService.isTransparent;
