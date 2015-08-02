@@ -2,13 +2,14 @@
  * Created by justinkahn on 7/16/15.
  */
 
+angular.module('train.controllers.collections', ['ionic', 'train.services', 'train.database',   'ui.router', 'ngCordova', 'ng', 'ngSanitize'])
+
+// Playlist Controller
     .controller('PlaylistCtrl', function($scope, $state, $stateParams, $ionicNavBarDelegate, NavBarService, CollectionsDBFactory){
 
         var showDetails = {};
 
-
         NavBarService.setTransparency(true);
-
         $scope.playlist = [];
         $scope.updatePlaylist = function()   {
 
@@ -54,7 +55,10 @@
 
 
     })
-.controller('CollectionCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, CollectionsDBFactory, VideoService, MediaDBFactory) {
+
+// Collection Controller
+
+    .controller('CollectionCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, CollectionsDBFactory, VideoService, MediaDBFactory) {
         $scope.collectionURI = $stateParams.collectionId;
 
         $scope.updateCollection = function()   {
@@ -133,6 +137,8 @@
         };
 
     })
+
+// Recording Step Controller
     .controller('RecordingStepCtrl', function ($scope, $state, $cordovaCapture, VideoService, CollectionsDBFactory, MediaDBFactory) {
         $scope.clip = '';
         $scope.collectionId = $state.params.collectionId;
@@ -167,6 +173,8 @@
             CollectionsDBFactory.setCollectionStepItems($scope.step ,data).then(function() {
                 //console.log("after Catpture: " + data);
                 $scope.step.Items = data;
+                $scope.videoURL = $scope.video.LocalMediaURL;
+
             });
 
             console.log("scope.step: " + $scope.step);
@@ -174,7 +182,7 @@
 
         $scope.display = false;
 
-        $scope.pleaseClick = function () {
+        $scope.detailDisplay = function () {
             //console.log("pleaseClick " + $scope.display);
 
             $scope.display = !$scope.display;
@@ -194,7 +202,95 @@
             $state.go('tab.playlist-collection-video', {'collectionId': collection, 'videoId': vid});
         };
     })
+
+    .controller('VideogularPlayerCtrl', function ($scope, $stateParams, $sce, MediaDBFactory) {
+        console.log('VideogularPlayerCtrl');
+        $scope.filename = $stateParams.videoId;
+        var filename = $scope.filename;
+
+        $scope.config = {
+            videos: [
+                {src: [], type: ''},
+                {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"), type: "video/mp4"},
+
+            ],
+            tracks: [
+                {
+                    src: "http://www.videogular.com/assets/subs/pale-blue-dot.vtt",
+                    kind: "subtitles",
+                    srclang: "en",
+                    label: "English",
+                    default: ""
+                }
+            ],
+            theme: "lib/videogular-themes-default/videogular.css",
+            plugins: {
+                poster: "http://www.videogular.com/assets/images/videogular.png"
+            }
+        };
+
+
+        MediaDBFactory.getMedia(filename).then(function(data){
+            $scope.video = data;
+            $scope.videoURL = $scope.video.LocalMediaURL;
+
+            console.log("filename: " + filename);
+            console.log("videoURL: " + $scope.videoURL);
+            var resourceURL = $sce.trustAsResourceUrl($scope.videoURL);
+            console.log("resourceURL: " + resourceURL);
+            $scope.config.videos[0].src = $sce.trustAsResourceUrl($scope.videoURL);
+            $scope.config.videos[0].type = 'video/mp4';
+
+            console.log("filename: " + filename);
+            console.log("videoURL: " + $scope.videoURL);
         });
+
+
+    }).controller('RecordingPlayerCtrl', function ($scope, $stateParams, MediaDBFactory) {
+        $scope.filename = $stateParams.videoId;
+        var filename = $scope.filename;
+        MediaDBFactory.getMedia(filename).then(function(data){
+            $scope.video = data;
+            $scope.videoURL = $scope.video.LocalMediaURL;
+            console.log($scope.videoURL);
+        });
+    })
+
+    // Article Step Controller
+    .controller('ArticleStepCtrl', function ($scope, $state, $cordovaCapture, VideoService, CollectionsDBFactory, MediaDBFactory) {
+        $scope.article = '';
+        $scope.collectionId = $state.params.collectionId;
+
+        // load in the videos
+        $scope.loadArticle = function () {
+            $scope.articleURL = $scope.step.Items;
+            // parse as html
+        };
+
+        $scope.loadArticle();
+
+        $scope.display = false;
+
+        $scope.detailDisplay = function () {
+            $scope.display = !$scope.display;
+        };
+
+        $scope.readArticle = function () {
+            console.log($scope.step.Items);
+            console.log($scope.collectionId);
+            console.log($state.current.name);
+            var vid = $scope.step.Items;
+            var collection = $scope.collectionId;
+
+            $state.go('tab.playlist-collection-article', {'collectionId': collection, 'article': vid});
+        };
+    })
+    .controller('ArticleCtrl', function ($scope, $stateParams) {
+        $scope.article = $stateParams.article;
+
+
+    })
+
 
     .directive('recordingStep', function() {
         return {
@@ -214,14 +310,31 @@
             templateUrl: 'templates/directives/step-Recording.html'
         };
     })
-        $scope.filename = $stateParams.videoId;
-        var filename = $scope.filename;
-        MediaDBFactory.getMedia(filename).then(function(data){
-            $scope.video = data;
-            $scope.videoURL = $scope.video.LocalMediaURL;
 
-            console.log("filename: " + filename);
-            console.log("videoURL: " + $scope.videoURL);
-        });
+    .directive('articleStep', function() {
+        return {
+            restrict: 'E',
+            scope: {
+                step: '=',
+                parentIndex: '@',
+                index: '@'
+            },
+            controller: 'ArticleStepCtrl',
+            link: function(scope, element, attrs) {
+                console.log("recordingStep");
+                console.log("recordingStep: " + scope.step);
+                console.log("recordingStep-Items: " + scope.step.Items);
+                console.log("parentIndex: " + scope.parentIndex);
+            },
+            templateUrl: 'templates/directives/step-Article.html'
+        };
+    })
+
+    .filter('renderHTMLCorrectly', function($sce)
+    {
+        return function(stringToParse)
+        {
+            return $sce.trustAsHtml(stringToParse);
+        }
     })
 ;
