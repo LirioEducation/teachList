@@ -55,7 +55,8 @@
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		DD47BB70075A4A61B97C0343 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F74EE8702E7413FB821A2EC /* CDVLogger.m */; };
 		F16E7176DB1049D18920C4A9 /* CDVCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F63E4DE6D14FD28A3BE54F /* CDVCapture.m */; };
-		F40BDF941B6DD5AF00A5ED38 /* Default-667h.png in Resources */ = {isa = PBXBuildFile; fileRef = F40BDF931B6DD5AF00A5ED38 /* Default-667h.png */; };
+		F40BDF941B6DD5AF00A5ED38 /* Default-667h-login.png in Resources */ = {isa = PBXBuildFile; fileRef = F40BDF931B6DD5AF00A5ED38 /* Default-667h-login.png */; };
+		F40BDF961B6DDD2700A5ED38 /* Default-667h.png in Resources */ = {isa = PBXBuildFile; fileRef = F40BDF951B6DDD2700A5ED38 /* Default-667h.png */; };
 		F4163DE11B6D76F3000B66F9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4163DE01B6D76F3000B66F9 /* Images.xcassets */; };
 		F41740F51B3AAFC500AD577C /* AccountCtrl.tests.js in Resources */ = {isa = PBXBuildFile; fileRef = F41740F11B3AAFC500AD577C /* AccountCtrl.tests.js */; };
 		F41740F61B3AAFC500AD577C /* my.conf.js in Resources */ = {isa = PBXBuildFile; fileRef = F41740F21B3AAFC500AD577C /* my.conf.js */; };
@@ -150,7 +151,8 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F323402D63194262A49706A1 /* MediaPlayer.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		F40BDF931B6DD5AF00A5ED38 /* Default-667h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h.png"; sourceTree = "<group>"; };
+		F40BDF931B6DD5AF00A5ED38 /* Default-667h-login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h-login.png"; sourceTree = "<group>"; };
+		F40BDF951B6DDD2700A5ED38 /* Default-667h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h.png"; sourceTree = "<group>"; };
 		F4163DE01B6D76F3000B66F9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HelloCordova/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		F41740F11B3AAFC500AD577C /* AccountCtrl.tests.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AccountCtrl.tests.js; sourceTree = "<group>"; };
 		F41740F21B3AAFC500AD577C /* my.conf.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = my.conf.js; sourceTree = "<group>"; };
@@ -319,7 +321,8 @@
 			isa = PBXGroup;
 			children = (
 				30B4F2FD19D5E07200D9F7D8 /* Default-667h-old.png */,
-				F40BDF931B6DD5AF00A5ED38 /* Default-667h.png */,
+				F40BDF931B6DD5AF00A5ED38 /* Default-667h-login.png */,
+				F40BDF951B6DDD2700A5ED38 /* Default-667h.png */,
 				30B4F2FE19D5E07200D9F7D8 /* Default-736h.png */,
 				30B4F2FF19D5E07200D9F7D8 /* Default-Landscape-736h.png */,
 				D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */,
@@ -446,6 +449,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F40BDF961B6DDD2700A5ED38 /* Default-667h.png in Resources */,
 				7E7966E41810823500FA85AD /* icon-76.png in Resources */,
 				7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */,
 				308D05371370CCF300D202BF /* icon-72.png in Resources */,
@@ -471,7 +475,7 @@
 				7E7966E21810823500FA85AD /* icon-60.png in Resources */,
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
-				F40BDF941B6DD5AF00A5ED38 /* Default-667h.png in Resources */,
+				F40BDF941B6DD5AF00A5ED38 /* Default-667h-login.png in Resources */,
 				F41740F71B3AAFC500AD577C /* services.tests.js in Resources */,
 				30B4F30219D5E07200D9F7D8 /* Default-Landscape-736h.png in Resources */,
 				30C1856619D5FC0A00212699 /* icon-60@3x.png in Resources */,

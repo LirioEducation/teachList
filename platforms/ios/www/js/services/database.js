@@ -142,6 +142,56 @@ angular.module('train.database', [])
 
 .factory('CollectionsDBFactory', function($q, $cordovaSQLite, DBA) {
 
+        var currentCollection = '';
+        var collectionSteps = [];
+        var completedSteps = [];
+        var nextSteps = [];
+
+        function sortSteps() {
+            var currentStep = currentCollection.CurrentStepIndex;
+            completedSteps = collectionSteps.slice(0,currentStep);
+            nextSteps = collectionSteps.slice(currentStep, collectionSteps.length);
+        };
+
+        function stepProcessing() {
+            sortSteps();
+            console.log("completed " + completedSteps);
+            for (i=0; i < completedSteps.length; i++) {
+                var step = completedSteps[i];
+                step.detailDisplay = false;
+                console.log("step.detailDisplay " + step.detailDisplay);
+            }
+            for (i=0; i < nextSteps.length; i++) {
+                var step = completedSteps[i];
+                step.detailDisplay = false;
+                console.log("step.detailDisplay " + detailDisplay);
+            }
+        };
+
+        function getCollection (collectionURI) {
+            CollectionsDBFactory.getCollection(collectionURI).then(function (collection) {
+                currentCollection = collection;
+                console.log("Collection: " + collection);
+                console.log("Collection URI: " + collection.URI);
+                CollectionsDBFactory.getStepsForCollection(collection.URI).then(function (steps){
+                    collectionSteps = steps;
+                    stepProcessing();
+                });
+            });
+        };
+
+        function getCollectionSteps () {
+            var defer = $q.defer();
+
+            var parameters = [uri];
+            DBA.query("SELECT URI, Title, Type, Details, Time, Collection, Items FROM Steps WHERE Collection = (?)", parameters)
+                .then(function(result) {
+                    collectionSteps = DBA.getAll(result);
+                    defer.resolve(collectionSteps);
+                });
+            return defer.promise;
+        };
+
         return {
 
             allCollections: function() {
@@ -164,25 +214,21 @@ angular.module('train.database', [])
                 DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CurrentStepIndex, Image, Description FROM Collections WHERE URI = (?)", parameters)
                     .then(function(result) {
                         var item = DBA.getById(result);
-                        //console.log(item);
+                        currentCollection = item;
+                        getCollectionSteps();
                         defer.resolve(item);
                     });
                 return defer.promise;
             },
 
             addCollection : function(member) {
-                // turn tags array into a comma separated string
-                //var tags = "";
-                //if (member.tags) {
-                //    tags = member.tags.join(",");
-                //}
-                //console.log("Tags: " + tags);
 
                 var parameters = [member.URI, member.title, member.owner, member.sharedWith, member.steps, member.completedSteps, member.image];
                 return DBA.query("INSERT INTO Collections (URI, Title, Owner, SharedWith, Steps, CurrentStepIndex, Image) VALUES (?,?,?,?,?,?,?)", parameters);
             },
 
             getStepsForCollection: function (uri) {
+                /*
                 var defer = $q.defer();
 
                 var parameters = [uri];
@@ -192,6 +238,8 @@ angular.module('train.database', [])
                         defer.resolve(item);
                     });
                 return defer.promise;
+                */
+                return collectionSteps;
             },
 
             getCollectionStep: function(uri) {
@@ -204,6 +252,7 @@ angular.module('train.database', [])
                         defer.resolve(item);
                     });
                 return defer.promise;
+
             },
 
             setCollectionStepItems: function(origStep, newItem) {

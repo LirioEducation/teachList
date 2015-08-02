@@ -2,41 +2,51 @@
  * Created by justinkahn on 7/16/15.
  */
 
-angular.module('train.controllers.collections', ['ionic', 'train.services', 'train.database',   'ui.router', 'ngCordova', 'ng', 'ngSanitize'])
+angular.module('train.controllers.collections', ['ionic', 'train.services', 'train.database',   'ui.router', 'ngCordova', 'ng', 'ngSanitize', 'train.services.collections'])
 
 // Playlist Controller
-    .controller('PlaylistCtrl', function($scope, $state, $stateParams, $ionicNavBarDelegate, NavBarService, CollectionsDBFactory){
+    .controller('PlaylistCtrl', function($scope, $state, $stateParams, $ionicNavBarDelegate, NavBarService, CollectionsDBFactory, CollectionsFactory){
 
-        var showDetails = {};
+        $scope.showDetails = {};
+
+        $scope.allNextSteps = [];
 
         NavBarService.setTransparency(true);
         $scope.playlist = [];
         $scope.updatePlaylist = function()   {
 
-            CollectionsDBFactory.allCollections().then(function (collections) {
-                $scope.playlist = collections;
+
+            CollectionsFactory.refresh().then(function (playlist) {
+                console.log("refresh bitch");
+                $scope.playlist = playlist;
+                console.log("refresh bitch");
+                console.log($scope.playlist.length);
+
+                for (i = 0; i < $scope.playlist.length;  i++) {
+                    var collection = $scope.playlist[i];
+                    CollectionsFactory.getNextStep(collection).then(function(step) {
+                        console.log("nakfdalk");
+                        $scope.allNextSteps[i] = step;
+                        console.log("saved next steps: " + step);
+                    });
+                };
             });
+
+            console.log("updatePlaylist");
+            $scope.playlist = CollectionsFactory.all();
+            console.log("playlist ");
         };
 
         $scope.updatePlaylist();
 
-        //$scope.currentStepDetails = {};
         $scope.onStepDetailClick = function (index) {
             if (showDetails[index] === true) {
                 showDetails[index] = false;
             }
             else {
 
-                var collection = $scope.playlist[index];
-                var steps = collection.Steps.split(',');
-                var currentStep = steps[collection.CurrentStepIndex];
-                console.log("collection.Steps: " + collection.Steps);
-                console.log("currentStep: " + currentStep);
+                var collection = $scope.playlist[collectionIndex];
 
-                CollectionsDBFactory.getCollectionStep(currentStep).then(function (step) {
-                    $scope.currentStepDetails = step;
-                    console.log("current step details: " + step.Title);
-                });
                 showDetails[index] = true;
             }
         };
@@ -53,12 +63,15 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             $state.go('tab.playlist-collection', {'collectionId': collection.URI});
         };
 
-
+        $scope.nextStepForIndex = function (index) {
+            console.log("next step for index");
+            return allNextSteps[index];
+        };
     })
 
 // Collection Controller
 
-    .controller('CollectionCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, CollectionsDBFactory, VideoService, MediaDBFactory) {
+    .controller('CollectionCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, CollectionsDBFactory, VideoService) {
         $scope.collectionURI = $stateParams.collectionId;
 
         $scope.updateCollection = function()   {

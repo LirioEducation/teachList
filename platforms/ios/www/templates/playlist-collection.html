@@ -44,7 +44,16 @@
         <div class="item item-divider">
             Next Steps
         </div>
+        <ion-item class="collection-step" ng-repeat="step in nextSteps">
 
+            <div ng-switch='step.Type'>
+                <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="step" parent-index=0 index={{$index}}></recording-step> </div>
+                <div class='animate-switch' ng-switch-when='Article'> <article-step step="step" parent-index="0" index="{{$index}}"></article-step> </div>
+                <div class='animate-switch' ng-switch-default>default</div>
+            </div>
+
+
+        </ion-item>
 
 
 
