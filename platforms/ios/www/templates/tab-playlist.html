@@ -22,7 +22,7 @@
     <ion-content>
 
 
-        <ion-item class="playlist-item" ng-repeat="collection in playlist">
+        <ion-item class="playlist-item" ng-repeat="item in playlist">
             <div class="list card playlist">
                 <div class="item item-image">
                     <img src="img/image1.jpg" alt=""  ng-click="showCollection($index)">
@@ -30,7 +30,7 @@
                     <!--</ion-item> -->
                     <div class="row playlist-title" ng-click="showCollection($index)">
                         <div class="col">
-                            <h2>{{collection.Title}}</h2>
+                            <h2>{{item.collection.Title}}</h2>
                         </div>
                         <div class="col">
 
@@ -39,9 +39,9 @@
                     <div class="row playlist-shared" ng-click="showCollection($index)">
                         <div class="col">
                             <p>
-                                Shared with Marni
+                                Shared with {{item.collection.Owner}}
                                 <br>
-                                3 / 18 Steps Done
+                                {{item.collection.CurrentStepIndex}} Steps Completed
                             </p>
                         </div>
 
@@ -50,20 +50,32 @@
                 </div>
                 <div class="next-step-bar"> Next Step</div>
 
+
+                <div class="collection-step">
+
+                    <div ng-switch='item.nextStep.Type'>
+                        <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="item.nextStep" parent-index=0 index={{$index}}></recording-step> </div>
+                        <div class='animate-switch' ng-switch-when='Article'> <article-step step="item.nextStep" parent-index="0" index="{{$index}}"></article-step> </div>
+                        <div class='animate-switch' ng-switch-default>default</div>
+                    </div>
+
+
+                </div>
+
+                <!--
                 <div class="next-step">
                     <div class="row">
                         <div class="col col-center">
                             <img src="img/ionic.png">
                         </div>
                         <div class="col col-75">
-                            <div class="step-title"> Use PBL in the Music classroom </div>
+                            <div class="step-title"> </div>
                             <br>
                             <div class="step-time"> approx. 15 min</div>
                         </div>
                     </div>
                     <div class="row" ng-click="onStepDetailClick($index)">
                         <div class="col step-detail">
-                            <!--<i class="icon ion-ios-arrow-down"></i> -->
                             <button ng-class="button button-full button-light button-icon icon ion-ios-arrow-down">
                             </button>
                         </div>
@@ -73,6 +85,7 @@
 
                     </div>
                 </div>
+                -->
             </div>
         </ion-item>
 

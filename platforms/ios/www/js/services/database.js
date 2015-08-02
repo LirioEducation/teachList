@@ -145,6 +145,8 @@ angular.module('train.database', [])
         return {
 
             allCollections: function() {
+                console.log("all collections");
+
                 var defer = $q.defer();
 
                 DBA.query("SELECT URI, Title, Owner, SharedWith, Steps, CurrentStepIndex, Image, Description FROM Collections")

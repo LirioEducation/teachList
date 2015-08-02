@@ -2,153 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f04460a-5cf9-4a25-985c-b4ef76210168" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-568h@2x~iphone.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Resources/splash/Default-667h-old.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default@2x~iphone.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default~iphone.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-60.imageset/Icon-60.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-60-1.imageset/Icon-60.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-60.imageset/Icon-60.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon-1.appiconset/Icon-60@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-60.imageset/Icon-60@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-60-1.imageset/Icon-60@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-60.imageset/Icon-60@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon-1.appiconset/Icon-60@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-60.imageset/Icon-60@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-60-1.imageset/Icon-60@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-60.imageset/Icon-60@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-72.imageset/Icon-72.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-72-1.imageset/Icon-72.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-72.imageset/Icon-72.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-72.imageset/Icon-72@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-72-1.imageset/Icon-72@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-72.imageset/Icon-72@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-76.imageset/Icon-76.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-76-1.imageset/Icon-76.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-76.imageset/Icon-76.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-76.imageset/Icon-76@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-76-1.imageset/Icon-76@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-76.imageset/Icon-76@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-76.imageset/Icon-76@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-76-1.imageset/Icon-76@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-76.imageset/Icon-76@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-Small-50.imageset/Icon-Small-50.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small-50-1.imageset/Icon-Small-50.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small-50.imageset/Icon-Small-50.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-Small-50.imageset/Icon-Small-50@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small-50-1.imageset/Icon-Small-50@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small-50.imageset/Icon-Small-50@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-Small.imageset/Icon-Small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small-1.imageset/Icon-Small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small.imageset/Icon-Small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon-1.appiconset/Icon-Small@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-Small.imageset/Icon-Small@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small-1.imageset/Icon-Small@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small.imageset/Icon-Small@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon-1.appiconset/Icon-Small@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-Small.imageset/Icon-Small@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small-1.imageset/Icon-Small@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small.imageset/Icon-Small@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-Spotlight-40.imageset/Icon-Spotlight-40.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Spotlight-40-1.imageset/Icon-Spotlight-40.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Spotlight-40.imageset/Icon-Spotlight-40.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon-1.appiconset/Icon-Spotlight-40@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-Spotlight-40.imageset/Icon-Spotlight-40@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Spotlight-40-1.imageset/Icon-Spotlight-40@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Spotlight-40.imageset/Icon-Spotlight-40@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon-1.appiconset/Icon-Spotlight-40@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-Spotlight-40.imageset/Icon-Spotlight-40@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Spotlight-40-1.imageset/Icon-Spotlight-40@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Spotlight-40.imageset/Icon-Spotlight-40@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/Icon-1-1.imageset/Icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon.imageset/Icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-1.imageset/Icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon.imageset/Icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/Icon-1-1.imageset/Icon@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon.imageset/Icon@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-1.imageset/Icon@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon.imageset/Icon@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/SampleiTunesArtwork-1.imageset/SampleiTunesArtwork.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/SampleiTunesArtwork.imageset/SampleiTunesArtwork.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/SampleiTunesArtwork.imageset/SampleiTunesArtwork.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/LaunchImage-1.launchimage/Splash Page*1-1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/LaunchImage-1.launchimage/Splash Page*1-2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/LaunchImage-1.launchimage/Splash Page*1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/iTunesArtwork.imageset/iTunesArtwork.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/iTunesArtwork-1.imageset/iTunesArtwork.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/iTunesArtwork.imageset/iTunesArtwork.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-40.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-40@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-50.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-50@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-60@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-72.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-72@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-76.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-76@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-small@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/App icon-1/lirio.imageset/lirio.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/App icon/lirio.imageset/lirio.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/App icon-1/lirio.imageset/lirio.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/App icon/lirio.imageset/lirio.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/App icon-1/lirio.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/App icon/lirio.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon-1.appiconset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/Icon-1-1.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/Image-1.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/Image.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/LaunchImage-1.launchimage/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/SampleiTunesArtwork-1.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/SampleiTunesArtwork.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-60.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-72.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-76.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-Small-50.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-Small.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon-Spotlight-40.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/Icon.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/SampleiTunesArtwork.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/nobackground/iTunesArtwork.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-1.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-60-1.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-60.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-72-1.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-72.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-76-1.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-76.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small-1.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small-50-1.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small-50.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Small.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Spotlight-40-1.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon-Spotlight-40.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/Icon.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/iTunesArtwork-1.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Images.xcassets/whitebackground/iTunesArtwork.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/collection-article.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/directives/step-recording.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/directives/step-Recording.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/HelloCordova/Resources/splash/Default-667h.png" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/Resources/splash/Default-667h.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/HelloCordova.xcodeproj/project.xcworkspace/xcuserdata/justinkahn.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova.xcodeproj/project.xcworkspace/xcuserdata/justinkahn.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/train-test.db" afterPath="$PROJECT_DIR$/platforms/ios/www/train-test.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/HelloCordova/HelloCordova-Info.plist" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/HelloCordova-Info.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/app.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/collection-video.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/collection-video.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/HelloCordova.xcodeproj/xcuserdata/justinkahn.xcuserdatad/xcschemes/HelloCordova.xcscheme" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova.xcodeproj/xcuserdata/justinkahn.xcuserdatad/xcschemes/HelloCordova.xcscheme" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/controllers/collections.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/controllers/collections.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/HelloCordova/config.xml" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/controllers/controllers.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/controllers/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/index.html" afterPath="$PROJECT_DIR$/platforms/ios/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/playlist-collection.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/playlist-collection.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/HelloCordova.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/platforms/ios/HelloCordova.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/directives/step-Article.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/directives/step-Article.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/services/database.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/services/database.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/css/style.css" afterPath="$PROJECT_DIR$/platforms/ios/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/tab-video-player.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/tab-video-player.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/controllers/video.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/controllers/video.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/tab-playlist.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/tab-playlist.html" />
     </list>
     <ignored path="train-prototype.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -172,8 +31,8 @@
       <file leaf-file-name="playlist-collection.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/playlist-collection.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.375">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state vertical-scroll-proportion="-18.75">
+              <caret line="32" column="48" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -182,8 +41,8 @@
       <file leaf-file-name="collections.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/controllers/collections.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.74074">
-              <caret line="338" column="6" selection-start-line="338" selection-start-column="6" selection-end-line="338" selection-end-column="6" />
+            <state vertical-scroll-proportion="-23.592592">
+              <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
               <folding>
                 <element signature="e#0#44#0" expanded="false" />
               </folding>
@@ -191,21 +50,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/app.js">
+      <file leaf-file-name="database.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/services/database.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="74" column="50" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="50" />
+            <state vertical-scroll-proportion="-8.037037">
+              <caret line="201" column="30" selection-start-line="201" selection-start-column="29" selection-end-line="201" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/controllers/controllers.js">
+      <file leaf-file-name="tab-playlist.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/tab-playlist.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44444445">
-              <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+            <state vertical-scroll-proportion="-7.3333335">
+              <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -214,48 +73,18 @@
       <file leaf-file-name="step-Recording.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/directives/step-Recording.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5">
-              <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+            <state vertical-scroll-proportion="-16.25">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="collection-video.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/collection-video.html">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/platforms/ios/www/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="step-Article.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/directives/step-Article.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2972561">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="collection-article.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/collection-article.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.25">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="video.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/controllers/video.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.037037">
-              <caret line="49" column="10" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.3323124">
+              <caret line="437" column="12" selection-start-line="437" selection-start-column="12" selection-end-line="437" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -288,11 +117,8 @@
         <option value="$PROJECT_DIR$/platforms/ios/www/templates/tabs.html" />
         <option value="$PROJECT_DIR$/platforms/ios/www/templates/directives/step-recording.html" />
         <option value="$PROJECT_DIR$/platforms/ios/www/js/services/video.js" />
-        <option value="$PROJECT_DIR$/platforms/ios/www/js/services/database.js" />
         <option value="$PROJECT_DIR$/platforms/ios/www/templates/tab-video.html" />
-        <option value="$PROJECT_DIR$/platforms/ios/www/templates/tab-playlist.html" />
         <option value="$PROJECT_DIR$/platforms/ios/www/index.html" />
-        <option value="$PROJECT_DIR$/platforms/ios/www/css/style.css" />
         <option value="$PROJECT_DIR$/platforms/ios/www/js/controllers/video.js" />
         <option value="$PROJECT_DIR$/platforms/ios/www/templates/tab-video-player.html" />
         <option value="$PROJECT_DIR$/platforms/ios/www/templates/collection-video.html" />
@@ -302,8 +128,11 @@
         <option value="$PROJECT_DIR$/platforms/ios/www/templates/directives/step-Article.html" />
         <option value="$PROJECT_DIR$/platforms/ios/www/templates/articleView.html" />
         <option value="$PROJECT_DIR$/platforms/ios/www/js/app.js" />
-        <option value="$PROJECT_DIR$/platforms/ios/www/js/controllers/collections.js" />
         <option value="$PROJECT_DIR$/platforms/ios/www/templates/collection-article.html" />
+        <option value="$PROJECT_DIR$/platforms/ios/www/js/services/database.js" />
+        <option value="$PROJECT_DIR$/platforms/ios/www/js/controllers/collections.js" />
+        <option value="$PROJECT_DIR$/platforms/ios/www/templates/tab-playlist.html" />
+        <option value="$PROJECT_DIR$/platforms/ios/www/css/style.css" />
       </list>
     </option>
   </component>
@@ -368,7 +197,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -611,6 +439,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -971,14 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/services/database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49264705">
-          <caret line="212" column="93" selection-start-line="212" selection-start-column="93" selection-end-line="212" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/tab-video.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.0">
@@ -993,34 +814,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/www/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="476" column="1" selection-start-line="476" selection-start-column="1" selection-end-line="476" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/tab-playlist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/tabs.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.2916665">
           <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/playlist-collection.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.375">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1035,7 +832,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/controllers/video.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.037037">
+        <state vertical-scroll-proportion="0.0">
           <caret line="49" column="10" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="10" />
           <folding />
         </state>
@@ -1045,24 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="74" column="50" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/controllers/collections.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.74074">
-          <caret line="338" column="6" selection-start-line="338" selection-start-column="6" selection-end-line="338" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#44#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/directives/step-Recording.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5">
-          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1077,8 +856,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/controllers/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44444445">
+        <state vertical-scroll-proportion="0.0">
           <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/collection-article.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/directives/step-Article.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -1091,18 +886,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/collection-article.html">
+    <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/playlist-collection.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state vertical-scroll-proportion="-18.75">
+          <caret line="32" column="48" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/directives/step-Article.html">
+    <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/controllers/collections.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2972561">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state vertical-scroll-proportion="-23.592592">
+          <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/ios/www/js/services/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.037037">
+          <caret line="201" column="30" selection-start-line="201" selection-start-column="29" selection-end-line="201" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/tab-playlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.3333335">
+          <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/ios/www/templates/directives/step-Recording.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.25">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/ios/www/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3323124">
+          <caret line="437" column="12" selection-start-line="437" selection-start-column="12" selection-end-line="437" selection-end-column="12" />
           <folding />
         </state>
       </provider>

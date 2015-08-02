@@ -10,11 +10,46 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
         var showDetails = {};
 
         NavBarService.setTransparency(true);
-        $scope.playlist = [];
+        $scope.playlist = []; // array of objects each with collection and nextStep
+        $scope.collections = [];
         $scope.updatePlaylist = function()   {
 
+            console.log("update playlist");
+
+
             CollectionsDBFactory.allCollections().then(function (collections) {
-                $scope.playlist = collections;
+                $scope.collections = collections;
+                console.log("allcollections");
+                console.log(collections);
+
+                for (i = 0; i < $scope.collections.length; i++) {
+                    console.log("for loop");
+
+                    var col = $scope.collections[i];
+                    console.log("col " + col.Title);
+
+                    $scope.setCollectionStep(col, i);
+                }
+            });
+
+        };
+
+        $scope.setCollectionStep = function (collection, playlistIndex) {
+            curStepIndex = collection.CurrentStepIndex;
+            console.log("curstepindex: " + curStepIndex);
+
+            var steps = collection.Steps.split(',');
+            var currentStepURI = steps[collection.CurrentStepIndex];
+
+            console.log("currentStepURI: " + currentStepURI);
+            CollectionsDBFactory.getCollectionStep(currentStepURI).then(function (step) {
+                var playlistItem = {'collection': collection, 'nextStep': step};
+
+                $scope.playlist[playlistIndex] = playlistItem;
+                console.log("Playlist item: " + playlistItem);
+                console.log("Playlist index: " + playlistIndex);
+                console.log("Playlist item: " + collection.Title + " - " + step.Title);
+
             });
         };
 
@@ -27,7 +62,8 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             }
             else {
 
-                var collection = $scope.playlist[index];
+                /*
+                var collection = $scope.playlist[index]['collection'];
                 var steps = collection.Steps.split(',');
                 var currentStep = steps[collection.CurrentStepIndex];
                 console.log("collection.Steps: " + collection.Steps);
@@ -37,6 +73,8 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
                     $scope.currentStepDetails = step;
                     console.log("current step details: " + step.Title);
                 });
+                */
+
                 showDetails[index] = true;
             }
         };
@@ -47,7 +85,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
 
         $scope.showCollection = function (index) {
             console.log("collection index: " + index);
-            var collection = $scope.playlist[index];
+            var collection = $scope.playlist[index].collection;
             console.log("collectionId: " + collection.URI);
 
             $state.go('tab.playlist-collection', {'collectionId': collection.URI});
