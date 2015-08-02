@@ -1,0 +1,37 @@
+<ion-view view-title="Player">
+    <ion-content>
+        {{videoURL}}
+        <video ng-src="{{videoURL}}" preload="metadata" controls="controls"></video>
+
+        <!--
+        <div class="videogular-container">
+            <videogular vg-theme="config.theme" vg-plays-inline="'true'">
+                <vg-media vg-src="config.videos"
+                          vg-tracks="config.tracks">
+                </vg-media>
+
+                <vg-controls>
+                    <vg-play-pause-button></vg-play-pause-button>
+                    <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                    <vg-scrub-bar>
+                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                    </vg-scrub-bar>
+                    <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+                    <vg-volume>
+                        <vg-mute-button></vg-mute-button>
+                        <vg-volume-bar></vg-volume-bar>
+                    </vg-volume>
+                    <vg-fullscreen-button></vg-fullscreen-button>
+                    <my-stop-button></my-stop-button>
+
+                </vg-controls>
+
+                <vg-overlay-play></vg-overlay-play>
+
+                <vg-poster vg-url='config.plugins.poster'></vg-poster>
+            </videogular>
+        </div>
+        -->
+    </ion-content>
+</ion-view>
+
