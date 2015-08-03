@@ -1,6 +1,12 @@
 
 <ion-view>
 
+
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+    <!--
     <ion-nav-buttons side="left">
         <button class="button button-positive button-clear no-animation"
                 ng-click="startApp()" ng-if="!slideIndex">
@@ -64,34 +70,7 @@
                             <div class='animate-switch' ng-switch-default>default</div>
                         </div>
                     </div>
-
-
                 </div>
-
-                <!--
-                <div class="next-step">
-                    <div class="row">
-                        <div class="col col-center">
-                            <img src="img/ionic.png">
-                        </div>
-                        <div class="col col-75">
-                            <div class="step-title"> </div>
-                            <br>
-                            <div class="step-time"> approx. 15 min</div>
-                        </div>
-                    </div>
-                    <div class="row" ng-click="onStepDetailClick($index)">
-                        <div class="col step-detail">
-                            <button ng-class="button button-full button-light button-icon icon ion-ios-arrow-down">
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row animate-show" ng-show="showStepDetails($index)">
-                        {{currentStepDetails.Title}}
-
-                    </div>
-                </div>
-                -->
             </div>
         </ion-item>
 
