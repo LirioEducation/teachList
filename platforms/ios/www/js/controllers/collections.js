@@ -5,7 +5,7 @@
 angular.module('train.controllers.collections', ['ionic', 'train.services', 'train.database',   'ui.router', 'ngCordova', 'ng', 'ngSanitize'])
 
 // Playlist Controller
-    .controller('PlaylistCtrl', function($scope, $state, $stateParams, $ionicNavBarDelegate, NavBarService, CollectionsDBFactory){
+    .controller('PlaylistCtrl', function($scope, $state, $stateParams, $ionicNavBarDelegate, $ionicScrollDelegate, NavBarService, CollectionsDBFactory){
 
         var showDetails = {};
 
@@ -77,6 +77,9 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
 
                 showDetails[index] = true;
             }
+            $ionicScrollDelegate.resize();
+            console.log("ionic scroll");
+            $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop();
         };
 
         $scope.showStepDetails = function (index) {
@@ -177,7 +180,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
     })
 
 // Recording Step Controller
-    .controller('RecordingStepCtrl', function ($scope, $state, $cordovaCapture, VideoService, CollectionsDBFactory, MediaDBFactory) {
+    .controller('RecordingStepCtrl', function ($scope, $state, $cordovaCapture, $ionicScrollDelegate, VideoService, CollectionsDBFactory, MediaDBFactory) {
         $scope.clip = '';
         $scope.collectionId = $state.params.collectionId;
 
@@ -226,6 +229,9 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             $scope.display = !$scope.display;
             //console.log("pleaseClick " + $scope.display);
 
+            $ionicScrollDelegate.resize();
+            console.log("ionic scroll");
+            $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop();
         };
 
         $scope.showVideo = function () {

@@ -25,9 +25,12 @@
         <ion-item class="playlist-item" ng-repeat="item in playlist">
             <div class="list card playlist">
                 <div class="item item-image">
+
+                    <img ng-src="img/header_image_playlist_classroom_management.png" ng-click="showCollection($index)">
+
+                    <!--
                     <img src="img/image1.jpg" alt=""  ng-click="showCollection($index)">
 
-                    <!--</ion-item> -->
                     <div class="row playlist-title" ng-click="showCollection($index)">
                         <div class="col">
                             <h2>{{item.collection.Title}}</h2>
@@ -46,17 +49,20 @@
                         </div>
 
                     </div>
+                    -->
 
                 </div>
                 <div class="next-step-bar"> Next Step</div>
 
 
-                <div class="collection-step">
+                <div class="collection-step" delegate-handle="mainScroll">
+                    <div class="list card step">
 
-                    <div ng-switch='item.nextStep.Type'>
-                        <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="item.nextStep" parent-index=0 index={{$index}}></recording-step> </div>
-                        <div class='animate-switch' ng-switch-when='Article'> <article-step step="item.nextStep" parent-index="0" index="{{$index}}"></article-step> </div>
-                        <div class='animate-switch' ng-switch-default>default</div>
+                        <div ng-switch='item.nextStep.Type'>
+                            <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="item.nextStep" parent-index=0 index={{$index}}></recording-step> </div>
+                            <div class='animate-switch' ng-switch-when='Article'> <article-step step="item.nextStep" parent-index="0" index="{{$index}}"></article-step> </div>
+                            <div class='animate-switch' ng-switch-default>default</div>
+                        </div>
                     </div>
 
 

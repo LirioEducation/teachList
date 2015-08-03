@@ -3,15 +3,17 @@
     <ion-content>
 
         <div class="collection-header">
-            <img ng-src="{{collection.Image}}" alt="">
 
+            <img ng-src="img/header_image_playlist_classroom_management.png">
+
+            <!--
+            <img ng-src="{{collection.Image}}" alt="">
             <div class="row collection-title">
                 <div class="col">
                     I'm working on
                     <h2>{{collection.Title}}</h2>
                 </div>
                 <div class="col">
-
                 </div>
             </div>
             <div class="row collection-shared">
@@ -20,11 +22,10 @@
                         Shared with Marni
                         <br>
                         3 / 18 Steps Done
-
                     </p>
                 </div>
-
             </div>
+            -->
 
         </div>
         <div class="item item-divider">
@@ -45,7 +46,16 @@
             Next Steps
         </div>
 
+        <ion-item class="collection-step" ng-repeat="step in nextSteps">
 
+            <div ng-switch='step.Type'>
+                <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="step" parent-index=1 index={{$index}}></recording-step> </div>
+                <div class='animate-switch' ng-switch-when='Article'> <article-step step="step" parent-index=1 index="{{$index}}"></article-step> </div>
+                <div class='animate-switch' ng-switch-default>default</div>
+            </div>
+
+
+        </ion-item>
 
 
         <!--

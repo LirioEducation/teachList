@@ -345,14 +345,14 @@ ion-item.playlist-banner img {
 }
 
 .playlist .item-image {
-    background: black;
+    background: white;
     margin-bottom: 0 ;
 
 }
 .playlist .item-image  img{
     position: relative;
     width: 100%;
-    opacity: 0.5;
+    opacity: 0.8;
     height: 100%;
 }
 
@@ -448,6 +448,21 @@ ion-item.playlist-banner img {
     max-width: 50px;
     vertical-align: middle;
 }
+
+.collection-step {
+    padding: 0px;
+    margin: 0px;
+}
+
+.collection-step img {
+    position: absolute;
+    float: left;
+    width: 50px;
+    max-height: 100px;
+    max-width: 50px;
+    vertical-align: middle;
+}
+
 .videogular-container {
     width: 100%;
     height: 320px;
