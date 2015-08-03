@@ -7,22 +7,45 @@
         <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
     </ion-pane>
 
-    <ion-side-menu side="left">
-        <header class="bar bar-header bar-stable">
-            <h1 class="title">Left</h1>
-        </header>
+    <ion-side-menu class="side-menu" side="left">
+
         <ion-content class="has-header">
-            <ion-list>
-                <ion-item nav-clear menu-close href="#/app/search">
-                    Search
+            <ion-list class="menu-list" >
+                <ion-item class="menu-list-item current item-icon-left" nav-clear menu-close href="#/app/search">
+                    <i class="icon ion-ios-checkmark-outline"></i>Progress
                 </ion-item>
-                <ion-item nav-clear menu-close href="#/app/browse">
-                    Browse
+                <ion-item class="menu-list-item item-icon-left" nav-clear menu-close href="#/app/search">
+                    <i class="icon ion-ios-list"></i>Playlists
                 </ion-item>
-                <ion-item nav-clear menu-close href="#/app/playlists">
-                    Playlists
+                <ion-item class="menu-list-item item-icon-left" nav-clear menu-close href="#/app/search">
+                    <i class="icon ion-ios-people"></i>Friends
                 </ion-item>
+                <ion-item class="menu-list-item item-icon-left" nav-clear menu-close href="#/app/search">
+                    <i class="icon ion-android-compass"></i>Explore
+                </ion-item>
+                <ion-item class="menu-list-item item-icon-left" nav-clear menu-close href="#/app/search">
+                    <i class="icon ion-ios-gear"></i>Settings
+                </ion-item>
+
+                <ion-item class="menu-list-item"><hr></ion-item>
+
+                <ion-item class="menu-list-item item-icon-left" nav-clear menu-close href="#/app/search">
+                    <i class="icon ion-ios-compose"></i>Create New Playlist
+                </ion-item>
+                <ion-item class="menu-list-item item-icon-left" nav-clear menu-close href="#/app/search">
+                    <i class="icon ion-ios-plus"></i>Add New Friend
+                </ion-item>
+
+
             </ion-list>
         </ion-content>
+        <div class="bar bar-lirio bar-footer">
+
+                <a class="item item-avatar" href="#">
+                    <img src="img/image1.jpg">
+                    <h2>Venkman</h2>
+                </a>
+
+        </div>
     </ion-side-menu>
 </ion-side-menus>
