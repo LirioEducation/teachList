@@ -378,10 +378,17 @@ ion-item.playlist-banner img {
 
 
 .collection-header {
-    background: blue;
-    margin: -10px ;
-    padding: 0;
+    background: #76D7E3;
+    margin: 0px ;
+    padding: 20px;
     border-bottom-width: 0;
+    height: 150px;
+    color: grey;
+}
+
+.collection-header h2 {
+    font-size: x-large;
+    color: black;
 }
 
 .collection-header img{
@@ -441,9 +448,17 @@ ion-item.playlist-banner img {
 
 
 .collection-step .list.card.step img {
-    position: absolute;
+    position: relative;
     float: left;
-    width: 50px;
+    width: 30px;
+    max-height: 100px;
+    max-width: 50px;
+    vertical-align: middle;
+}
+.collection-step .list.card.step .recording img {
+    position: relative;
+    float: left;
+    width: 20px;
     max-height: 100px;
     max-width: 50px;
     vertical-align: middle;
@@ -457,7 +472,15 @@ ion-item.playlist-banner img {
 .collection-step img {
     position: absolute;
     float: left;
-    width: 50px;
+    width: 30px;
+    max-height: 100px;
+    max-width: 50px;
+    vertical-align: middle;
+}
+.collection-step img .recording {
+    position: relative;
+    float: right;
+    width: 20px;
     max-height: 100px;
     max-width: 50px;
     vertical-align: middle;
@@ -537,7 +560,9 @@ ion-nav-bar.bar-balanced.app-header {
     color: #1c4555; }
 .bar.bar-lirio.bar-footer {
     background-image: linear-gradient(180deg, #76D7E3, #76D7E3 50%, transparent 50%);
-    height: 100px;
+    height: 60px;
+    text-align: center;
+
 }
 
 .bar-lirio .button {
@@ -562,5 +587,44 @@ ion-nav-bar.bar-balanced.app-header {
     background: none; }
 
 .bar.footer {
-    height: 400px;
+    height: 10px;
+    text-align: center;
+}
+
+h3 {
+}
+
+.bar-subheader.progress-bar {
+    padding-top: 0px;
+}
+
+.bar-subheader .row .col.left {
+    text-align: center;
+    padding-bottom: 0px;
+    margin-top: -5px;
+
+}
+
+.bar-subheader .row .col.left button {
+    border-bottom: solid;
+    border-bottom-width: thin;
+    padding-bottom: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.bar-subheader .row .col.right {
+    text-align: center;
+    padding-bottom: 0px;
+    margin-top: -5px;
+}
+
+.bar-subheader .row .col.right button {
+
+
+}
+
+.button.activities {
+    padding-top: 0px;
+    padding-bottom: -50px;
 }

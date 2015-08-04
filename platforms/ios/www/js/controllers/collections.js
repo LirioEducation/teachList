@@ -91,7 +91,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             var collection = $scope.playlist[index].collection;
             console.log("collectionId: " + collection.URI);
 
-            $state.go('tab.playlist-collection', {'collectionId': collection.URI});
+            $state.go('app.playlist-collection', {'collectionId': collection.URI});
         };
 
 
@@ -99,7 +99,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
 
 // Collection Controller
 
-    .controller('CollectionCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, CollectionsDBFactory, VideoService, MediaDBFactory) {
+    .controller('CollectionCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, $ionicHistory, CollectionsDBFactory, VideoService, MediaDBFactory) {
         $scope.collectionURI = $stateParams.collectionId;
 
         $scope.updateCollection = function()   {
@@ -136,7 +136,8 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             var currentStep = $scope.collection.CurrentStepIndex;
             $scope.completedSteps = $scope.steps.slice(0,currentStep);
             $scope.nextSteps = $scope.steps.slice(currentStep, $scope.steps.length);
-
+            $scope.completedStepCount = currentStep;
+            console.log("sort steps: " + currentStep);
         };
 
         $scope.iconsDict = {Recording: '/img/CollectionIcons/recording.png',
@@ -175,6 +176,10 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
 
         $scope.afterCapture = function () {
 
+        };
+
+        $scope.myGoBack = function() {
+            $ionicHistory.goBack();
         };
 
     })
@@ -245,6 +250,11 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             //$state.go('tab.video');
             $state.go('tab.playlist-collection-video', {'collectionId': collection, 'videoId': vid});
         };
+
+        $scope.calcStepNumber = function (curIndex) {
+            return  (1 + parseInt(curIndex) + parseInt($scope.stepNumber)) + ' ';
+        };
+
     })
 
     .controller('VideogularPlayerCtrl', function ($scope, $stateParams, $sce, MediaDBFactory) {
@@ -328,6 +338,10 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
 
             $state.go('tab.playlist-collection-article', {'collectionId': collection, 'article': vid});
         };
+
+        $scope.calcStepNumber = function (curIndex) {
+            return  (1 + parseInt(curIndex) + parseInt($scope.stepNumber)) + ' ';
+        };
     })
     .controller('ArticleCtrl', function ($scope, $stateParams) {
         $scope.article = $stateParams.article;
@@ -342,7 +356,8 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             scope: {
                 step: '=',
                 parentIndex: '@',
-                index: '@'
+                index: '@',
+                stepNumber: '@'
             },
             controller: 'RecordingStepCtrl',
             link: function(scope, element, attrs) {
@@ -361,7 +376,8 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             scope: {
                 step: '=',
                 parentIndex: '@',
-                index: '@'
+                index: '@',
+                stepNumber: '@'
             },
             controller: 'ArticleStepCtrl',
             link: function(scope, element, attrs) {

@@ -138,6 +138,15 @@ angular.module('train', [
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl'
   })
+
+
+
+
+
+
+
+
+
       .state('app', {
           url: "/app",
           abstract: true,
@@ -151,6 +160,16 @@ angular.module('train', [
               'menuContent' :{
                   templateUrl: "templates/tab-playlist.html",
                   controller: 'PlaylistCtrl'
+              }
+          }
+      })
+
+      .state('app.playlist-collection', {
+          url: '/playlist/:collectionId',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/playlist-collection.html',
+                  controller: 'CollectionCtrl'
               }
           }
       })
@@ -173,7 +192,7 @@ angular.module('train', [
                   controller: 'PlaylistCtrl'
               }
           }
-      });;
+      });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');
 })

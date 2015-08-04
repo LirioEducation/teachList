@@ -2,9 +2,14 @@
 <ion-view view-title="Progress">
     <ion-nav-bar class="bar-lirio app-header">
 
-    <ion-nav-buttons side="left">
-        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-    </ion-nav-buttons>
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-ios-search-strong"></button>
+        </ion-nav-buttons>
+
     </ion-nav-bar>
     <!--
     <ion-nav-buttons side="left">
@@ -22,12 +27,26 @@
         </button>
 
     </ion-nav-buttons>
-
-
 -->
+
+    <ion-header-bar class="bar-subheader bar-light progress-bar">
+        <div class="row">
+
+            <div class="col left">
+                <button class="button button-clear button-dark">
+                    Working On
+                </button>
+            </div>
+            <div class="col right">
+                <button class="button button-clear button-stable">
+                    Helping With
+                </button>
+            </div>
+        </div>
+
+    </ion-header-bar>
+
     <ion-content>
-
-
         <ion-item class="playlist-item" ng-repeat="item in playlist">
             <div class="list card playlist">
                 <div class="item item-image">
@@ -65,8 +84,8 @@
                     <div class="list card step">
 
                         <div ng-switch='item.nextStep.Type'>
-                            <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="item.nextStep" parent-index=0 index={{$index}}></recording-step> </div>
-                            <div class='animate-switch' ng-switch-when='Article'> <article-step step="item.nextStep" parent-index="0" index="{{$index}}"></article-step> </div>
+                            <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="item.nextStep" parent-index=0 index={{$index}} step-number={{item.collection.CurrentStepIndex}}></recording-step> </div>
+                            <div class='animate-switch' ng-switch-when='Article'> <article-step step="item.nextStep" parent-index="0" index="{{$index}}" step-number={{item.collection.CurrentStepIndex}}></article-step> </div>
                             <div class='animate-switch' ng-switch-default>default</div>
                         </div>
                     </div>
