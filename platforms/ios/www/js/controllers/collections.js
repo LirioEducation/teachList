@@ -302,6 +302,8 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
 
 
     }).controller('RecordingPlayerCtrl', function ($scope, $timeout, $ionicScrollDelegate, $stateParams, MediaDBFactory) {
+
+        $scope.comments = [];
         $scope.filename = $stateParams.videoId;
         var filename = $scope.filename;
         MediaDBFactory.getMedia(filename).then(function(data){
@@ -313,6 +315,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
 
             console.log($scope.videoURL);
         });
+
 
         function parseComments(commentArray) {
             var newCommArray = [];
@@ -329,16 +332,24 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             isIOS = ionic.Platform.isWebView() && ionic.Platform.isIOS();
 
         $scope.sendMessage = function() {
+
+            console.log("send message");
+
             alternate = !alternate;
 
             var d = new Date();
             d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
 
-            $scope.messages.push({
-                userId: alternate ? '12345' : '54321',
-                text: $scope.data.message,
-                time: d
-            });
+            var newComm = {
+                commenter: alternate ? '12345' : '54321',
+                comment: $scope.data.message,
+            };
+            console.log("new comm: " + newComm.comment);
+            $scope.comments.push(newComm);
+            $scope.$apply();
+
+            console.log("Comments: " + $scope.comments.length);
+
 
             delete $scope.data.message;
             $ionicScrollDelegate.scrollBottom(true);
@@ -426,7 +437,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
                 console.log("recordingStep-Items: " + scope.step.Items);
                 console.log("parentIndex: " + scope.parentIndex);
             },
-            templateUrl: 'templates/directives/step-Recording.html'
+            templateUrl: 'templates/directives/step-recording.html'
         };
     })
 
@@ -458,7 +469,11 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
         }
     })
 
-    .directive('input', function($timeout) {
+
+
+
+
+        .directive('input', function($timeout) {
         return {
             restrict: 'E',
             scope: {
@@ -494,6 +509,26 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
                 });
             }
         }
+    })
+
+    .directive('videoComment', function() {
+        return {
+            restrict: 'E',
+            scope: {
+                user: '@',
+                comment: '@'
+            },
+            controller: 'videoCommentCtrl',
+            link: function(scope, element, attrs) {
+
+            },
+            templateUrl: 'templates/directives/video-comment.html'
+        };
+    })
+
+    .controller('videoCommentCtrl', function ($scope) {
+
+
     })
 
 ;

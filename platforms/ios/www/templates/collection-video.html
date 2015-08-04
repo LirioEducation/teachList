@@ -1,24 +1,33 @@
 <ion-view view-title="Player">
     <ion-content>
-        <div class="row responsive-md">
-            <div class="col video-box">
+        <div class="row responsive-md video-box">
+            <div class="col">
                 <video class="video-recording" ng-src="{{videoURL}}" preload="metadata" controls="controls" poster="{{poster}}"></video>
             </div>
         </div>
 
-        <div class="video-comment-box">
-            <div class="row responsive-md">
-                Comment
+        <div class="row video-comment-box">
+            <div class="responsive-md">
+                Comments
             </div>
-
-            <ion-item class="row responsive-md" ng-repeat="comment in comments">
-                {{comment.commenter}}
-                <br>
-                {{comment.comment}}
-            </ion-item>
         </div>
 
+        <ion-item class="row video-comment" ng-repeat="comment in comments">
+
+            <div class="col col-10 avatar">
+                <img class='user-avatar' src='img/george.png'>
+            </div>
+            <div class="col col-90 comment">
+                <div class="commenter"> {{comment.commenter}} </div>
+
+                <div class="comment"> {{comment.comment}}</div>
+            </div>
+
+            <!--<video-comment user={{comment.commenter}} comment={{comment.comment}}></video-comment>-->
+        </ion-item>
+
         <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+
             <label class="item-input-wrapper">
                 <input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
             </label>

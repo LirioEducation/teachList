@@ -638,6 +638,7 @@ video.video-recording {
 
 .video-box {
     align: center;
+    position: static;
 }
 
 .video-comment-box {
@@ -712,4 +713,40 @@ video.video-recording {
     border-radius: 10px !important;
     text-align: left !important;
     max-width: 240px !important;
+}
+
+
+.video-comment {
+    background-color: lightgrey;
+}
+
+.video-comment {
+    background-color: lightgrey;
+}
+.video-comment .col img {
+    position: relative;
+    float: right;
+    width: 30px;
+    max-height: 100px;
+    max-width: 50px;
+    vertical-align: middle;
+}
+
+.video-comment .col.avatar {
+    background-color: lightgrey;
+}
+
+.video-comment .col.comment {
+    background-color: lightgrey;
+    text-align: left;
+}
+
+.video-comment  .col.comment .commenter {
+    background-color: lightgrey;
+    color: grey;
+}
+
+.video-comment  .col.comment .comment {
+    background-color: lightgrey;
+    color: black;
 }

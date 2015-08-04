@@ -1,6 +1,4 @@
 
-<div class="list card step">
-
     <div class="row" ng-click="detailDisplay()">
         <div class="col">
             {{calcStepNumber(index)}}
@@ -9,7 +7,7 @@
             <img class='collection-icon recording' ng-src='img/CollectionIcons/{{step.Type}}.png'>
         </div>
         <div class="col col-75">
-            <div class="step-title"> Use PBL in the Music classroom </div>
+            <div class="step-title"> {{step.Title}} </div>
             <br>
             <div class="step-time"> approx. 15 min</div>
         </div>
@@ -26,10 +24,5 @@
                 Read Article
             </button>
         </div>
-
-
-
     </div>
-
-</div>
 
