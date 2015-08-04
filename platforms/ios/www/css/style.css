@@ -380,6 +380,7 @@ ion-item.playlist-banner img {
 .collection-header {
     background: #76D7E3;
     margin: 0px ;
+    margin-top: -10px;
     padding: 20px;
     border-bottom-width: 0;
     height: 150px;
