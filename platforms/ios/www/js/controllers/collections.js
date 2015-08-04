@@ -202,6 +202,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
 
         $scope.captureVideo = function () {
             console.log("capture video");
+
             $cordovaCapture.captureVideo().then(function (videoData) {
                 VideoService.saveVideo(videoData).success(function (data) {
                     $scope.clip = data;
@@ -236,7 +237,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
 
             $ionicScrollDelegate.resize();
             console.log("ionic scroll");
-            $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop();
+            $ionicScrollDelegate.$getByHandle('mainScroll').scrollBottom(true);
         };
 
         $scope.showVideo = function () {
@@ -248,7 +249,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             var collection = $scope.collectionId;
             //$state.go('tab.playlist-collection.video', {'name': $scope.step.Items});
             //$state.go('tab.video');
-            $state.go('tab.playlist-collection-video', {'collectionId': collection, 'videoId': vid});
+            $state.go('app.playlist-collection-video', {'collectionId': collection, 'videoId': vid});
         };
 
         $scope.calcStepNumber = function (curIndex) {
@@ -300,15 +301,74 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
         });
 
 
-    }).controller('RecordingPlayerCtrl', function ($scope, $stateParams, MediaDBFactory) {
+    }).controller('RecordingPlayerCtrl', function ($scope, $timeout, $ionicScrollDelegate, $stateParams, MediaDBFactory) {
         $scope.filename = $stateParams.videoId;
         var filename = $scope.filename;
         MediaDBFactory.getMedia(filename).then(function(data){
             $scope.video = data;
             $scope.videoURL = $scope.video.LocalMediaURL;
+            $scope.poster = $scope.video.LocalThumbnailURL;
+            $scope.commentArray = $scope.video.Comments.split(',');
+            $scope.comments = parseComments($scope.commentArray);
+
             console.log($scope.videoURL);
         });
+
+        function parseComments(commentArray) {
+            var newCommArray = [];
+            for(i=0; 2*i < commentArray.length; i++) {
+                var comment = {'commenter': commentArray[2*i], 'comment': commentArray[2*i+1]};
+                newCommArray[i] = comment;
+            }
+            return newCommArray;
+        }
+
+        $scope.hideTime = true;
+
+        var alternate,
+            isIOS = ionic.Platform.isWebView() && ionic.Platform.isIOS();
+
+        $scope.sendMessage = function() {
+            alternate = !alternate;
+
+            var d = new Date();
+            d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
+
+            $scope.messages.push({
+                userId: alternate ? '12345' : '54321',
+                text: $scope.data.message,
+                time: d
+            });
+
+            delete $scope.data.message;
+            $ionicScrollDelegate.scrollBottom(true);
+
+        };
+
+
+        $scope.inputUp = function() {
+            if (isIOS) $scope.data.keyboardHeight = 216;
+            $timeout(function() {
+                $ionicScrollDelegate.scrollBottom(true);
+            }, 300);
+
+        };
+
+        $scope.inputDown = function() {
+            if (isIOS) $scope.data.keyboardHeight = 0;
+            $ionicScrollDelegate.resize();
+        };
+
+        $scope.closeKeyboard = function() {
+             cordova.plugins.Keyboard.close();
+        };
+
+
+        $scope.data = {};
+        $scope.myId = '12345';
+        $scope.messages = [];
     })
+
 
     // Article Step Controller
     .controller('ArticleStepCtrl', function ($scope, $state, $cordovaCapture, VideoService, CollectionsDBFactory, MediaDBFactory) {
@@ -336,7 +396,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             var vid = $scope.step.Items;
             var collection = $scope.collectionId;
 
-            $state.go('tab.playlist-collection-article', {'collectionId': collection, 'article': vid});
+            $state.go('app.playlist-collection-article', {'collectionId': collection, 'article': vid});
         };
 
         $scope.calcStepNumber = function (curIndex) {
@@ -397,4 +457,43 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             return $sce.trustAsHtml(stringToParse);
         }
     })
+
+    .directive('input', function($timeout) {
+        return {
+            restrict: 'E',
+            scope: {
+                'returnClose': '=',
+                'onReturn': '&',
+                'onFocus': '&',
+                'onBlur': '&'
+            },
+            link: function(scope, element, attr) {
+                element.bind('focus', function(e) {
+                    if (scope.onFocus) {
+                        $timeout(function() {
+                            scope.onFocus();
+                        });
+                    }
+                });
+                element.bind('blur', function(e) {
+                    if (scope.onBlur) {
+                        $timeout(function() {
+                            scope.onBlur();
+                        });
+                    }
+                });
+                element.bind('keydown', function(e) {
+                    if (e.which == 13) {
+                        if (scope.returnClose) element[0].blur();
+                        if (scope.onReturn) {
+                            $timeout(function() {
+                                scope.onReturn();
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    })
+
 ;

@@ -80,5 +80,29 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-device-orientation": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-device-orientation"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "net.yoik.cordova.plugins.screenorientation": {
+        "source": {
+            "type": "registry",
+            "id": "net.yoik.cordova.plugins.screenorientation"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-screen-orientation": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-screen-orientation"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

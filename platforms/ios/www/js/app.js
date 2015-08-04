@@ -142,11 +142,6 @@ angular.module('train', [
 
 
 
-
-
-
-
-
       .state('app', {
           url: "/app",
           abstract: true,
@@ -174,22 +169,30 @@ angular.module('train', [
           }
       })
 
-      .state('app.browse', {
-          url: "/browse",
-          views: {
-              'menuContent' :{
-                  templateUrl: "browse.html"
-              }
-          }
-      })
-
-
       .state('app.single', {
           url: "/playlists/:playlistId",
           views: {
               'menuContent' :{
                   templateUrl: "playlist.html",
                   controller: 'PlaylistCtrl'
+              }
+          }
+      })
+      .state('app.playlist-collection-video', {
+          url: '/playlist/:collectionId/:videoId',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/collection-video.html',
+                  controller: 'RecordingPlayerCtrl'
+              }
+          }
+      })
+      .state('app.playlist-collection-article', {
+          url: '/playlist/:collectionId/:article',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/collection-article.html',
+                  controller: 'ArticleCtrl'
               }
           }
       });

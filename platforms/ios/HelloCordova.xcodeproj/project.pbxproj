@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0DF16F4C26CC4E208C777388 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C25B7B54763349DF87E29FA3 /* CDVInAppBrowser.m */; };
 		0F4E3B41B2BD444CAE2B2EAA /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E76FD6F45BC42DEB85A20C5 /* CDVSplashScreen.m */; };
@@ -62,6 +61,9 @@
 		F41740F71B3AAFC500AD577C /* services.tests.js in Resources */ = {isa = PBXBuildFile; fileRef = F41740F41B3AAFC500AD577C /* services.tests.js */; };
 		F41740F91B3AB12000AD577C /* LoginCtrl.tests.js in Resources */ = {isa = PBXBuildFile; fileRef = F41740F81B3AB12000AD577C /* LoginCtrl.tests.js */; };
 		F43C626A1B3B21CC008B9D5B /* CollectionsCtrl.tests.js in Resources */ = {isa = PBXBuildFile; fileRef = F43C62691B3B21CC008B9D5B /* CollectionsCtrl.tests.js */; };
+		E9CE48C6E0C44FCEBADB3750 /* CDVCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6501E25FD54DE6B25131C2 /* CDVCompass.m */; };
+		DE2FA2655C76449A944992DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEAD30B8716470BB711A7C9 /* CoreLocation.framework */; };
+		974403805DD5482DA9D5D54C /* YoikScreenOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF0948528F24DC9B37A70DC /* YoikScreenOrientation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +162,11 @@
 		F5FC18F71F184B858884D721 /* IonicKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IonicKeyboard.h; path = com.ionic.keyboard/IonicKeyboard.h; sourceTree = "<group>"; };
 		F72BAA96FC224955A3BFBA4B /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVAssetLibraryFilesystem.h; path = "cordova-plugin-file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = HelloCordova/config.xml; sourceTree = "<group>"; };
+		CD6501E25FD54DE6B25131C2 /* CDVCompass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVCompass.m"; path = "cordova-plugin-device-orientation/CDVCompass.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		FF3B420B543044359ABF190B /* CDVCompass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVCompass.h"; path = "cordova-plugin-device-orientation/CDVCompass.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		DFEAD30B8716470BB711A7C9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		DFF0948528F24DC9B37A70DC /* YoikScreenOrientation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "YoikScreenOrientation.m"; path = "net.yoik.cordova.plugins.screenorientation/YoikScreenOrientation.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		7CD7ACC1AE2A470693D981ED /* YoikScreenOrientation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "YoikScreenOrientation.h"; path = "net.yoik.cordova.plugins.screenorientation/YoikScreenOrientation.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +179,7 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				B4757D1CFDBE4D18B435ECB6 /* MediaPlayer.framework in Frameworks */,
+				DE2FA2655C76449A944992DE /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +255,7 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 				F323402D63194262A49706A1 /* MediaPlayer.framework */,
+				DFEAD30B8716470BB711A7C9 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -288,6 +297,10 @@
 				2290FD853B6448F7BA154337 /* sqlite3.h */,
 				C25B7B54763349DF87E29FA3 /* CDVInAppBrowser.m */,
 				BBCE2D7677C945FBB6A81037 /* CDVInAppBrowser.h */,
+				CD6501E25FD54DE6B25131C2 /* CDVCompass.m */,
+				FF3B420B543044359ABF190B /* CDVCompass.h */,
+				DFF0948528F24DC9B37A70DC /* YoikScreenOrientation.m */,
+				7CD7ACC1AE2A470693D981ED /* YoikScreenOrientation.h */,
 			);
 			name = Plugins;
 			path = HelloCordova/Plugins;
@@ -524,6 +537,8 @@
 				52A8340678054343B5D5A879 /* SQLitePlugin.m in Sources */,
 				298079CEE6C245408AA43DEE /* sqlite3.c in Sources */,
 				0DF16F4C26CC4E208C777388 /* CDVInAppBrowser.m in Sources */,
+				E9CE48C6E0C44FCEBADB3750 /* CDVCompass.m in Sources */,
+				974403805DD5482DA9D5D54C /* YoikScreenOrientation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

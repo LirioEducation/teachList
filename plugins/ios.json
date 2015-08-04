@@ -39,6 +39,14 @@
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Compass\"><param name=\"ios-package\" value=\"CDVCompass\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"YoikScreenOrientation\"><param name=\"ios-package\" value=\"YoikScreenOrientation\" /></feature>",
+                            "count": 1
                         }
                     ],
                     "/widget/plugins": [
@@ -70,6 +78,12 @@
                         }
                     ],
                     "MediaPlayer.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "CoreLocation.framework": [
                         {
                             "xml": false,
                             "count": 1
@@ -106,6 +120,12 @@
         },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.ionicframework.train"
+        },
+        "net.yoik.cordova.plugins.screenorientation": {
+            "PACKAGE_NAME": "com.ionicframework.train"
         }
     },
     "dependent_plugins": {

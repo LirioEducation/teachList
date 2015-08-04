@@ -107,6 +107,41 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/cordova-plugin-device-orientation/www/CompassError.js",
+        "id": "cordova-plugin-device-orientation.CompassError",
+        "clobbers": [
+            "CompassError"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device-orientation/www/CompassHeading.js",
+        "id": "cordova-plugin-device-orientation.CompassHeading",
+        "clobbers": [
+            "CompassHeading"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device-orientation/www/compass.js",
+        "id": "cordova-plugin-device-orientation.compass",
+        "clobbers": [
+            "navigator.compass"
+        ]
+    },
+    {
+        "file": "plugins/net.yoik.cordova.plugins.screenorientation/www/screenorientation.js",
+        "id": "net.yoik.cordova.plugins.screenorientation.screenorientation",
+        "clobbers": [
+            "cordova.plugins.screenorientation"
+        ]
+    },
+    {
+        "file": "plugins/net.yoik.cordova.plugins.screenorientation/www/screenorientation.ios.js",
+        "id": "net.yoik.cordova.plugins.screenorientation.screenorientation.ios",
+        "merges": [
+            "cordova.plugins.screenorientation"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
         "id": "cordova-plugin-file.DirectoryEntry",
         "clobbers": [
@@ -265,6 +300,8 @@ module.exports.metadata =
     "com.photokandy.videothumbnail": "1.0.1",
     "io.litehelpers.cordova.sqlite": "0.7.10-pre",
     "cordova-plugin-inappbrowser": "1.0.2-dev",
+    "cordova-plugin-device-orientation": "1.0.1",
+    "net.yoik.cordova.plugins.screenorientation": "1.3.4",
     "cordova-plugin-file": "2.1.0"
 }
 // BOTTOM OF METADATA

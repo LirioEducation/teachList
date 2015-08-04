@@ -1,7 +1,32 @@
 <ion-view view-title="Player">
     <ion-content>
-        {{videoURL}}
-        <video ng-src="{{videoURL}}" preload="metadata" controls="controls"></video>
+        <div class="row responsive-md">
+            <div class="col video-box">
+                <video class="video-recording" ng-src="{{videoURL}}" preload="metadata" controls="controls" poster="{{poster}}"></video>
+            </div>
+        </div>
+
+        <div class="video-comment-box">
+            <div class="row responsive-md">
+                Comment
+            </div>
+
+            <ion-item class="row responsive-md" ng-repeat="comment in comments">
+                {{comment.commenter}}
+                <br>
+                {{comment.comment}}
+            </ion-item>
+        </div>
+
+        <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+            <label class="item-input-wrapper">
+                <input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+            </label>
+            <button class="button button-clear" ng-click="sendMessage()">
+                Send
+            </button>
+        </ion-footer-bar>
+
 
         <!--
         <div class="videogular-container">
