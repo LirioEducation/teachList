@@ -20,9 +20,23 @@
     <div class="row animate-show" ng-show='display'>
 
         <div class="col">
-            <button class="button button-full button-small button-lirio" ng-click="readArticle()">
-                Read Article
-            </button>
+
+            <div ng-switch='isLink(step.Items)'>
+                <div class='animate-switch' ng-switch-when='false'>
+                    <button class="button button-full button-small button-lirio" ng-click="readArticle()">
+                        Read Article
+                    </button>
+                </div>
+
+
+                <div class='animate-switch' ng-switch-when='true'>
+                    <button class="button button-full button-small button-lirio" onclick="window.open('http://www.nytimes.com/2015/01/18/upshot/helping-the-poor-in-higher-education-the-power-of-a-simple-nudge.html', '_blank', 'location=no'); return false;">
+                        Read Article online
+                    </button>
+                </div>
+                <div class='animate-switch' ng-switch-default>default</div>
+            </div>
+
         </div>
 
     </div>

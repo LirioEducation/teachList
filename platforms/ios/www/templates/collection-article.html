@@ -1,11 +1,7 @@
 <ion-view view-title="Player">
     <ion-content>
 
-        <div ng-switch='isLink({{article}})'>
-            <div class='animate-switch' ng-switch-when='true'> <div ng-bind-html="article | renderHTMLCorrectly"></div></div>
-            <div class='animate-switch' ng-switch-when='false'> <article-step step="item.nextStep" parent-index="0" index="{{$index}}" step-number={{item.collection.CurrentStepIndex}}></article-step> </div>
-            <div class='animate-switch' ng-switch-default>default</div>
-        </div>
+        <div ng-bind-html="article | renderHTMLCorrectly"></div>
 
     </ion-content>
 </ion-view>

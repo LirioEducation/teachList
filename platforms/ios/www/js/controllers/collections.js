@@ -491,14 +491,6 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
         $scope.article = '';
         $scope.collectionId = $state.params.collectionId;
 
-        // load in the videos
-        $scope.loadArticle = function () {
-            $scope.articleURL = $scope.step.Items;
-            // parse as html
-        };
-
-        $scope.loadArticle();
-
         $scope.display = false;
 
         $scope.detailDisplay = function () {
@@ -506,24 +498,57 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
         };
 
         $scope.readArticle = function () {
+            console.log("read article");
             console.log($scope.step.Items);
             console.log($scope.collectionId);
             console.log($state.current.name);
-            var vid = $scope.step.Items;
+            var article = $scope.step.Items;
             var collection = $scope.collectionId;
 
-            $state.go('app.playlist-collection-article', {'collectionId': collection, 'article': vid});
+            $state.go('app.playlist-collection-article', {'collectionId': collection, 'article': article});
         };
 
         $scope.calcStepNumber = function (curIndex) {
             return  (1 + parseInt(curIndex) + parseInt($scope.stepNumber)) + ' ';
         };
+
+        $scope.isLink = function (str) {
+            console.log("is link: " + str);
+
+
+            console.log("pattern recognized:");
+            if(!/^(f|ht)tps?:\/\//i.test(str)) {
+                console.log("is link false");
+                return false;
+            } else {
+                console.log("is link true");
+                return true;
+            }
+        }
     })
     .controller('ArticleCtrl', function ($scope, $stateParams) {
         $scope.article = $stateParams.article;
 
+
+        $scope.isLink = function (str) {
+            console.log("is link: " + str);
+
+
+            console.log("pattern recognized:");
+            if(!/^(f|ht)tps?:\/\//i.test(str)) {
+                console.log("is link false");
+                return false;
+            } else {
+                console.log("is link true");
+                return true;
+            }
+        }
+
+        /*
         $scope.isLink = function (article) {
             var pat = /^https?:\/\//i;
+
+            console.log(article);
             if (pat.test(article))
             {
                 console.log("return true");
@@ -531,41 +556,10 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             }
             return 'false';
         };
+        */
     })
 
-    // Article Step Controller
-    .controller('ArticleStepCtrl', function ($scope, $state) {
-        $scope.video = '';
-        $scope.collectionId = $state.params.collectionId;
 
-        // load in the videos
-        $scope.getVideoUrl = function () {
-            $scope.videoURL = $scope.step.Items;
-            // parse as html
-        };
-
-        $scope.getVideoUrl();
-
-        $scope.display = false;
-
-        $scope.detailDisplay = function () {
-            $scope.display = !$scope.display;
-        };
-
-        $scope.watchVideo = function () {
-            console.log($scope.step.Items);
-            console.log($scope.collectionId);
-            console.log($state.current.name);
-            var vid = $scope.step.Items;
-            var collection = $scope.collectionId;
-
-            $state.go('app.playlist-collection-video', {'collectionId': collection, 'video': vid});
-        };
-
-        $scope.calcStepNumber = function (curIndex) {
-            return  (1 + parseInt(curIndex) + parseInt($scope.stepNumber)) + ' ';
-        };
-    })
 
     .directive('recordingStep', function() {
         return {
