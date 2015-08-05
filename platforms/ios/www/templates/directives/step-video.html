@@ -4,7 +4,7 @@
         {{calcStepNumber(index)}}
     </div>
     <div class="col">
-        <img class='collection-icon recording' ng-src='img/CollectionIcons/{{step.Type}}.png'>
+        <img class='collection-icon recording' ng-src='img/CollectionIcons/Video.png'>
     </div>
     <div class="col col-75">
         <div class="step-title"> {{step.Title}} </div>
@@ -18,11 +18,7 @@
 
 </div>
 <div class="row animate-show" ng-show='display'>
-
-    <div class="col col-50 step-detail">
-
-        <button class="button button-positive" ng-click="showVideo()">
-            View Recording
+        <button class="button button-small button-full button-lirio" ng-click="showVideo()">
+            Watch Video
         </button>
-    </div>
 </div>

@@ -17,17 +17,21 @@
         {{step.Details}}
 
     </div>
-    <div class="row animate-show" ng-show='display'>
 
-        <div class="col col-50 step-detail">
-            <button class="button button-positive" ng-click="captureVideo()">
-                Add Recording
-            </button>
+    <div class="animate-show" ng-show="display">
+        <div class="row">
+            <div class="col">
+                <button class="button button-full button-small button-lirio" ng-click="captureVideo()">
+                    Add Recording
+                </button>
+            </div>
         </div>
-        <div class="col col-50 step-detail">
 
-                <button class="button button-positive" ng-click="showVideo()">
+        <div class="row">
+            <div class="col">
+                <button class="button button-full button-small button-grey" ng-click="showVideo()">
                     View Recording
                 </button>
+            </div>
         </div>
     </div>
