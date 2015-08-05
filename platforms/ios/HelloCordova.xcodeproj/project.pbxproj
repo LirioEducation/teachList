@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0DF16F4C26CC4E208C777388 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C25B7B54763349DF87E29FA3 /* CDVInAppBrowser.m */; };
 		0F4E3B41B2BD444CAE2B2EAA /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E76FD6F45BC42DEB85A20C5 /* CDVSplashScreen.m */; };
@@ -49,10 +50,13 @@
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		87927833541F44D9AFB7435F /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F0FEDC0BF64A77A5F53A39 /* CDVFile.m */; };
 		924888666AE74AA5A04058C4 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D66C9DDC484DE6865436B6 /* CDVLocalFilesystem.m */; };
+		974403805DD5482DA9D5D54C /* YoikScreenOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF0948528F24DC9B37A70DC /* YoikScreenOrientation.m */; };
 		B4757D1CFDBE4D18B435ECB6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F323402D63194262A49706A1 /* MediaPlayer.framework */; };
 		CA804066687844E891F2FE1E /* UIWebViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40766BFB12194F558333D868 /* UIWebViewExtension.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		DD47BB70075A4A61B97C0343 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F74EE8702E7413FB821A2EC /* CDVLogger.m */; };
+		DE2FA2655C76449A944992DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEAD30B8716470BB711A7C9 /* CoreLocation.framework */; };
+		E9CE48C6E0C44FCEBADB3750 /* CDVCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6501E25FD54DE6B25131C2 /* CDVCompass.m */; };
 		F16E7176DB1049D18920C4A9 /* CDVCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F63E4DE6D14FD28A3BE54F /* CDVCapture.m */; };
 		F40BDF941B6DD5AF00A5ED38 /* Default-667h.png in Resources */ = {isa = PBXBuildFile; fileRef = F40BDF931B6DD5AF00A5ED38 /* Default-667h.png */; };
 		F4163DE11B6D76F3000B66F9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4163DE01B6D76F3000B66F9 /* Images.xcassets */; };
@@ -61,9 +65,6 @@
 		F41740F71B3AAFC500AD577C /* services.tests.js in Resources */ = {isa = PBXBuildFile; fileRef = F41740F41B3AAFC500AD577C /* services.tests.js */; };
 		F41740F91B3AB12000AD577C /* LoginCtrl.tests.js in Resources */ = {isa = PBXBuildFile; fileRef = F41740F81B3AB12000AD577C /* LoginCtrl.tests.js */; };
 		F43C626A1B3B21CC008B9D5B /* CollectionsCtrl.tests.js in Resources */ = {isa = PBXBuildFile; fileRef = F43C62691B3B21CC008B9D5B /* CollectionsCtrl.tests.js */; };
-		E9CE48C6E0C44FCEBADB3750 /* CDVCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6501E25FD54DE6B25131C2 /* CDVCompass.m */; };
-		DE2FA2655C76449A944992DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEAD30B8716470BB711A7C9 /* CoreLocation.framework */; };
-		974403805DD5482DA9D5D54C /* YoikScreenOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF0948528F24DC9B37A70DC /* YoikScreenOrientation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		62CC793E8D3B4F6FA751CF08 /* CDVSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSplashScreen.h; path = "cordova-plugin-splashscreen/CDVSplashScreen.h"; sourceTree = "<group>"; };
 		69F63E4DE6D14FD28A3BE54F /* CDVCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVCapture.m; path = "cordova-plugin-media-capture/CDVCapture.m"; sourceTree = "<group>"; };
 		6D48E4FABA524AAB91F6415F /* CDVLocalFilesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLocalFilesystem.h; path = "cordova-plugin-file/CDVLocalFilesystem.h"; sourceTree = "<group>"; };
+		7CD7ACC1AE2A470693D981ED /* YoikScreenOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YoikScreenOrientation.h; path = net.yoik.cordova.plugins.screenorientation/YoikScreenOrientation.h; sourceTree = "<group>"; };
 		7E07820925EA407D8D1147C4 /* CDVFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVFile.h; path = "cordova-plugin-file/CDVFile.h"; sourceTree = "<group>"; };
 		7E7966D41810823500FA85AD /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
 		7E7966D51810823500FA85AD /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40@2x.png"; sourceTree = "<group>"; };
@@ -147,7 +149,10 @@
 		C25B7B54763349DF87E29FA3 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowser.m; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; };
 		C361D4210B244037A615DA83 /* IonicKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IonicKeyboard.m; path = com.ionic.keyboard/IonicKeyboard.m; sourceTree = "<group>"; };
 		C3F0FEDC0BF64A77A5F53A39 /* CDVFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVFile.m; path = "cordova-plugin-file/CDVFile.m"; sourceTree = "<group>"; };
+		CD6501E25FD54DE6B25131C2 /* CDVCompass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVCompass.m; path = "cordova-plugin-device-orientation/CDVCompass.m"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		DFEAD30B8716470BB711A7C9 /* CoreLocation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DFF0948528F24DC9B37A70DC /* YoikScreenOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YoikScreenOrientation.m; path = net.yoik.cordova.plugins.screenorientation/YoikScreenOrientation.m; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
@@ -162,11 +167,7 @@
 		F5FC18F71F184B858884D721 /* IonicKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IonicKeyboard.h; path = com.ionic.keyboard/IonicKeyboard.h; sourceTree = "<group>"; };
 		F72BAA96FC224955A3BFBA4B /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVAssetLibraryFilesystem.h; path = "cordova-plugin-file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = HelloCordova/config.xml; sourceTree = "<group>"; };
-		CD6501E25FD54DE6B25131C2 /* CDVCompass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVCompass.m"; path = "cordova-plugin-device-orientation/CDVCompass.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		FF3B420B543044359ABF190B /* CDVCompass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVCompass.h"; path = "cordova-plugin-device-orientation/CDVCompass.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		DFEAD30B8716470BB711A7C9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		DFF0948528F24DC9B37A70DC /* YoikScreenOrientation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "YoikScreenOrientation.m"; path = "net.yoik.cordova.plugins.screenorientation/YoikScreenOrientation.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		7CD7ACC1AE2A470693D981ED /* YoikScreenOrientation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "YoikScreenOrientation.h"; path = "net.yoik.cordova.plugins.screenorientation/YoikScreenOrientation.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		FF3B420B543044359ABF190B /* CDVCompass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVCompass.h; path = "cordova-plugin-device-orientation/CDVCompass.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

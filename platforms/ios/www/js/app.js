@@ -11,6 +11,7 @@ angular.module('train', [
   'train.controllers.video',
   'train.database'
 ]).run(function ($ionicPlatform, $cordovaSQLite) {
+       
   $ionicPlatform.ready(function () {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -67,11 +68,11 @@ angular.module('train', [
             }
           }
   })
-      .state('tab.playlist-collection-video', {
+      .state('tab.playlist-collection-recording', {
           url: '/playlist/:collectionId/:videoId',
           views: {
               'tab-playlist': {
-                  templateUrl: 'templates/collection-video.html',
+                  templateUrl: 'templates/collection-recording.html',
                   controller: 'RecordingPlayerCtrl'
               }
           }
@@ -82,6 +83,15 @@ angular.module('train', [
               'tab-playlist': {
                   templateUrl: 'templates/collection-article.html',
                   controller: 'ArticleCtrl'
+              }
+          }
+      })
+      .state('tab.playlist-collection-video', {
+          url: '/playlist/:collectionId/:videoId',
+          views: {
+              'tab-playlist': {
+                  templateUrl: 'templates/collection-video.html',
+                  controller: 'RecordingPlayerCtrl'
               }
           }
       })
@@ -178,12 +188,21 @@ angular.module('train', [
               }
           }
       })
+      .state('app.playlist-collection-recording', {
+          url: '/playlist/:collectionId/:videoId',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/collection-recording.html',
+                  controller: 'RecordingPlayerCtrl'
+              }
+          }
+      })
       .state('app.playlist-collection-video', {
           url: '/playlist/:collectionId/:videoId',
           views: {
               'menuContent': {
                   templateUrl: 'templates/collection-video.html',
-                  controller: 'RecordingPlayerCtrl'
+                  controller: 'VideoStreamingPlayerCtrl'
               }
           }
       })

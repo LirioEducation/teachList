@@ -24,9 +24,7 @@
     <ion-content>
         <div class="row responsive-md video-box">
             <div class="col">
-                <div class="video-container">
-                    <iframe src="http://www.youtube.com/embed/uJAWaE11Jf4" frameborder="0" width="560" height="315"></iframe>
-                </div>
+                <video class="video-recording" ng-src="{{videoURL}}" preload="metadata" controls="controls" poster="{{poster}}"></video>
             </div>
         </div>
 
@@ -47,6 +45,7 @@
                 <div class="comment"> {{comment.comment}}</div>
             </div>
 
+            <!--<video-comment user={{comment.commenter}} comment={{comment.comment}}></video-comment>-->
         </ion-item>
 
         <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
@@ -59,6 +58,36 @@
             </button>
         </ion-footer-bar>
 
+
+        <!--
+        <div class="videogular-container">
+            <videogular vg-theme="config.theme" vg-plays-inline="'true'">
+                <vg-media vg-src="config.videos"
+                          vg-tracks="config.tracks">
+                </vg-media>
+
+                <vg-controls>
+                    <vg-play-pause-button></vg-play-pause-button>
+                    <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                    <vg-scrub-bar>
+                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                    </vg-scrub-bar>
+                    <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+                    <vg-volume>
+                        <vg-mute-button></vg-mute-button>
+                        <vg-volume-bar></vg-volume-bar>
+                    </vg-volume>
+                    <vg-fullscreen-button></vg-fullscreen-button>
+                    <my-stop-button></my-stop-button>
+
+                </vg-controls>
+
+                <vg-overlay-play></vg-overlay-play>
+
+                <vg-poster vg-url='config.plugins.poster'></vg-poster>
+            </videogular>
+        </div>
+        -->
     </ion-content>
 </ion-view>
 

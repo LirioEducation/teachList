@@ -249,7 +249,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             var collection = $scope.collectionId;
             //$state.go('tab.playlist-collection.video', {'name': $scope.step.Items});
             //$state.go('tab.video');
-            $state.go('app.playlist-collection-video', {'collectionId': collection, 'videoId': vid});
+            $state.go('app.playlist-collection-recording', {'collectionId': collection, 'videoId': vid});
         };
 
         $scope.calcStepNumber = function (curIndex) {
@@ -385,8 +385,109 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
     })
 
 
+    // Video Streaming Step Controller
+    .controller('VideoStreamingStepCtrl', function ($scope, $state) {
+        $scope.collectionId = $state.params.collectionId;
+        $scope.display = false;
+
+        $scope.detailDisplay = function () {
+            $scope.display = !$scope.display;
+        };
+
+        $scope.showVideo = function () {
+            console.log($scope.step.Items);
+            console.log($scope.collectionId);
+            console.log($state.current.name);
+            var vid = $scope.step.Items;
+            var collection = $scope.collectionId;
+
+            $state.go('app.playlist-collection-video', {'collectionId': collection, 'videoURL': vid});
+        };
+
+        $scope.calcStepNumber = function (curIndex) {
+            return  (1 + parseInt(curIndex) + parseInt($scope.stepNumber)) + ' ';
+        };
+    })
+
+
+    // Video Streaming Player Controller
+
+    .controller('VideoStreamingPlayerCtrl', function ($scope, $timeout, $ionicScrollDelegate, $ionicHistory, $stateParams, MediaDBFactory) {
+
+        $scope.comments = [];
+        $scope.videoURL = $stateParams.videoId;
+
+
+        function parseComments(commentArray) {
+            var newCommArray = [];
+            for(i=0; 2*i < commentArray.length; i++) {
+                var comment = {'commenter': commentArray[2*i], 'comment': commentArray[2*i+1]};
+                newCommArray[i] = comment;
+            }
+            return newCommArray;
+        }
+
+        $scope.hideTime = true;
+
+        var alternate,
+            isIOS = ionic.Platform.isWebView() && ionic.Platform.isIOS();
+
+        $scope.sendMessage = function() {
+
+            console.log("send message");
+
+            alternate = !alternate;
+
+            var d = new Date();
+            d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
+
+            var newComm = {
+                commenter: alternate ? 'Justin' : 'Sarah',
+                comment: $scope.data.message,
+            };
+            console.log("new comm: " + newComm.comment);
+            $scope.comments.push(newComm);
+            $scope.$apply();
+
+            console.log("Comments: " + $scope.comments.length);
+
+
+            delete $scope.data.message;
+            $ionicScrollDelegate.scrollBottom(true);
+
+        };
+
+
+        $scope.inputUp = function() {
+            if (isIOS) $scope.data.keyboardHeight = 216;
+            $timeout(function() {
+                $ionicScrollDelegate.scrollBottom(true);
+            }, 300);
+
+        };
+
+        $scope.inputDown = function() {
+            if (isIOS) $scope.data.keyboardHeight = 0;
+            $ionicScrollDelegate.resize();
+        };
+
+        $scope.closeKeyboard = function() {
+            cordova.plugins.Keyboard.close();
+        };
+
+
+        $scope.data = {};
+        $scope.myId = '12345';
+        $scope.messages = [];
+
+        $scope.myGoBack = function() {
+            $ionicHistory.goBack();
+        };
+    })
+
+
     // Article Step Controller
-    .controller('ArticleStepCtrl', function ($scope, $state, $cordovaCapture, VideoService, CollectionsDBFactory, MediaDBFactory) {
+    .controller('ArticleStepCtrl', function ($scope, $state) {
         $scope.article = '';
         $scope.collectionId = $state.params.collectionId;
 
@@ -421,9 +522,50 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
     .controller('ArticleCtrl', function ($scope, $stateParams) {
         $scope.article = $stateParams.article;
 
-
+        $scope.isLink = function (article) {
+            var pat = /^https?:\/\//i;
+            if (pat.test(article))
+            {
+                console.log("return true");
+                return 'true';
+            }
+            return 'false';
+        };
     })
 
+    // Article Step Controller
+    .controller('ArticleStepCtrl', function ($scope, $state) {
+        $scope.video = '';
+        $scope.collectionId = $state.params.collectionId;
+
+        // load in the videos
+        $scope.getVideoUrl = function () {
+            $scope.videoURL = $scope.step.Items;
+            // parse as html
+        };
+
+        $scope.getVideoUrl();
+
+        $scope.display = false;
+
+        $scope.detailDisplay = function () {
+            $scope.display = !$scope.display;
+        };
+
+        $scope.watchVideo = function () {
+            console.log($scope.step.Items);
+            console.log($scope.collectionId);
+            console.log($state.current.name);
+            var vid = $scope.step.Items;
+            var collection = $scope.collectionId;
+
+            $state.go('app.playlist-collection-video', {'collectionId': collection, 'video': vid});
+        };
+
+        $scope.calcStepNumber = function (curIndex) {
+            return  (1 + parseInt(curIndex) + parseInt($scope.stepNumber)) + ' ';
+        };
+    })
 
     .directive('recordingStep', function() {
         return {
@@ -462,6 +604,23 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
                 console.log("parentIndex: " + scope.parentIndex);
             },
             templateUrl: 'templates/directives/step-Article.html'
+        };
+    })
+
+    .directive('videoStep', function() {
+        return {
+            restrict: 'E',
+            scope: {
+                step: '=',
+                parentIndex: '@',
+                index: '@',
+                stepNumber: '@'
+            },
+            controller: 'VideoStreamingStepCtrl',
+            link: function(scope, element, attrs) {
+                console.log("videoStep");
+            },
+            templateUrl: 'templates/directives/step-video.html'
         };
     })
 

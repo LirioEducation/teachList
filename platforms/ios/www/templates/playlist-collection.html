@@ -82,8 +82,9 @@
         <ion-item class="collection-step" ng-repeat="step in nextSteps">
 
             <div ng-switch='step.Type'>
-                <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="step" parent-index=1 index={{$index}} step-number={{completedStepCount}}></recording-step> </div>
+                <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="step" parent-index=1 index="{{$index}}" step-number={{completedStepCount}}></recording-step> </div>
                 <div class='animate-switch' ng-switch-when='Article'> <article-step step="step" parent-index=1 index="{{$index}}" step-number={{completedStepCount}}></article-step> </div>
+                <div class='animate-switch' ng-switch-when='Video'> <video-step step="step" parent-index=1 index="{{$index}}" step-number={{completedStepCount}}></video-step> </div>
                 <div class='animate-switch' ng-switch-default>default</div>
             </div>
 

@@ -12,6 +12,8 @@ angular.module('train', [
   'train.database'
 ]).run(function ($ionicPlatform, $cordovaSQLite) {
   $ionicPlatform.ready(function () {
+
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -21,11 +23,18 @@ angular.module('train', [
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
     }
-    db = window.sqlitePlugin.openDatabase({name: "train-test.db", createFromLocation: 1});
+
+      var startMs = (new Date).getTime();
+      while(!window.sqlitePlugin){
+          console.log('waiting');
+          db = window.sqlitePlugin.openDatabase({name: "train-test.db", createFromLocation: 1});
+          $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS videos (id integer primary key, firstname text, lastname text)");
+
+      }
+
     //db = $cordovaSQLite.openDB({name : "train-test.db", bgType: 1});
     //db = $cordovaSQLite.openDB("train-test.db");
 
-    $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS videos (id integer primary key, firstname text, lastname text)");
 
 
 
@@ -71,7 +80,7 @@ angular.module('train', [
           url: '/playlist/:collectionId/:videoId',
           views: {
               'tab-playlist': {
-                  templateUrl: 'templates/collection-video.html',
+                  templateUrl: 'templates/collection-recording.html',
                   controller: 'RecordingPlayerCtrl'
               }
           }
@@ -182,7 +191,7 @@ angular.module('train', [
           url: '/playlist/:collectionId/:videoId',
           views: {
               'menuContent': {
-                  templateUrl: 'templates/collection-video.html',
+                  templateUrl: 'templates/collection-recording.html',
                   controller: 'RecordingPlayerCtrl'
               }
           }
