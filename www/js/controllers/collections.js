@@ -5,7 +5,7 @@
 angular.module('train.controllers.collections', ['ionic', 'train.services', 'train.database',   'ui.router', 'ngCordova', 'ng', 'ngSanitize'])
 
 // Playlist Controller
-    .controller('PlaylistCtrl', function($scope, $state, $stateParams, $ionicNavBarDelegate, $ionicScrollDelegate, NavBarService, CollectionsDBFactory){
+    .controller('PlaylistCtrl', function($scope, $state, $stateParams, $ionicNavBarDelegate, $ionicScrollDelegate, NavBarService, PlaylistsDBFactory){
 
         var showDetails = {};
 
@@ -17,7 +17,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             console.log("update playlist");
 
 
-            CollectionsDBFactory.allCollections().then(function (collections) {
+            PlaylistsDBFactory.allCollections().then(function (collections) {
                 $scope.collections = collections;
                 console.log("allcollections");
                 console.log(collections);
@@ -42,7 +42,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
             var currentStepURI = steps[collection.CurrentStepIndex];
 
             console.log("currentStepURI: " + currentStepURI);
-            CollectionsDBFactory.getCollectionStep(currentStepURI).then(function (step) {
+            PlaylistsDBFactory.getCollectionStep(currentStepURI).then(function (step) {
                 var playlistItem = {'collection': collection, 'nextStep': step};
 
                 $scope.playlist[playlistIndex] = playlistItem;
@@ -69,7 +69,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
                 console.log("collection.Steps: " + collection.Steps);
                 console.log("currentStep: " + currentStep);
 
-                CollectionsDBFactory.getCollectionStep(currentStep).then(function (step) {
+                PlaylistsDBFactory.getCollectionStep(currentStep).then(function (step) {
                     $scope.currentStepDetails = step;
                     console.log("current step details: " + step.Title);
                 });
@@ -99,16 +99,16 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
 
 // Collection Controller
 
-    .controller('CollectionCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, $ionicHistory, CollectionsDBFactory, VideoService, MediaDBFactory) {
+    .controller('CollectionCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, $ionicHistory, PlaylistsDBFactory, VideoService, MediaDBFactory) {
         $scope.collectionURI = $stateParams.collectionId;
 
         $scope.updateCollection = function()   {
 
-            CollectionsDBFactory.getCollection($scope.collectionURI).then(function (collection) {
+            PlaylistsDBFactory.getCollection($scope.collectionURI).then(function (collection) {
                 $scope.collection = collection;
                 console.log("Collection: " + collection);
                 console.log("Collection URI: " + collection.URI);
-                CollectionsDBFactory.getStepsForCollection(collection.URI).then(function (steps){
+                PlaylistsDBFactory.getStepsForCollection(collection.URI).then(function (steps){
                     $scope.steps = steps;
                     $scope.stepProcessing();
                 });
@@ -185,7 +185,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
     })
 
 // Recording Step Controller
-    .controller('RecordingStepCtrl', function ($scope, $state, $cordovaCapture, $ionicScrollDelegate, VideoService, CollectionsDBFactory, MediaDBFactory) {
+    .controller('RecordingStepCtrl', function ($scope, $state, $cordovaCapture, $ionicScrollDelegate, VideoService, PlaylistsDBFactory, MediaDBFactory) {
         $scope.clip = '';
         $scope.collectionId = $state.params.collectionId;
 
@@ -217,7 +217,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
 
         $scope.afterCapture = function (data) {
             //$scope.step.Items = data;
-            CollectionsDBFactory.setCollectionStepItems($scope.step ,data).then(function() {
+            PlaylistsDBFactory.setCollectionStepItems($scope.step ,data).then(function() {
                 //console.log("after Catpture: " + data);
                 $scope.step.Items = data;
                 $scope.videoURL = $scope.video.LocalMediaURL;
@@ -386,7 +386,7 @@ angular.module('train.controllers.collections', ['ionic', 'train.services', 'tra
 
 
     // Article Step Controller
-    .controller('ArticleStepCtrl', function ($scope, $state, $cordovaCapture, VideoService, CollectionsDBFactory, MediaDBFactory) {
+    .controller('ArticleStepCtrl', function ($scope, $state, $cordovaCapture, VideoService, PlaylistsDBFactory, MediaDBFactory) {
         $scope.article = '';
         $scope.collectionId = $state.params.collectionId;
 

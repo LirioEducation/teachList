@@ -140,7 +140,7 @@ angular.module('train.database', [])
     }
 })
 
-.factory('CollectionsDBFactory', function($q, $cordovaSQLite, DBA) {
+.factory('PlaylistsDBFactory', function($q, $cordovaSQLite, DBA) {
 
         return {
 

@@ -30,7 +30,7 @@
     </ion-header-bar>
 
     <ion-content>
-        <ion-item class="playlist-item" ng-repeat="item in playlist">
+        <ion-item class="playlist-item" ng-repeat="item in progress">
             <div class="list card playlist">
                 <div class="item item-image">
 
@@ -67,8 +67,8 @@
                     <div class="list card step">
 
                         <div ng-switch='item.nextStep.Type'>
-                            <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="item.nextStep" parent-index="0" index="{{$index}}" step-number={{item.collection.CurrentStepIndex}}></recording-step> </div>
-                            <div class='animate-switch' ng-switch-when='Article'> <article-step step="item.nextStep" parent-index="0" index="{{$index}}" step-number={{item.collection.CurrentStepIndex}}></article-step> </div>
+                            <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="item.nextStep" parent-index="0" index="{{$index}}" step-number={{item.playlist.CurrentStepIndex}}></recording-step> </div>
+                            <div class='animate-switch' ng-switch-when='Article'> <article-step step="item.nextStep" parent-index="0" index="{{$index}}" step-number={{item.playlist.CurrentStepIndex}}></article-step> </div>
                             <div class='animate-switch' ng-switch-default>default</div>
                         </div>
                     </div>

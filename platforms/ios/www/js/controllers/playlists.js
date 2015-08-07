@@ -12,37 +12,39 @@ angular.module('train.controllers.playlists', [
 ])
 
 // Progress Controller
-.controller('ProgressCtrl', function ($scope, $state, $stateParams, $ionicNavBarDelegate, $ionicScrollDelegate, NavBarService, CollectionsDBFactory) {
+.controller('ProgressCtrl', function ($scope, $state, $stateParams, $ionicNavBarDelegate, $ionicScrollDelegate, NavBarService, PlaylistsDBFactory) {
 
   var showDetails = {};
   NavBarService.setTransparency(true);
-  $scope.playlist = [];
-  $scope.collections = [];
+  $scope.progress = [];
+  $scope.playlists = [];
 
-  $scope.updatePlaylist = function () {
-    CollectionsDBFactory.allCollections().then(function (collections) {
-      $scope.collections = collections;
+  $scope.updateProgress = function () {
+    console.log("update progress");
+    PlaylistsDBFactory.allPlaylists().then(function (playlists) {
+      $scope.playlists = playlists;
 
-      for (i = 0; i < $scope.collections.length; i++) {
-        var col = $scope.collections[i];
-        $scope.setCollectionStep(col, i);
+      for (i = 0; i < $scope.playlists.length; i++) {
+        var col = $scope.playlists[i];
+        $scope.setPlaylistStep(col, i);
       }
     });
   };
 
-      $scope.setCollectionStep = function (collection, playlistIndex) {
-    curStepIndex = collection.CurrentStepIndex;
-    var steps = collection.Steps.split(',');
-    var currentStepURI = steps[collection.CurrentStepIndex];
-    CollectionsDBFactory.getCollectionStep(currentStepURI).then(function (step) {
-      var playlistItem = {
-        'collection': collection,
+      $scope.setPlaylistStep = function (playlist, playlistIndex) {
+    curStepIndex = playlist.CurrentStepIndex;
+    var steps = playlist.Steps.split(',');
+    var currentStepURI = steps[playlist.CurrentStepIndex];
+    PlaylistsDBFactory.getPlaylistStep(currentStepURI).then(function (step) {
+      var progressItem = {
+        'playlist': playlist,
         'nextStep': step
       };
-      $scope.playlist[playlistIndex] = playlistItem;
+      $scope.progress[playlistIndex] = progressItem;
     });
   };
-  $scope.updatePlaylist();
+  $scope.updateProgress();
+
   $scope.onStepDetailClick = function (index) {
     if (showDetails[index] === true) {
       showDetails[index] = false;
@@ -55,20 +57,20 @@ angular.module('train.controllers.playlists', [
   $scope.showStepDetails = function (index) {
     return showDetails[index];
   };
-  $scope.showCollection = function (index) {
-    var collection = $scope.playlist[index].collection;
-    $state.go('app.progress-playlist', { 'playlistId': collection.URI });
+  $scope.showPlaylist = function (index) {
+    var playlist = $scope.progress[index].playlist;
+    $state.go('app.progress-playlist', { 'playlistId': playlist.URI });
   };
 })
 
 
 // Playlist Controller
-.controller('PlaylistCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, $ionicHistory, CollectionsDBFactory, VideoService, MediaDBFactory) {
+.controller('PlaylistCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, $ionicHistory, PlaylistsDBFactory, VideoService, MediaDBFactory) {
   $scope.collectionURI = $stateParams.collectionId;
   $scope.updateCollection = function () {
-    CollectionsDBFactory.getCollection($scope.collectionURI).then(function (collection) {
+    PlaylistsDBFactory.getCollection($scope.collectionURI).then(function (collection) {
       $scope.collection = collection;
-      CollectionsDBFactory.getStepsForCollection(collection.URI).then(function (steps) {
+      PlaylistsDBFactory.getStepsForCollection(collection.URI).then(function (steps) {
         $scope.steps = steps;
         $scope.stepProcessing();
       });
@@ -123,7 +125,7 @@ angular.module('train.controllers.playlists', [
     $ionicHistory.goBack();
   };
 })  // Recording Step Controller
-.controller('RecordingStepCtrl', function ($scope, $state, $cordovaCapture, $ionicScrollDelegate, VideoService, CollectionsDBFactory, MediaDBFactory) {
+.controller('RecordingStepCtrl', function ($scope, $state, $cordovaCapture, $ionicScrollDelegate, VideoService, PlaylistsDBFactory, MediaDBFactory) {
   $scope.clip = '';
   $scope.collectionId = $state.params.collectionId;
   // load in the videos
@@ -146,7 +148,7 @@ angular.module('train.controllers.playlists', [
   };
   $scope.afterCapture = function (data) {
     //$scope.step.Items = data;
-    CollectionsDBFactory.setCollectionStepItems($scope.step, data).then(function () {
+    PlaylistsDBFactory.setCollectionStepItems($scope.step, data).then(function () {
       $scope.step.Items = data;
       $scope.videoURL = $scope.video.LocalMediaURL;
     });
