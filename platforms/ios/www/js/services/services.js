@@ -1,15 +1,11 @@
-angular.module('train.services', ['train.services.video'])
-
-    .factory('NavBarService', function () {
-      var isTransparent = false;
-
-      return {
-        setTransparency: function(transparency) {
-          isTransparent = transparency;
-        }
-      };
-    })
-.service('LoginService', function ($q) {
+angular.module('train.services', ['train.services.video']).factory('NavBarService', function () {
+  var isTransparent = false;
+  return {
+    setTransparency: function (transparency) {
+      isTransparent = transparency;
+    }
+  };
+}).service('LoginService', function ($q) {
   return {
     loginUser: function (name, pw) {
       var deferred = $q.defer();
@@ -30,9 +26,7 @@ angular.module('train.services', ['train.services.video'])
       return promise;
     }
   };
-})
-
-// chats
+})  // chats
 .factory('Chats', function () {
   // Might use a resource here that returns a JSON array
   // Some fake testing data
@@ -215,6 +209,6 @@ angular.module('train.services', ['train.services.video'])
         }
       }
       return null;
-    } 
+    }
   };
 });

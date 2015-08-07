@@ -1,14 +1,6 @@
 {
-  "eqeqeq": true,
-  "bitwise": true,
-  "curly": true,
-  "maxdepth": 3,
-  "maxstatements": 10,
-  "quotmark": "single",
-
-  "node": true,
-  "browser": true,
-  "globals": {
-    "angular": false
-  }
+  
+  "indent": 2
+  
+  
 }

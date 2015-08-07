@@ -1,16 +1,13 @@
 angular.module('train.controllers', [
   'train.services',
   'train.controllers.video',
-    'train.controllers.collections'
-])
-    .controller('NavBarController', function($scope, NavBarService) {
-      $scope.isTransparent = NavBarService.isTransparent;
-      $scope.navTransparency = 'transparent-nav';
-      $scope.nav = function (){
-
-      };
-    })
-    .controller('CollectionsCtrl', function ($scope, $http, Collections) {
+  'train.controllers.collections'
+]).controller('NavBarController', function ($scope, NavBarService) {
+  $scope.isTransparent = NavBarService.isTransparent;
+  $scope.navTransparency = 'transparent-nav';
+  $scope.nav = function () {
+  };
+}).controller('CollectionsCtrl', function ($scope, $http, Collections) {
   $scope.items = Collections.all();
   $scope.data = { showDelete: false };
   $scope.edit = function (item) {
@@ -30,49 +27,10 @@ angular.module('train.controllers', [
     $scope.conditions = resp.data.conditions;
   }, function (err) {
     console.error('ERR', err);  // err.status will contain the status code
-  })  /*       
-    var authToken;
-    
-    $http.get('/auth.py').success(function(data, status, headers) {
-                                  authToken = headers('A-Token');
-                                  $scope.user = data;
-                                  });
-    
-    $scope.saveMessage = function(message) {
-    var headers = { 'Authorization': authToken };
-    $scope.status = 'Saving...';
-    
-    $http.post('/add-msg.py', message, { headers: headers } ).success(function(response) {
-                                                                      $scope.status = '';
-                                                                      }).error(function() {
-                                                                               $scope.status = 'ERROR!';
-                                                                               });
-    };
-             */;
+  });
 }).controller('BrowseCtrl', function ($scope) {
-})
-
-.controller('LoginCtrl', function ($scope, LoginService, $ionicPopup, $state) {
-
-      /*
-      $scope.data = {};
-  $scope.login = function () {
-    LoginService.loginUser($scope.data.username, $scope.data.password).success(function (data) {
-      $state.go('tab.collections');
-    }).error(function (data) {
-      var alertPopup = $ionicPopup.alert({
-        title: 'Login failed!',
-        template: 'Please check your credentials!'
-      });
-    });
-  };
-  */
-
-
-})
-
-
-///// Old Controllers
+}).controller('LoginCtrl', function ($scope, LoginService, $ionicPopup, $state) {
+})  ///// Old Controllers
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.

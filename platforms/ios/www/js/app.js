@@ -28,8 +28,6 @@ angular.module('train', [
 
     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS videos (id integer primary key, firstname text, lastname text)");
 
-
-
 });
 }).config(function ($stateProvider, $urlRouterProvider) {
   // Ionic uses AngularUI Router which uses the concept of states

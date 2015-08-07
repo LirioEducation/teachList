@@ -68,16 +68,18 @@ gulp.task('test', function(done) {
 });
 
 gulp.task('lint', function() {
-  return gulp.src('./platforms/ios/www/js/*.js')
+  return gulp.src('./platforms/ios/www/js/*/*.js')
     .pipe(plugins.jshint())
     .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
 
+
 gulp.task('fixjs', function() {
-  return gulp.src('./platforms/ios/www/js/*.js')
+  return gulp.src('./platforms/ios/www/js/*/*.js')
       .pipe(plugins.fixmyjs())
       .pipe(gulp.dest("./platforms/ios/www/js/"));
 });
+
 
 gulp.task('todo', function() {
     gulp.src('www/js/*.js')
