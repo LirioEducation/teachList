@@ -53,39 +53,39 @@ angular.module('train', [
           }
       })
 
-      .state('app.playlist-collection', {
-          url: '/playlist/:collectionId',
+      .state('app.progress-playlist', {
+          url: '/progress/:playlistId',
           views: {
               'menuContent': {
-                  templateUrl: 'templates/playlist-collection.html',
-                  controller: 'CollectionCtrl'
+                  templateUrl: 'templates/progress-playlist.html',
+                  controller: 'PlaylistCtrl'
               }
           }
       })
 
-      .state('app.playlist-collection-recording', {
-          url: '/playlist/:collectionId/:videoId',
+      .state('app.progress-playlist-recording', {
+          url: '/progress/:playlistId/:videoId',
           views: {
               'menuContent': {
-                  templateUrl: 'templates/collection-recording.html',
+                  templateUrl: 'templates/progress-recording.html',
                   controller: 'RecordingPlayerCtrl'
               }
           }
       })
-      .state('app.playlist-collection-video', {
-          url: '/playlist/:collectionId/:videoId',
+      .state('app.progress-playlist-video', {
+          url: '/progress/:playlistId/:videoId',
           views: {
               'menuContent': {
-                  templateUrl: 'templates/collection-video.html',
+                  templateUrl: 'templates/progress-video.html',
                   controller: 'VideoStreamingPlayerCtrl'
               }
           }
       })
-      .state('app.playlist-collection-article', {
-          url: '/playlist/:collectionId/:article',
+      .state('app.progress-playlist-article', {
+          url: '/progress/:playlistId/:article',
           views: {
               'menuContent': {
-                  templateUrl: 'templates/collection-article.html',
+                  templateUrl: 'templates/progress-article.html',
                   controller: 'ArticleCtrl'
               }
           }

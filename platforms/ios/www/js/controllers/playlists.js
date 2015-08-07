@@ -1,7 +1,7 @@
 /**
  * Created by justinkahn on 7/16/15.
  */
-angular.module('train.controllers.collections', [
+angular.module('train.controllers.playlists', [
   'ionic',
   'train.services',
   'train.database',
@@ -57,13 +57,13 @@ angular.module('train.controllers.collections', [
   };
   $scope.showCollection = function (index) {
     var collection = $scope.playlist[index].collection;
-    $state.go('app.playlist-collection', { 'collectionId': collection.URI });
+    $state.go('app.progress-playlist', { 'playlistId': collection.URI });
   };
 })
 
 
-// Collection Controller
-.controller('CollectionCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, $ionicHistory, CollectionsDBFactory, VideoService, MediaDBFactory) {
+// Playlist Controller
+.controller('PlaylistCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, $ionicHistory, CollectionsDBFactory, VideoService, MediaDBFactory) {
   $scope.collectionURI = $stateParams.collectionId;
   $scope.updateCollection = function () {
     CollectionsDBFactory.getCollection($scope.collectionURI).then(function (collection) {
@@ -161,7 +161,7 @@ angular.module('train.controllers.collections', [
     var vid = $scope.step.Items;
     var collection = $scope.collectionId;
 
-    $state.go('app.playlist-collection-recording', {
+    $state.go('app.progress.playlist-recording', {
       'collectionId': collection,
       'videoId': vid
     });
@@ -268,7 +268,7 @@ angular.module('train.controllers.collections', [
   $scope.showVideo = function () {
     var vid = $scope.step.Items;
     var collection = $scope.collectionId;
-    $state.go('app.playlist-collection-video', {
+    $state.go('app.progress-playlist-video', {
       'collectionId': collection,
       'videoURL': vid
     });
@@ -338,7 +338,7 @@ angular.module('train.controllers.collections', [
   $scope.readArticle = function () {
     var article = $scope.step.Items;
     var collection = $scope.collectionId;
-    $state.go('app.playlist-collection-article', {
+    $state.go('app.progress-playlist-article', {
       'collectionId': collection,
       'article': article
     });
