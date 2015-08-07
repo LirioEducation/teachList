@@ -9,8 +9,10 @@ angular.module('train.controllers.collections', [
   'ngCordova',
   'ng',
   'ngSanitize'
-])  // Playlist Controller
-.controller('PlaylistCtrl', function ($scope, $state, $stateParams, $ionicNavBarDelegate, $ionicScrollDelegate, NavBarService, CollectionsDBFactory) {
+])
+
+// Progress Controller
+.controller('ProgressCtrl', function ($scope, $state, $stateParams, $ionicNavBarDelegate, $ionicScrollDelegate, NavBarService, CollectionsDBFactory) {
 
   var showDetails = {};
   NavBarService.setTransparency(true);
@@ -45,18 +47,6 @@ angular.module('train.controllers.collections', [
     if (showDetails[index] === true) {
       showDetails[index] = false;
     } else {
-      /*
-                var collection = $scope.playlist[index]['collection'];
-                var steps = collection.Steps.split(',');
-                var currentStep = steps[collection.CurrentStepIndex];
-                console.log("collection.Steps: " + collection.Steps);
-                console.log("currentStep: " + currentStep);
-
-                CollectionsDBFactory.getCollectionStep(currentStep).then(function (step) {
-                    $scope.currentStepDetails = step;
-                    console.log("current step details: " + step.Title);
-                });
-                */
       showDetails[index] = true;
     }
     $ionicScrollDelegate.resize();

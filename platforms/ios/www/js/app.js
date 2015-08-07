@@ -43,12 +43,12 @@ angular.module('train', [
           controller: ''
       })
 
-      .state('app.playlists', {
-          url: "/playlists",
+      .state('app.progress', {
+          url: "/progress",
           views: {
               'menuContent' :{
-                  templateUrl: "templates/menu-playlist.html",
-                  controller: 'PlaylistCtrl'
+                  templateUrl: "templates/menu-progress.html",
+                  controller: 'ProgressCtrl'
               }
           }
       })
@@ -91,5 +91,5 @@ angular.module('train', [
           }
       });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/progress');
 })
