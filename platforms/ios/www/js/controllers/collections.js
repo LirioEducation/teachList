@@ -80,7 +80,10 @@ angular.module('train.controllers.collections', [
     console.log('collectionId: ' + collection.URI);
     $state.go('app.playlist-collection', { 'collectionId': collection.URI });
   };
-})  // Collection Controller
+})
+
+
+// Collection Controller
 .controller('CollectionCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, $ionicHistory, CollectionsDBFactory, VideoService, MediaDBFactory) {
   $scope.collectionURI = $stateParams.collectionId;
   $scope.updateCollection = function () {
@@ -187,9 +190,7 @@ angular.module('train.controllers.collections', [
   };
   $scope.display = false;
   $scope.detailDisplay = function () {
-    //console.log("pleaseClick " + $scope.display);
     $scope.display = !$scope.display;
-    //console.log("pleaseClick " + $scope.display);
     $ionicScrollDelegate.resize();
     console.log('ionic scroll');
     $ionicScrollDelegate.$getByHandle('mainScroll').scrollBottom(true);
@@ -201,8 +202,7 @@ angular.module('train.controllers.collections', [
     console.log($state.current.name);
     var vid = $scope.step.Items;
     var collection = $scope.collectionId;
-    //$state.go('tab.playlist-collection.video', {'name': $scope.step.Items});
-    //$state.go('tab.video');
+
     $state.go('app.playlist-collection-recording', {
       'collectionId': collection,
       'videoId': vid
@@ -536,17 +536,4 @@ angular.module('train.controllers.collections', [
       });
     }
   };
-}).directive('videoComment', function () {
-  return {
-    restrict: 'E',
-    scope: {
-      user: '@',
-      comment: '@'
-    },
-    controller: 'videoCommentCtrl',
-    link: function (scope, element, attrs) {
-    },
-    templateUrl: 'templates/directives/video-comment.html'
-  };
-}).controller('videoCommentCtrl', function ($scope) {
-});
+})

@@ -62,7 +62,7 @@ angular.module('train', [
               }
           }
       })
-      
+
       .state('app.playlist-collection-recording', {
           url: '/playlist/:collectionId/:videoId',
           views: {
