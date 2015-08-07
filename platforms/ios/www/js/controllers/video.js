@@ -10,14 +10,11 @@ angular.module('train.controllers.video', [
   'com.2fdevs.videogular.plugins.overlayplay',
   'com.2fdevs.videogular.plugins.poster'
 ]).controller('VideoPlayerCtrl', function ($scope, $stateParams, MediaDBFactory) {
-  console.log('VideoPlayerCtrl');
   $scope.filename = $stateParams.videoId;
   var filename = $scope.filename;
   MediaDBFactory.getMedia(filename).then(function (data) {
     $scope.video = data;
     $scope.videoURL = $scope.video.LocalMediaURL;
-    console.log('filename: ' + filename);
-    console.log('videoURL: ' + $scope.videoURL);
   });
 }).controller('HomeCtrl', [
   '$sce',
@@ -60,10 +57,8 @@ angular.module('train.controllers.video', [
   $scope.videos = [];
   $scope.images = [];
   $scope.onVideoDelete = function (item) {
-    console.log('Delete:');
     var vidName = item.LocalMediaURL.substr(item.LocalMediaURL.lastIndexOf('/') + 1);
     var imgName = item.LocalThumbnailURL.substr(item.LocalThumbnailURL.lastIndexOf('/') + 1);
-    console.log('Delete:' + vidName);
     $scope.videos.splice($scope.videos.indexOf(item), 1);
     MediaDBFactory.removeMedia(item);
     $cordovaFile.removeFile(cordova.file.dataDirectory, vidName).then(function (success) {
@@ -78,9 +73,7 @@ angular.module('train.controllers.video', [
     });
   };
   $scope.onImageDelete = function (item) {
-    console.log('Delete:');
     var imgName = item.LocalMediaURL.substr(item.LocalMediaURL.lastIndexOf('/') + 1);
-    console.log('Delete:' + imgName);
     $scope.images.splice($scope.images.indexOf(item), 1);
     MediaDBFactory.removeMedia(item);
     $cordovaFile.removeFile(cordova.file.dataDirectory, imgName).then(function (success) {
@@ -88,20 +81,15 @@ angular.module('train.controllers.video', [
       // error
       console.log(error);
     });
-    console.log('delete image: ' + $scope.images.length);
   };
   $scope.updateVideos = function () {
     MediaDBFactory.allOfType('Video').then(function (videos) {
       $scope.videos = videos;
-      console.log('update Videos');
-      console.log($scope.videos[$scope.videos.length - 1]);
     });
   };
   $scope.updateImages = function () {
     MediaDBFactory.allOfType('Image').then(function (images) {
       $scope.images = images;
-      console.log('update Images: ' + $scope.images.length);
-      console.log($scope.images[$scope.images.length - 1]);
     });
   };
   $scope.updateVideos();
@@ -121,7 +109,6 @@ angular.module('train.controllers.video', [
     $cordovaCapture.captureImage(options).then(function (imageData) {
       ImageService.saveImage(imageData).success(function (data) {
         $scope.recentImageURL = data;
-        console.log('image url data: ' + data);
         $scope.updateImages();
         $scope.$apply();
       }).error(function (data) {

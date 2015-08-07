@@ -50,7 +50,6 @@ angular.module('train.database', []).factory('DBA', function ($cordovaSQLite, $q
       var parameters = [uri];
       DBA.query('SELECT Name, URI, MediaType, LocalMediaURL, LocalThumbnailURL, Tags, Description, Owner FROM media WHERE URI = (?)', parameters).then(function (result) {
         var item = DBA.getById(result);
-        //console.log(item);
         defer.resolve(item);
       });
       return defer.promise;
@@ -88,7 +87,6 @@ angular.module('train.database', []).factory('DBA', function ($cordovaSQLite, $q
       if (member.tags) {
         tags = member.tags.join(',');
       }
-      console.log('Tags: ' + tags);
       var parameters = [
         member.name,
         member.URI,
@@ -109,12 +107,10 @@ angular.module('train.database', []).factory('DBA', function ($cordovaSQLite, $q
 }).factory('CollectionsDBFactory', function ($q, $cordovaSQLite, DBA) {
   return {
     allCollections: function () {
-      console.log('all collections');
       var defer = $q.defer();
       DBA.query('SELECT URI, Title, Owner, SharedWith, Steps, CurrentStepIndex, Image, Description FROM Collections').then(function (result) {
         var all = DBA.getAll(result);
         defer.resolve(all);
-        console.log('allDelegate - query success: ' + all[0]);
       });
       return defer.promise;
     },
@@ -123,7 +119,6 @@ angular.module('train.database', []).factory('DBA', function ($cordovaSQLite, $q
       var parameters = [member];
       DBA.query('SELECT URI, Title, Owner, SharedWith, Steps, CurrentStepIndex, Image, Description FROM Collections WHERE URI = (?)', parameters).then(function (result) {
         var item = DBA.getById(result);
-        //console.log(item);
         defer.resolve(item);
       });
       return defer.promise;
@@ -172,7 +167,6 @@ angular.module('train.database', []).factory('DBA', function ($cordovaSQLite, $q
       return DBA.query('UPDATE Steps SET Items = (?) WHERE URI = (?)', parameters);
     },
     addCollectionStepItems: function (origStep, newItem) {
-      // var parameters = [newItem, origStep.URI];
       return DBA.query('UPDATE Steps SET Items = (?) WHERE URI = (?)', parameters);
     },
     removeCollectionStepItem: function (origStep, itemToRemove) {

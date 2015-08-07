@@ -61,7 +61,6 @@ angular.module('train.services.video', ['train.database']).factory('VideoService
       var correctUrl = succ.slice(0, -4);
       var filename = correctUrl.split('/').pop();
       correctUrl += '.MOV';
-      console.log('prevImage: ' + filename);
       addMedia(filename, correctUrl, succ).then(function () {
         deferred.resolve(filename);
       });
@@ -131,7 +130,6 @@ angular.module('train.services.video', ['train.database']).factory('VideoService
     }
     //
     function addMedia(filename, videoURL, imageURL) {
-      console.log('addMedia - filename: ' + filename);
       return MediaDBFactory.addMedia({
         URI: filename,
         name: filename,
@@ -155,7 +153,6 @@ angular.module('train.services.video', ['train.database']).factory('VideoService
         }, fail);
         */
       addMedia(name, entry.nativeURL, entry.nativeURL).then(function () {
-        console.log('image copy: ' + entry.nativeURL);
         deferred.resolve(name);
       });
     }
