@@ -34,7 +34,7 @@ angular.module('train', [
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-  $stateProvider  // setup an abstract state for the tabs directive
+  $stateProvider  // setup an abstract state for the menu directive
 
       .state('app', {
           url: "/app",
@@ -47,7 +47,7 @@ angular.module('train', [
           url: "/playlists",
           views: {
               'menuContent' :{
-                  templateUrl: "templates/tab-playlist.html",
+                  templateUrl: "templates/menu-playlist.html",
                   controller: 'PlaylistCtrl'
               }
           }
@@ -62,16 +62,7 @@ angular.module('train', [
               }
           }
       })
-
-      .state('app.single', {
-          url: "/playlists/:playlistId",
-          views: {
-              'menuContent' :{
-                  templateUrl: "playlist.html",
-                  controller: 'PlaylistCtrl'
-              }
-          }
-      })
+      
       .state('app.playlist-collection-recording', {
           url: '/playlist/:collectionId/:videoId',
           views: {
