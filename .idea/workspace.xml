@@ -150,8 +150,8 @@
         <option value="$PROJECT_DIR$/platforms/ios/www/js/app.js" />
         <option value="$PROJECT_DIR$/platforms/ios/www/js/services/video.js" />
         <option value="$PROJECT_DIR$/platforms/ios/www/js/controllers/video.js" />
-        <option value="$PROJECT_DIR$/platforms/ios/www/js/services/database.js" />
         <option value="$PROJECT_DIR$/platforms/ios/www/js/controllers/playlists.js" />
+        <option value="$PROJECT_DIR$/platforms/ios/www/js/services/database.js" />
       </list>
     </option>
   </component>
