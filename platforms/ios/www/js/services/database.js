@@ -121,7 +121,7 @@ angular.module('train.database', []).factory('DBA', function ($cordovaSQLite, $q
     getStepsForPlaylist: function (uri) {
       var defer = $q.defer();
       var parameters = [uri];
-      DBA.query('SELECT URI, Title, Type, Details, Time, Collection, Items FROM Steps WHERE Playlist = (?)', parameters).then(function (result) {
+      DBA.query('SELECT URI, Title, Type, Details, Time, Playlist, Items FROM Steps WHERE Playlist = (?)', parameters).then(function (result) {
         var item = DBA.getAll(result);
         defer.resolve(item);
       });

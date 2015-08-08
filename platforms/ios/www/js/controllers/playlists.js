@@ -65,19 +65,20 @@ angular.module('train.controllers.playlists', [
 
 
 // Playlist Controller
-.controller('PlaylistCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, $ionicHistory, PlaylistsDBFactory, VideoService, MediaDBFactory) {
-  $scope.collectionURI = $stateParams.collectionId;
-  $scope.updateCollection = function () {
-    PlaylistsDBFactory.getCollection($scope.collectionURI).then(function (collection) {
-      $scope.collection = collection;
-      PlaylistsDBFactory.getStepsForCollection(collection.URI).then(function (steps) {
+.controller('PlaylistCtrl', function ($scope, $cordovaFile, $cordovaCapture, $stateParams, $ionicHistory, PlaylistsDBFactory, VideoService) {
+  $scope.playlistURI = $stateParams.playlistId;
+  $scope.updatePlaylist = function () {
+    PlaylistsDBFactory.getPlaylist($scope.playlistURI).then(function (playlist) {
+      $scope.playlist = playlist;
+      PlaylistsDBFactory.getStepsForPlaylist(playlist.URI).then(function (steps) {
         $scope.steps = steps;
         $scope.stepProcessing();
       });
     });
   };
-  $scope.updateCollection();
+  $scope.updatePlaylist();
   $scope.stepProcessing = function () {
+    console.log("step processing");
     $scope.sortSteps();
     for (i = 0; i < $scope.completedSteps.length; i++) {
       var step = $scope.completedSteps[i];
@@ -89,24 +90,12 @@ angular.module('train.controllers.playlists', [
     }
   };
   $scope.sortSteps = function () {
-    var currentStep = $scope.collection.CurrentStepIndex;
+    var currentStep = $scope.playlist.CurrentStepIndex;
     $scope.completedSteps = $scope.steps.slice(0, currentStep);
     $scope.nextSteps = $scope.steps.slice(currentStep, $scope.steps.length);
     $scope.completedStepCount = currentStep;
   };
-  $scope.iconsDict = {
-    Recording: '/img/CollectionIcons/recording.png',
-    Article: '/img/CollectionIcons/article.png'
-  };
-  function icon(type) {
-    if (type == Recording) {
-      return '/img/CollectionIcons/recording.png';
-    }
-    if (type == Article) {
-      return '/img/CollectionIcons/article.png';
-    }
-  }
-  var videos = [];
+
   $scope.videos = [];
   $scope.clip = '';
   $scope.captureVideo = function () {
@@ -124,10 +113,12 @@ angular.module('train.controllers.playlists', [
   $scope.myGoBack = function () {
     $ionicHistory.goBack();
   };
-})  // Recording Step Controller
+})
+
+ // Recording Step Controller
 .controller('RecordingStepCtrl', function ($scope, $state, $cordovaCapture, $ionicScrollDelegate, VideoService, PlaylistsDBFactory, MediaDBFactory) {
   $scope.clip = '';
-  $scope.collectionId = $state.params.collectionId;
+  $scope.playlistId = $state.params.playlistId;
   // load in the videos
   $scope.loadVideos = function () {
     $scope.videoURI = $scope.step.Items;
@@ -148,7 +139,7 @@ angular.module('train.controllers.playlists', [
   };
   $scope.afterCapture = function (data) {
     //$scope.step.Items = data;
-    PlaylistsDBFactory.setCollectionStepItems($scope.step, data).then(function () {
+    PlaylistsDBFactory.setPlaylistStepItems($scope.step, data).then(function () {
       $scope.step.Items = data;
       $scope.videoURL = $scope.video.LocalMediaURL;
     });
@@ -161,17 +152,20 @@ angular.module('train.controllers.playlists', [
   };
   $scope.showVideo = function () {
     var vid = $scope.step.Items;
-    var collection = $scope.collectionId;
+    var playlistId = $scope.playlistId;
+    console.log(playlistId);
 
-    $state.go('app.progress.playlist-recording', {
-      'collectionId': collection,
+    $state.go('app.progress-playlist-recording', {
+      'playlistId': playlistId,
       'videoId': vid
     });
   };
   $scope.calcStepNumber = function (curIndex) {
     return 1 + parseInt(curIndex) + parseInt($scope.stepNumber) + ' ';
   };
-}).controller('VideogularPlayerCtrl', function ($scope, $stateParams, $sce, MediaDBFactory) {
+})
+
+    .controller('VideogularPlayerCtrl', function ($scope, $stateParams, $sce, MediaDBFactory) {
   $scope.filename = $stateParams.videoId;
   var filename = $scope.filename;
   $scope.config = {
@@ -202,7 +196,10 @@ angular.module('train.controllers.playlists', [
     $scope.config.videos[0].src = $sce.trustAsResourceUrl($scope.videoURL);
     $scope.config.videos[0].type = 'video/mp4';
   });
-}).controller('RecordingPlayerCtrl', function ($scope, $timeout, $ionicScrollDelegate, $ionicHistory, $stateParams, MediaDBFactory) {
+})
+
+
+    .controller('RecordingPlayerCtrl', function ($scope, $timeout, $ionicScrollDelegate, $ionicHistory, $stateParams, MediaDBFactory) {
   $scope.comments = [];
   $scope.filename = $stateParams.videoId;
   var filename = $scope.filename;
@@ -262,16 +259,16 @@ angular.module('train.controllers.playlists', [
   };
 })  // Video Streaming Step Controller
 .controller('VideoStreamingStepCtrl', function ($scope, $state) {
-  $scope.collectionId = $state.params.collectionId;
+  $scope.playlistId = $state.params.playlistId;
   $scope.display = false;
   $scope.detailDisplay = function () {
     $scope.display = !$scope.display;
   };
   $scope.showVideo = function () {
     var vid = $scope.step.Items;
-    var collection = $scope.collectionId;
+    var playlist = $scope.playlistId;
     $state.go('app.progress-playlist-video', {
-      'collectionId': collection,
+      'playlistId': playlist,
       'videoURL': vid
     });
   };
@@ -332,16 +329,16 @@ angular.module('train.controllers.playlists', [
 })  // Article Step Controller
 .controller('ArticleStepCtrl', function ($scope, $state) {
   $scope.article = '';
-  $scope.collectionId = $state.params.collectionId;
+  $scope.playlistId = $state.params.playlistId;
   $scope.display = false;
   $scope.detailDisplay = function () {
     $scope.display = !$scope.display;
   };
   $scope.readArticle = function () {
     var article = $scope.step.Items;
-    var collection = $scope.collectionId;
+    var playlistId = $scope.playlistId;
     $state.go('app.progress-playlist-article', {
-      'collectionId': collection,
+      'playlistId': playlistId,
       'article': article
     });
   };
@@ -363,19 +360,7 @@ angular.module('train.controllers.playlists', [
     } else {
       return true;
     }
-  }  /*
-        $scope.isLink = function (article) {
-            var pat = /^https?:\/\//i;
-
-            console.log(article);
-            if (pat.test(article))
-            {
-                console.log("return true");
-                return 'true';
-            }
-            return 'false';
-        };
-        */;
+  };
 }).directive('recordingStep', function () {
   return {
     restrict: 'E',

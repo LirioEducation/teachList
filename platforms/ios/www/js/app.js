@@ -67,7 +67,7 @@ angular.module('train', [
           url: '/progress/:playlistId/:videoId',
           views: {
               'menuContent': {
-                  templateUrl: 'templates/progress-recording.html',
+                  templateUrl: 'templates/playlist-recording.html',
                   controller: 'RecordingPlayerCtrl'
               }
           }
@@ -76,7 +76,7 @@ angular.module('train', [
           url: '/progress/:playlistId/:videoId',
           views: {
               'menuContent': {
-                  templateUrl: 'templates/progress-video.html',
+                  templateUrl: 'templates/playlist-video.html',
                   controller: 'VideoStreamingPlayerCtrl'
               }
           }
@@ -85,7 +85,7 @@ angular.module('train', [
           url: '/progress/:playlistId/:article',
           views: {
               'menuContent': {
-                  templateUrl: 'templates/progress-article.html',
+                  templateUrl: 'templates/playlist-article.html',
                   controller: 'ArticleCtrl'
               }
           }
