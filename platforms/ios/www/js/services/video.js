@@ -1,4 +1,4 @@
-angular.module('train.services.video', ['train.database']).factory('VideoService', [
+angular.module('teachList.services.video', ['teachList.database']).factory('VideoService', [
   '$q',
   '$cordovaFile',
   'MediaDBFactory',

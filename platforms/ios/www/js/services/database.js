@@ -1,4 +1,6 @@
-angular.module('train.database', []).factory('DBA', function ($cordovaSQLite, $q, $ionicPlatform) {
+angular.module('teachList.database', [])
+
+.factory('DBA', function ($cordovaSQLite, $q, $ionicPlatform) {
   return {
     // Handle query's and potential errors
     query: function (query, parameters) {
@@ -17,7 +19,7 @@ angular.module('train.database', []).factory('DBA', function ($cordovaSQLite, $q
       var promise = q.promise;
       return promise;
     },
-    // Proces a result set
+    // Process a result set
     getAll: function (result) {
       var output = [];
       for (var i = 0; i < result.rows.length; i++) {

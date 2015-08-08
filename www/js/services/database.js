@@ -1,4 +1,4 @@
-angular.module('train.database', [])
+angular.module('teachList.database', [])
 
     .factory('DBA', function($cordovaSQLite, $q, $ionicPlatform) {
 

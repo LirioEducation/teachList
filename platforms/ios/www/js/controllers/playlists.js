@@ -1,10 +1,10 @@
 /**
  * Created by justinkahn on 7/16/15.
  */
-angular.module('train.controllers.playlists', [
+angular.module('teachList.controllers.playlists', [
   'ionic',
-  'train.services',
-  'train.database',
+  'teachList.services',
+  'teachList.database',
   'ui.router',
   'ngCordova',
   'ng',
@@ -12,15 +12,13 @@ angular.module('train.controllers.playlists', [
 ])
 
 // Progress Controller
-.controller('ProgressCtrl', function ($scope, $state, $stateParams, $ionicNavBarDelegate, $ionicScrollDelegate, NavBarService, PlaylistsDBFactory) {
+.controller('ProgressCtrl', function ($scope, $state, $stateParams, $ionicNavBarDelegate, $ionicScrollDelegate, PlaylistsDBFactory) {
 
   var showDetails = {};
-  NavBarService.setTransparency(true);
   $scope.progress = [];
   $scope.playlists = [];
 
   $scope.updateProgress = function () {
-    console.log("update progress");
     PlaylistsDBFactory.allPlaylists().then(function (playlists) {
       $scope.playlists = playlists;
 
@@ -78,7 +76,6 @@ angular.module('train.controllers.playlists', [
   };
   $scope.updatePlaylist();
   $scope.stepProcessing = function () {
-    console.log("step processing");
     $scope.sortSteps();
     for (i = 0; i < $scope.completedSteps.length; i++) {
       var step = $scope.completedSteps[i];
@@ -138,7 +135,6 @@ angular.module('train.controllers.playlists', [
     });
   };
   $scope.afterCapture = function (data) {
-    //$scope.step.Items = data;
     PlaylistsDBFactory.setPlaylistStepItems($scope.step, data).then(function () {
       $scope.step.Items = data;
       $scope.videoURL = $scope.video.LocalMediaURL;

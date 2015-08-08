@@ -1,4 +1,4 @@
-angular.module('train.services', ['train.services.video'])
+angular.module('teachList.services', ['teachList.services.video'])
 
     .factory('NavBarService', function () {
       var isTransparent = false;

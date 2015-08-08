@@ -4,12 +4,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('train', [
+angular.module('teachList', [
   'ionic',
-  'train.controllers',
-  'train.services',
-  'train.controllers.video',
-  'train.database'
+  'teachList.controllers',
+  'teachList.services',
+  'teachList.controllers.video',
+  'teachList.database'
 ]).run(function ($ionicPlatform, $cordovaSQLite) {
        
   $ionicPlatform.ready(function () {
@@ -22,9 +22,9 @@ angular.module('train', [
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
     }
-    db = window.sqlitePlugin.openDatabase({name: "train-test.db", createFromLocation: 1});
-    //db = $cordovaSQLite.openDB({name : "train-test.db", bgType: 1});
-    //db = $cordovaSQLite.openDB("train-test.db");
+    db = window.sqlitePlugin.openDatabase({name: "teachListDB.db", createFromLocation: 1});
+    //db = $cordovaSQLite.openDB({name : "teachListDB.db", bgType: 1});
+    //db = $cordovaSQLite.openDB("teachListDB.db");
 
     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS videos (id integer primary key, firstname text, lastname text)");
 

@@ -1,5 +1,5 @@
-angular.module('train.controllers', [
-  'train.services',
-  'train.controllers.video',
-  'train.controllers.playlists'
+angular.module('teachList.controllers', [
+  'teachList.services',
+  'teachList.controllers.video',
+  'teachList.controllers.playlists'
 ]);

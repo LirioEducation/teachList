@@ -1,11 +1,5 @@
-angular.module('train.services', ['train.services.video']).factory('NavBarService', function () {
-  var isTransparent = false;
-  return {
-    setTransparency: function (transparency) {
-      isTransparent = transparency;
-    }
-  };
-}).service('LoginService', function ($q) {
+angular.module('teachList.services', ['teachList.services.video'])
+    .service('LoginService', function ($q) {
   return {
     loginUser: function (name, pw) {
       var deferred = $q.defer();

@@ -1,10 +1,10 @@
-angular.module('train.controllers.video', [
+angular.module('teachList.controllers.video', [
   'ng',
   'ngSanitize',
   'ngCordova',
   'ui.router',
-  'train.services',
-  'train.database',
+  'teachList.services',
+  'teachList.database',
   'com.2fdevs.videogular',
   'com.2fdevs.videogular.plugins.controls',
   'com.2fdevs.videogular.plugins.overlayplay',

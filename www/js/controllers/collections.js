@@ -2,7 +2,7 @@
  * Created by justinkahn on 7/16/15.
  */
 
-angular.module('train.controllers.collections', ['ionic', 'train.services', 'train.database',   'ui.router', 'ngCordova', 'ng', 'ngSanitize'])
+angular.module('teachList.controllers.collections', ['ionic', 'teachList.services', 'teachList.database',   'ui.router', 'ngCordova', 'ng', 'ngSanitize'])
 
 // Playlist Controller
     .controller('PlaylistCtrl', function($scope, $state, $stateParams, $ionicNavBarDelegate, $ionicScrollDelegate, NavBarService, PlaylistsDBFactory){
