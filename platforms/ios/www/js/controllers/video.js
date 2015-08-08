@@ -4,7 +4,6 @@ angular.module('teachList.controllers.video', [
   'ngCordova',
   'ui.router',
   'teachList.services',
-  'teachList.database',
   'com.2fdevs.videogular',
   'com.2fdevs.videogular.plugins.controls',
   'com.2fdevs.videogular.plugins.overlayplay',

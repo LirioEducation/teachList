@@ -4,7 +4,6 @@
 angular.module('teachList.controllers.playlists', [
   'ionic',
   'teachList.services',
-  'teachList.database',
   'ui.router',
   'ngCordova',
   'ng',

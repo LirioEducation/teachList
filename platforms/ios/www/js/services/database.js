@@ -1,4 +1,4 @@
-angular.module('teachList.database', [])
+angular.module('teachList.services.database', [])
 
 .factory('DBA', function ($cordovaSQLite, $q, $ionicPlatform) {
   return {
@@ -25,7 +25,6 @@ angular.module('teachList.database', [])
       for (var i = 0; i < result.rows.length; i++) {
         output.push(result.rows.item(i));
       }
-      //console.log('output ' + JSON.stringify(output));
       return output;
     },
     // Proces a single result

@@ -1,4 +1,4 @@
-angular.module('teachList.services', ['teachList.services.video'])
+angular.module('teachList.services', ['teachList.services.video', 'teachList.services.database'])
     .service('LoginService', function ($q) {
   return {
     loginUser: function (name, pw) {

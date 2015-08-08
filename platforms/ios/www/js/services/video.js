@@ -1,4 +1,8 @@
-angular.module('teachList.services.video', ['teachList.database']).factory('VideoService', [
+angular.module('teachList.services.video', ['teachList.services.database'])
+
+/// This service is in charge of saving the recorded video to a physical location,
+  // creating a thumbnail image, and adding it to the Media Table of the database
+    .factory('VideoService', [
   '$q',
   '$cordovaFile',
   'MediaDBFactory',
@@ -94,7 +98,12 @@ angular.module('teachList.services.video', ['teachList.database']).factory('Vide
       }
     };
   }
-]).factory('ImageService', [
+])
+
+// This service works the same as the video service, but without the creation of
+    // a thumbnail image
+
+    .factory('ImageService', [
   '$q',
   '$cordovaFile',
   'MediaDBFactory',

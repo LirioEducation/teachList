@@ -8,8 +8,6 @@ angular.module('teachList', [
   'ionic',
   'teachList.controllers',
   'teachList.services',
-  'teachList.controllers.video',
-  'teachList.database'
 ]).run(function ($ionicPlatform, $cordovaSQLite) {
        
   $ionicPlatform.ready(function () {
