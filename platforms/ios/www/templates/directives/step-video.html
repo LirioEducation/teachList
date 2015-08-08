@@ -1,0 +1,24 @@
+
+<div class="row" ng-click="detailDisplay()">
+    <div class="col">
+        {{calcStepNumber(index)}}
+    </div>
+    <div class="col">
+        <img class='collection-icon recording' ng-src='img/MediaIcons/Video.png'>
+    </div>
+    <div class="col col-75">
+        <div class="step-title"> {{step.Title}} </div>
+        <br>
+        <div class="step-time"> approx. {{step.Time}} min</div>
+    </div>
+</div>
+
+<div class="row animate-show" ng-show='display'>
+    {{step.Details}}
+
+</div>
+<div class="row animate-show" ng-show='display'>
+        <button class="button button-small button-full button-lirio" ng-click="showVideo()">
+            Watch Video
+        </button>
+</div>

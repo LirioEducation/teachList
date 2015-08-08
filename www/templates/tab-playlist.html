@@ -1,0 +1,98 @@
+
+<ion-view view-title="Progress">
+    <ion-nav-bar class="bar-lirio app-header">
+
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-ios-search-strong"></button>
+        </ion-nav-buttons>
+
+    </ion-nav-bar>
+    <!--
+    <ion-nav-buttons side="left">
+        <button class="button button-positive button-clear no-animation"
+                ng-click="startApp()" ng-if="!slideIndex">
+            Working On
+        </button>
+
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+        <button class="button button-positive button-clear no-animation"
+                ng-click="startApp()" ng-if="!slideIndex">
+            Helping With
+        </button>
+
+    </ion-nav-buttons>
+-->
+
+    <ion-header-bar class="bar-subheader bar-light progress-bar">
+        <div class="row">
+
+            <div class="col left">
+                <button class="button button-clear button-dark">
+                    Working On
+                </button>
+            </div>
+            <div class="col right">
+                <button class="button button-clear button-stable">
+                    Helping With
+                </button>
+            </div>
+        </div>
+
+    </ion-header-bar>
+
+    <ion-content>
+        <ion-item class="playlist-item" ng-repeat="item in playlist">
+            <div class="list card playlist">
+                <div class="item item-image">
+
+                    <img ng-src="img/header_image_playlist_classroom_management.png" ng-click="showCollection($index)">
+
+                    <!--
+                    <img src="img/image1.jpg" alt=""  ng-click="showCollection($index)">
+
+                    <div class="row playlist-title" ng-click="showCollection($index)">
+                        <div class="col">
+                            <h2>{{item.collection.Title}}</h2>
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+                    <div class="row playlist-shared" ng-click="showCollection($index)">
+                        <div class="col">
+                            <p>
+                                Shared with {{item.collection.Owner}}
+                                <br>
+                                {{item.collection.CurrentStepIndex}} Steps Completed
+                            </p>
+                        </div>
+
+                    </div>
+                    -->
+
+                </div>
+                <div class="next-step-bar"> Next Step</div>
+
+
+                <div class="collection-step" delegate-handle="mainScroll">
+                    <div class="list card step">
+
+                        <div ng-switch='item.nextStep.Type'>
+                            <div class='animate-switch' ng-switch-when='Recording'> <recording-step step="item.nextStep" parent-index="0" index="{{$index}}" step-number={{item.collection.CurrentStepIndex}}></recording-step> </div>
+                            <div class='animate-switch' ng-switch-when='Article'> <article-step step="item.nextStep" parent-index="0" index="{{$index}}" step-number={{item.collection.CurrentStepIndex}}></article-step> </div>
+                            <div class='animate-switch' ng-switch-default>default</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,37 @@
+
+    <div class="row" ng-click="detailDisplay()">
+        <div class="col">
+            {{calcStepNumber(index)}}
+        </div>
+        <div class="col">
+            <img class='collection-icon recording' ng-src='img/MediaIcons/{{step.Type}}.png'>
+        </div>
+        <div class="col col-75">
+            <div class="step-title"> {{step.Title}} </div>
+            <br>
+            <div class="step-time"> approx. {{step.Time}} min</div>
+        </div>
+    </div>
+
+    <div class="row animate-show" ng-show='display'>
+        {{step.Details}}
+
+    </div>
+
+    <div class="animate-show" ng-show="display">
+        <div class="row">
+            <div class="col">
+                <button class="button button-full button-small button-lirio" ng-click="captureVideo()">
+                    Add Recording
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button class="button button-full button-small button-grey" ng-click="showVideo()">
+                    View Recording
+                </button>
+            </div>
+        </div>
+    </div>
