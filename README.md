@@ -1,3 +1,1 @@
 # train-prototype
-prototype
-jj
